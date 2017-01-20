@@ -196,28 +196,25 @@ class family_distribution:
         N : integer
             Number of samples to draw from each path's length distribution. 
             
-        m : integer, optional - depending on auto.
+        m : integer, optional depending on auto.
             Size of the window to compute the max marginal change on drawing 
             more samples. For auto = True.      
 
-        tol : integer, optional - depending on auto.
+        tol : integer, optional depending on auto.
             Threshold for whether or not to continue drawing sample mins until 
             the max marginal change is under less than tol. For auto = True.
 
-        M : integer, optional - depending on auto.
+        M : integer, optional depending on auto.
             The maximum number of draws to complete even if max marginal change
             is greater than tol. For auto = True.         
             
         Returns
         -------
-        f_N_dict: dictionary
-            key: path object.
-            value: number of times the path was drawn as minimum of all the 
+        (f_N_dict, max_margin): tuple
+            f_N_dict: key = path object, value = number of times the path was drawn as minimum of all the 
             path lengths, divided by the number of total draws.
-        
-        max_margin: float or None
-             The maximum change in the frequency a path is the minimum over the
-             paths. If auto=False, then None is returned.
+            max_margin: The maximum change in the frequency a path is the minimum over the
+            paths. If auto=False, then None is returned.
       
         Examples
         --------

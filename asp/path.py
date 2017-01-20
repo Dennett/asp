@@ -172,7 +172,7 @@ class path:
         '''Inializes and returns the path's length distribution
              
         Returns
-        -------
+        =======
         distribution: Scipy distribution object.
 
         Examples

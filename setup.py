@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='funniest',
+setup(name='asp',
       version='0.1',
       description='Approximate Stochastic Paths',
       url='https://github.com/Dennett/asp',
@@ -9,15 +9,10 @@ setup(name='funniest',
       license='GNU GPLv3',
       packages=['asp'],
       install_requires=[
-      'markdown',
       'networkx',
       'numpy',
       'matplotlib',
-      'itertools',
       'scipy',
-      'time',
-      'collections',
       'pandas',
-      'math'
       ],
       zip_safe=False)
