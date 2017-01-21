@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-----------------------------
-APPROXIMATE STOCHASTIC PATHS
-----------------------------
+--------------
+**grid_graph**
+--------------
 
 Description
 -----------
-grid_graph.py - function generate ASP test graph.
+Generate a Networkx lattice graph with random edge weights.
+
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
 License
@@ -23,6 +24,9 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Documentation
+-------------
 """
 
 
@@ -41,23 +45,26 @@ import numpy as np
 ##########################    
 
 def grid_graph( size, max_weight ):
-    """Generates a Networx lattice graph with random edge weights.
+    """Generates a Networkx lattice graph with random edge weights.
 
     Parameters
     ----------
     size : integer
-        The lattice will have size*size many nodes.
+        The lattice will have `size` * `size` many nodes.
 
     max_weight : integer
-        Weights will be drawn from a uniform[0,max_weight] distribution.
+        Weights will be drawn from a uniform distribution with support [0, `max_weight`].
 
     Returns
     -------
-    path: tuple of G, pos, start, end
+    path : tuple
         G: Networkx graph
+        
         pos: graph layout in lattice configuration
-        start: node 0 in G
-        end: node (size*size)-1 in G
+
+        start: node 0 in `G`
+
+        end: node (`size` * `size`)-1 in `G`.
                 
     Examples
     --------

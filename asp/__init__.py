@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 ----------------------------
-APPROXIMATE STOCHASTIC PATHS
+__init__
 ----------------------------
 
 Description
 -----------
-__init__.py - initialization file for Approximate Stochastic Path distributions.
+__init__.py - initialization file for ASP.
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
 License

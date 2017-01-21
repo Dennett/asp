@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-----------------------------
-APPROXIMATE STOCHASTIC PATHS
-----------------------------
+---------------
+**path_family**
+---------------
 
 Description
 -----------
-path_family.py - family of paths class for Approximate Stochastic Path distributions.
+Create a family of stochastic paths.
+
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
 License
@@ -23,6 +24,9 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Documentation
+-------------
 """
 
 
@@ -47,45 +51,63 @@ from asp.path import path
 class path_family:
     """Class for computing on a family of paths related by their start and 
     endpoints. Choose to generate the family of paths from a three options:
-    1. get_all_paths() : find all paths between endpoints.
-    2. get_k_paths() : find only the k-shortest paths.
-    3. get_auto_paths() : find the (i*k)-shortest paths where i is 
-       automatically determined.
+    
+    get_all_paths() : find all paths between endpoints.
+
+    get_k_paths() : find only the k-shortest paths.
+
+    get_auto_paths() : find the (i*k)-shortest paths where i is 
+    automatically determined.
+    
+    Parameters
+    ----------
+    G : Networkx graph
+        Graph from which this path will be derived. The nodes, edges, and edge 
+        weights below must exist in this graph. The weights MUST be labeled 
+        'weight'. Asp has only be tested on undirected graphs.
+
+    start : Networkx node index
+        Starting node for path.
+
+    end : Networkx node index
+        Ending node for path.
+
+    pdf : string
+        There are two options: 'normal' for the Gaussian Normal Distribution, 
+        or 'truncated' for the Truncated Gaussian Normal Distribution. This 
+        defines the amout of noise the edge weights in `G` have. Select 'normal' 
+        if negative edge weights are allowed. Select 'truncted' edge weights 
+        must be non-negative.   
+
+    sigma : float
+        Defines the standard deviation for the noise `pdf`.
+
+    Notes
+    ----- 
+    We define the stochastic weighted graph induced by :math:`G` as 
+    :math:`G^{*} = (V, E,C^{*} )` with :math:`C^{*}`  defined as the
+    :math:`n \\times n` matrix of edge cost distirbutions defined by 
+    
+    .. math:: Y_{(i,j)} = X_{(i,j)}c_{(i,j)} + c_{(i,j)}
+    
+    
+    where :math:`c_{(i,j)} \in C` and :math:`X_{(i,j)} \sim N(0,\sigma^{2})` i.i.d.
+    Thus we perturb the edge weights by a multiple of the original edge weight.
+    The variance :math:`\sigma^{2}` of the Gaussian noise parameterizes the 
+    magnitude.
+    
+    Note that by linearity of expected value and a basic property of variance 
+    we immediately obtain
+    
+    .. math:: Y_{(i,j)} \sim  N(c_{(i,j)},c_{(i,j)}^{2}\sigma^{2}).
+   
+    Examples
+    --------
+    >>> G, pos, start, end = grid_graph( size = 3, max_weight = 10 )
+    >>> myfamily = path_family( G=G, start=start, end=end, pdf='truncated', sigma=.2 )        
     """
     
     def __init__( self,  G, start, end, pdf, sigma ):
-        '''Constructor.     
-        
-        Parameters
-        ----------
-        G : Networkx graph
-            Graph from which this path will be derived.
-            The nodes, edges, and edge weights below must exist in this graph.
-            The weights MUST be labeled 'weight'.
-            Asp has only be tested on undirected graphs.
-    
-        start : Networkx node index
-            Starting node for path.
-    
-        end : Networkx node index
-            Ending node for path.
-    
-        pdf : string
-            There are two options:
-                1. 'normal' for the Gaussian Normal Distribution, or 
-                2. 'truncated' for the Truncated Gaussian Normal Distribution.
-            This defines the amout of noise the edge weights in G have.
-            Select 'normal' if negative edge weights are allowed.
-            Select 'truncted' edge weights must be non-negative.   
-    
-        sigma : float
-            Defines the standard deviation for the noise pdf.
-        
-        Example
-        --------
-        >>> G, pos, start, end = grid_graph( size = 3, max_weight = 10 )
-        >>> myfamily = path_family( G=G, start=start, end=end, pdf='truncated', sigma=.2 )        
-        '''
 
         # Define path attributes.
         self.G = G
@@ -99,7 +121,7 @@ class path_family:
     def summary( self ):
         '''Print basic object attributes.
         
-        Example
+        Examples
         --------
 
         >>> myfamily.summary()
@@ -135,14 +157,21 @@ class path_family:
                  
         Returns
         -------
-        paths: dictionary
+        paths : dictionary
             key: path name.
             value: path object.
 
         Notes
         -----
         This Networkx [1] algorithm is based on algorithm by Jin Y. Yen [2], 
-        which finds the first k paths requires O(kN^3) operations.      
+        which finds the first k paths requires O(kN^3) operations.
+        
+        Yen's algorithm computes the k shortest simple paths for a graph with
+        non-negative edge cost. The algorithm employs any shortest path 
+        algorithm to find the best path, then proceeds to find k-1 deviations
+        of the best path. The  NetworkX implementation uses a bi-directional 
+        Dijkstra's algorithm and returns a Python generator allowing iterative 
+        queries for the next shortest path.
         
         Examples
         --------
@@ -153,10 +182,9 @@ class path_family:
         
         References
         ----------
-        [1]	https://networkx.github.io/documentation/networkx-1.10       
-        [2]	Jin Y. Yen, “Finding the K Shortest Loopless Paths in a Network”, 
-           Management Science, Vol. 17, No. 11,
-           Theory Series (Jul., 1971), pp. 712-716.
+        .. [1] https://networkx.github.io/documentation/networkx-1.10 
+        
+        .. [2] Jin Y. Yen, “Finding the K Shortest Loopless Paths in a Network”, Management Science, Vol. 17, No. 11, Theory Series (Jul., 1971), pp. 712-716.
         '''
        
         # Set variables.
@@ -184,14 +212,14 @@ class path_family:
         
         Returns
         -------
-        paths: dictionary
+        paths : dictionary
             key: path name.
             value: path object.
 
         Notes
         -----
-        This Networkx [1] algorithm uses a modified depth-first search to 
-        generate the paths [2]. A single path can be found in O(V+E) time but 
+        This Networkx [3] algorithm uses a modified depth-first search to 
+        generate the paths [4]. A single path can be found in O(V+E) time but 
         the number of simple paths in a graph can be very large, e.g. O(n!) in 
         the complete graph of order n.     
         
@@ -216,8 +244,8 @@ class path_family:
         References
         ----------
         .. [1] https://networkx.github.io/documentation/networkx-1.10
-        .. [2] R. Sedgewick, “Algorithms in C, Part 5: Graph Algorithms”, 
-               Addison Wesley Professional, 3rd ed., 2001.
+        
+        .. [2] R. Sedgewick, “Algorithms in C, Part 5: Graph Algorithms”, Addison Wesley Professional, 3rd ed., 2001.
         '''
        
         # Set variables.
@@ -252,7 +280,11 @@ class path_family:
             
         Returns
         -------
-        probability: float
+        probability : float
+        
+        Notes
+        -----
+        See `get_auto_paths` notes.     
         
         Examples
         --------
@@ -293,11 +325,11 @@ class path_family:
             met.
             
         tol : float, optional
-            Threshold for selecting k, only used when         
+            Threshold for selecting k.         
 
         Returns
         -------
-        paths: dictionary
+        paths : dictionary
             key: path name.
             value: ordered tuple of nodes in the path.
 
@@ -307,7 +339,37 @@ class path_family:
         checks if the probability that the last path will ever be shorter than 
         the first path, and stops if that probability is less than the supplied
         tolerance.     
+
+        `get_auto_paths` uses the Python generator's efficiency to retrieve 
+        shortest paths in batches of size `k` and stops when the 
+        probability, that the last path retrieved would ever be shorter than 
+        the first retrieved, is below a user provided threshold `tol`.  More 
+        formally, the stopping condition is :math:`P(Z_{\\pi} < Z_{\\gamma}) <` `tol` 
+        where :math:`\\pi`  and :math:`\\gamma` are the first and last path retrieved 
+        respectively. This works because :math:`P(Z_{\\pi} < Z_{\\gamma})` is an upper 
+        bound on :math:`P(Z_{\\pi}<W)` where 
+        :math:`W =  \min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}` and can be computed 
+        quickly as:
         
+        .. math::
+
+            P(Z_{\\pi} < Z_{\\gamma}) &= P(Z_{\\pi} - Z_{\\gamma} < 0) \\\ 
+                                      &= 1 - P(Z_{\\gamma} - Z_{\\pi} \\leq 0) \\\ 
+                                      &= 1 - CDF_{Z_{\\gamma} - Z_{\\pi}}(0) \\\\
+                                      &= SF_{Z_{\\gamma} - Z_{\\pi}}(0)
+
+            
+        where
+        
+        .. math::
+            Z_{\\gamma} - Z_{\\pi} \\sim N(\\mu_{\\gamma}-\\mu_{\\pi},\\sigma_{\\gamma}^{2}+\\sigma_{\\pi}^{2})
+        
+        or where
+
+        .. math::
+            Z_{\\gamma} - Z_{\\pi} \\approx TN(\\mu_{\\gamma}-\\mu_{\\pi},\\sigma_{\\gamma}^{2}+\\sigma_{\\pi}^{2}), \\text{ over } (-2\\mu_{k},2\\mu_{k}) 
+        
+        depending on whether the weights must be non-negative or not. 
 
         Examples
         --------
@@ -368,26 +430,29 @@ class path_family:
 
     def get_paths( self, alg, k, tol = 5e-2 ): 
         '''Wrapper to generate the family of paths from a three options:
-        1. 'all' : find all paths between endpoints.
-        2. 'k' : find only the k-shortest paths.
-        3. 'auto' : find the (i*k)-shortest paths where i is automatically 
-           determined. 
+
+        'all' : find all paths between endpoints.
+
+        'k' : find only the k-shortest paths.
+        
+        'auto' : find the (i*k)-shortest paths where i is automatically 
+        determined. 
     
         Parameters
         ----------
         alg : string        
             Wrapper to selects on of the three path generative functions.
             
-        k : integer, optional - depending on alg
+        k : integer, optional - depending on `alg`
             Paths are selected in chunks of k until a selection criteria is
-            met. For alg = 'k' or alg = 'auto'.
+            met. For `alg` = 'k' or `alg` = 'auto'.
             
-        tol : float, optional - depending on alg
-            Threshold for selecting k. For alg = 'auto'.       
+        tol : float, optional - depending on `alg`
+            Threshold for selecting k. For `alg` = 'auto'.       
     
         Returns
         -------
-        paths: dictionary
+        paths : dictionary
             key: path name.
             value: ordered tuple of nodes in the path.
       

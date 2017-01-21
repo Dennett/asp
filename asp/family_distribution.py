@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 ----------------------------
-APPROXIMATE STOCHASTIC PATHS
+family_distribution
 ----------------------------
 
 Description
 -----------
-family_distribution.py - path distribution class for Approximate Stochastic Path distributions.
+family_distribution.py - path distribution for ASP.
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
 License

@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-----------------------------
-APPROXIMATE STOCHASTIC PATHS
-----------------------------
+--------
+**path**
+--------
 
 Description
 -----------
-path.py - path class Approximate Stochastic Path distributions.
+Create a stochastic path.
+
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
 License
@@ -23,6 +24,9 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Documentation
+-------------
 """
 
 
@@ -44,47 +48,63 @@ import pandas as pd
 ###########
 
 class path:
-    """ Class for computing on paths.Stores path attributes and computes 
+    """ Class for computing on paths. Stores path attributes and computes 
     summary statistics. Generates path length distribution and samples from it.
+
+    Notes
+    ----- 
+    We define the stochastic weighted graph induced by :math:`G` as 
+    :math:`G^{*} = (V, E,C^{*} )` with :math:`C^{*}`  defined as the
+    :math:`n \\times n` matrix of edge cost distirbutions defined by 
+    
+    .. math:: Y_{(i,j)} = X_{(i,j)}c_{(i,j)} + c_{(i,j)}
+    
+    
+    where :math:`c_{(i,j)} \in C` and :math:`X_{(i,j)} \sim N(0,\sigma^{2})` i.i.d.
+    Thus we perturb the edge weights by a multiple of the original edge weight.
+    The variance :math:`\sigma^{2}` of the Gaussian noise parameterizes the 
+    magnitude.
+    
+    Note that by linearity of expected value and a basic property of variance 
+    we immediately obtain
+    
+    .. math:: Y_{(i,j)} \sim  N(c_{(i,j)},c_{(i,j)}^{2}\sigma^{2}).
+     
+    Parameters
+    ----------    
+    G : Networkx graph
+        Graph from which this path will be derived.
+        The nodes, edges, and edge weights below must exist in this graph.
+        The weights MUST be labeled 'weight'.
+        Asp has only be tested on undirected graphs.
+
+    pi : tuple 
+        Tuple of nodes from `G`. This defines the path. Nodes should be 
+        ordered.
+        
+    name : integer
+        Should be usable as a key for a Python dictionary.
+        
+    pdf : string
+        There are two options: 'normal' for the Gaussian Normal Distribution, 
+        or 'truncated' for the Truncated Gaussian Normal Distribution. This 
+        defines the amount of noise the edge weights in `G` have. Select 
+        'normal' if negative edge weights are allowed. Select 'truncted' edge 
+        weights must be non-negative.   
+
+    sigma : float
+        Defines the standard deviation for the noise `pdf`.
+    
+    Examples
+    --------
+    >>> G, pos, start, end = grid_graph( size = 2, max_weight = 10 )
+    >>> mypath = path( G=G, pi=(0,1,3), name=0, pdf='truncated', sigma=.2 )
+   
     """
     
     def __init__( self, G, pi, name, pdf, sigma ):
 
-        ''' Constructor.        
-        
-        Parameters
-        ----------    
-        G : Networkx graph
-            Graph from which this path will be derived.
-            The nodes, edges, and edge weights below must exist in this graph.
-            The weights MUST be labeled 'weight'.
-            Asp has only be tested on undirected graphs.
-    
-        pi : tuple 
-            Tuple of nodes from G. This defines the path. Nodes should be 
-            ordered.
-            
-        name : integer
-            Should be usable as a key for a Python dictionary.
-            
-        pdf : string
-            There are two options:
-                1. 'normal' for the Gaussian Normal Distribution, or 
-                2. 'truncated' for the Truncated Gaussian Normal Distribution.
-            This defines the amount of noise the edge weights in G have.
-            Select 'normal' if negative edge weights are allowed.
-            Select 'truncted' edge weights must be non-negative.   
-    
-        sigma : float
-            Defines the standard deviation for the noise pdf.
-        
-        Example
-        --------
-        >>> G, pos, start, end = grid_graph( size = 2, max_weight = 10 )
-        >>> mypath = path( G=G, pi=(0,1,3), name=0, pdf='truncated', sigma=.2 )
-        '''
-
-       # Define path attributes.
+        # Define path attributes.
         self.name = name
         self.pi = pi
         self.G = G
@@ -109,7 +129,15 @@ class path:
     def summary( self ):
         '''Print basic object attributes.
         
-        Example
+        Parameters
+        ----------        
+        None : None  
+        
+        Returns
+        -------
+        None : None
+        
+        Examples
         --------
         >>> mypath.summary()
         Path name = 0
@@ -145,12 +173,12 @@ class path:
         
         Returns
         -------
-        lengths: array
-            Array has length equal to size. 
-
+        lengths : array
+            Array has length equal to `size`.   
+        
         Examples
         --------
-        >>> mypath.get_sample_length( size = 3 )
+        >>> mypath.get_sample_length( `size` = 3 )
         array([ 3.9308913 ,  2.38708896,  3.76789294])
        '''
        
@@ -169,11 +197,11 @@ class path:
 
 
     def get_length_distribution( self ):
-        '''Inializes and returns the path's length distribution
+        '''Initializes and returns the path's length distribution.
              
         Returns
-        =======
-        distribution: Scipy distribution object.
+        -------
+        distribution : Scipy distribution object.
 
         Examples
         --------

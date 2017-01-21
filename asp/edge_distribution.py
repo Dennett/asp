@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 ----------------------------
-APPROXIMATE STOCHASTIC PATHS
+edge_distribution
 ----------------------------
 
 Description
 -----------
-edge_distribution.py - edge distribution class for Approximate Stochastic Path distributions.
+edge_distribution.py - edge distributions for ASP.
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
 License

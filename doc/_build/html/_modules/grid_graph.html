@@ -51,13 +51,14 @@
   <h1>Source code for grid_graph</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">----------------------------</span>
-<span class="sd">APPROXIMATE STOCHASTIC PATHS</span>
-<span class="sd">----------------------------</span>
+<span class="sd">--------------</span>
+<span class="sd">**grid_graph**</span>
+<span class="sd">--------------</span>
 
 <span class="sd">Description</span>
 <span class="sd">-----------</span>
-<span class="sd">grid_graph.py - function generate ASP test graph.</span>
+<span class="sd">Generate a Networkx lattice graph with random edge weights.</span>
+
 <span class="sd">Copyright (C) 2017 Michael W. Ramsey &lt;michael.ramsey@gmail.com&gt;</span>
 
 <span class="sd">License</span>
@@ -74,6 +75,9 @@
 
 <span class="sd">You should have received a copy of the GNU General Public License</span>
 <span class="sd">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="sd">Documentation</span>
+<span class="sd">-------------</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -92,23 +96,26 @@
 <span class="c1">##########################    </span>
 
 <div class="viewcode-block" id="grid_graph"><a class="viewcode-back" href="../index.html#grid_graph.grid_graph">[docs]</a><span class="k">def</span> <span class="nf">grid_graph</span><span class="p">(</span> <span class="n">size</span><span class="p">,</span> <span class="n">max_weight</span> <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Generates a Networx lattice graph with random edge weights.</span>
+    <span class="sd">&quot;&quot;&quot;Generates a Networkx lattice graph with random edge weights.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    size : integer</span>
-<span class="sd">        The lattice will have size*size many nodes.</span>
+<span class="sd">        The lattice will have `size` * `size` many nodes.</span>
 
 <span class="sd">    max_weight : integer</span>
-<span class="sd">        Weights will be drawn from a uniform[0,max_weight] distribution.</span>
+<span class="sd">        Weights will be drawn from a uniform distribution with support [0, `max_weight`].</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    path: tuple of G, pos, start, end</span>
+<span class="sd">    path : tuple</span>
 <span class="sd">        G: Networkx graph</span>
+<span class="sd">        </span>
 <span class="sd">        pos: graph layout in lattice configuration</span>
-<span class="sd">        start: node 0 in G</span>
-<span class="sd">        end: node (size*size)-1 in G</span>
+
+<span class="sd">        start: node 0 in `G`</span>
+
+<span class="sd">        end: node (`size` * `size`)-1 in `G`.</span>
 <span class="sd">                </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>

@@ -11,23 +11,14 @@ Welcome to asp's documentation!
    :caption: Contents:
 
 .. automodule:: grid_graph
-    :members:	
-   
+   :members:
+
 .. automodule:: path
-    :members:
+   :members:
 
 .. automodule:: path_family
-    :members:
-
-.. automodule:: family_distribution
-    :members:
-
-.. automodule:: edge_distribution
-    :members:
-
-.. automodule:: edge_distribution
-    :members:	
-	
+   :members:   
+   
 Indices and tables
 ==================
 

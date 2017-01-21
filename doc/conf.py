@@ -121,7 +121,7 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+    # 'preamble': '\\usepackage{amsmath,amscd,amssymb}',
 
     # Latex figure (float) alignment
     #
@@ -158,4 +158,5 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-numpydoc_show_class_members = False
+#numpydoc_show_class_members = False
+numpydoc_class_members_toctree = False
