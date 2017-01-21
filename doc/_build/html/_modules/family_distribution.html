@@ -247,25 +247,28 @@
 <span class="sd">        N : integer</span>
 <span class="sd">            Number of samples to draw from each path&#39;s length distribution. </span>
 <span class="sd">            </span>
-<span class="sd">        m : integer, optional depending on auto.</span>
+<span class="sd">        m : integer, optional - depending on auto.</span>
 <span class="sd">            Size of the window to compute the max marginal change on drawing </span>
 <span class="sd">            more samples. For auto = True.      </span>
 
-<span class="sd">        tol : integer, optional depending on auto.</span>
+<span class="sd">        tol : integer, optional - depending on auto.</span>
 <span class="sd">            Threshold for whether or not to continue drawing sample mins until </span>
 <span class="sd">            the max marginal change is under less than tol. For auto = True.</span>
 
-<span class="sd">        M : integer, optional depending on auto.</span>
+<span class="sd">        M : integer, optional - depending on auto.</span>
 <span class="sd">            The maximum number of draws to complete even if max marginal change</span>
 <span class="sd">            is greater than tol. For auto = True.         </span>
 <span class="sd">            </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        (f_N_dict, max_margin): tuple</span>
-<span class="sd">            f_N_dict: key = path object, value = number of times the path was drawn as minimum of all the </span>
+<span class="sd">        f_N_dict: dictionary</span>
+<span class="sd">            key: path object.</span>
+<span class="sd">            value: number of times the path was drawn as minimum of all the </span>
 <span class="sd">            path lengths, divided by the number of total draws.</span>
-<span class="sd">            max_margin: The maximum change in the frequency a path is the minimum over the</span>
-<span class="sd">            paths. If auto=False, then None is returned.</span>
+<span class="sd">        </span>
+<span class="sd">        max_margin: float or None</span>
+<span class="sd">             The maximum change in the frequency a path is the minimum over the</span>
+<span class="sd">             paths. If auto is False, then None is returned.</span>
 <span class="sd">      </span>
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
