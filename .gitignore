@@ -33,10 +33,13 @@
 *.dSYM/
 *.su
 
+# Latex junk
+/tex*.log
+/tex*.blg
+/tex*.synctex.gz
+
 # Directories
 /*/data
-/tex
-/tests
 /references
 /litreview
 /deprecated
