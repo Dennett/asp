@@ -72,9 +72,8 @@ class family_distribution:
     Note that :math:`\\hat{\\pi}_{i,j}^{*}` can be computed directly from Dykstra's 
     Algorithm and that :math:`\\hat{\\pi}_{i,j}^{*}` is the mode of :math:`\\pi_{i,j}^{*}`.
     
-    We can now give our problem definition:
-    
-    Given any weighted graph :math:`G` and :math:`i,j \\in V`, find :math:`p^{*}(\\pi_{i,j})=P(\\pi_{i,j} = \\pi^{\\ast}_{i,j}), \\forall \\pi \\in \\Pi_{i,j}`.
+    Given any weighted graph :math:`G` and :math:`i,j \\in V`, we define the 
+    family distribution as :math:`p^{*}(\\pi_{i,j})=P(\\pi_{i,j} = \\pi^{\\ast}_{i,j}), \\forall \\pi \\in \\Pi_{i,j}`.
     
     This provides the probability that :math:`\\pi_{i,j}` is the shortest path 
     between nodes :math:`i,j` for a random draw of edge weights from :math:`G^{*}` for any path :math:`\\pi_{i,j}`.
@@ -143,7 +142,7 @@ class family_distribution:
 
 
     def get_marginal_change( self, mins, N, m = .1 ):  
-        '''Computes how much the frequencies of the minimums has changed in the
+        '''Computes how much the frequencies of the minimums have changed in the
         last m many draws. 
     
         Parameters
@@ -167,15 +166,11 @@ class family_distribution:
 
         Notes
         -----
-        If `auto` is set to True, then to select the number :math:`N` of samples to draw from :math:`Z_{\\pi}`, 
+        If `auto` is set to True, then to determining the total number of samples to draw from :math:`Z_{\\pi}`, 
         `get_spd_ssp_distr` works in batchs of size `N` and stops when the marginal change 
-        :math:`\\delta_{N}` in :math:`\\omega_N` falls below a provided threshold  
-        :math:`t_{N}`. If the marginal change is not below :math:`t_{N}`, it draws 
-        :math:`b_{N}` more, recomputes, tests, and repeats until the threshold 
-        is met. Asp computes the marginal change as 
-        :math:`\\delta_{N} = \\lvert  \\omega_n - \\omega_{n-\\epsilon} \\rvert` 
-        for some user provided :math:`\\epsilon` and for :math:`n` equal to :math:`b_{N}` times 
-        the number of completed iterations.
+        in :math:`\\omega_N` falls below `tol`. If the marginal change is not below `tol`, `get_spd_ssp_distr` draws 
+        `N` more, recomputes, tests, and repeats until the threshold is met. `get_spd_ssp_distr` computes the marginal change as 
+        :math:\\lvert  \\omega_n - \\omega_{n-\\epsilon} \\rvert` where :math:`\\epsilon` is `m`*`N`.
      
         Examples
         --------
@@ -254,7 +249,7 @@ class family_distribution:
 
         Notes
         -----
-        By sampling each :math:`Z_{\\pi}` directly using, we can 
+        By sampling each :math:`Z_{\\pi}` directly, we can 
         calculate the frequency that 
         :math:`Z_{\\pi}\\leq\\min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}` and use 
         this to estimate  :math:`p^{*}(\\pi_{i,j})`, :math:`\\forall \\pi \\in \\Pi_{i,j}`.
@@ -537,6 +532,15 @@ class family_distribution:
         paths : dict        
             Dictionary of path objects. Path names MUST be consecutive integers
             starting at zero.
+
+        alg : string
+            Choose to generate the edge distribution from a three options:
+            
+            'spd' (estimate via Sampling Paths' Distributions) 
+
+            'nmi' (estimate via NuMeric Integration) 
+
+            'mcs' (estimate via Monte Carlo Simulation)
             
         itr : integer
             Number of trials to run.
@@ -545,25 +549,24 @@ class family_distribution:
             Toggles whether or not to continue drawing sample mins until the
             max marginal change is under less than tol.
 
-        N : integer, optional - depending on alg
+        N : integer, optional for alg = 'spd'
             Number of samples to draw from each path's length distribution.
-            For alg = 'spd'.
+            .
             
-        m : integer, optional - depending on alg
+        m : integer, optional for alg = 'spd' and auto = True
             Size of the window to compute the max marginal change on drawing 
-            more samples. For alg = 'spd' and auto = True.      
+            more samples.      
 
-        tol : integer, optional - depending on alg
+        tol : integer, optional for alg = 'spd' and auto = True
             Threshold for whether or not to continue drawing sample mins until 
-            the max marginal change is under less than tol. For alg = 'spd' and
-            auto = True.
+            the max marginal change is under less than tol. 
 
-        M : integer, optional - depending on alg
+        M : integer, optional for alg = 'spd' and auto = True
             The maximum number of draws to complete even if max marginal change
-            is greater than tol. For alg = 'spd' and auto = True.  
+            is greater than tol.  
 
-        n : integer, optional - depending on alg        
-            Number of draws to make for alg = 'mcs'. 
+        n : integer, optional for alg = 'mcs'     
+            Number of draws to make. 
             
         **kwargs : dict
             scipy.integrate.quad kwargs.
@@ -572,14 +575,17 @@ class family_distribution:
         -------
         avg_prob : dictionary
             key: path object.
+            
             value: estimated probability.
         
         var : dictionary
             key: path object.
+            
             value: estimated variance over the trials.
             
         avg_err : dictionary
             key: path object.
+            
             value: average estimated error or upperbound on error.    
     
         avg_time : float
@@ -661,7 +667,7 @@ class family_distribution:
 
 
 
-    def keys_2_nodes( self, distrs ):
+    def keys_to_nodes( self, distrs ):
         '''Converts the keys in the distribution dictionary from path names to
         a tuple of path nodes.
         
@@ -682,7 +688,7 @@ class family_distribution:
         >>> myfamdistr = family_distribution( myfamily )
         >>> paths = myfamily.get_paths( alg = 'k', k = 3 )
         >>> avg_result, var_result, avg_err, avg_time = myfamdistr.get_distr( paths, alg='nmi', itr = 1, auto = False, epsrel = 1e-4, epsabs = 0 )
-        >>> myfamdistr.keys_2_nodes( [ avg_result ] )
+        >>> myfamdistr.keys_to_nodes( [ avg_result ] )
         [{(0, 1, 2, 5, 8): 0.3797458089395961,
           (0, 3, 4, 7, 8): 0.3653256469471194, 
           (0, 3, 6, 7, 8): 0.2549285441225291}]
@@ -727,13 +733,15 @@ class family_distribution:
         >>> myfamily = path_family( G=G, start=start, end=end, pdf='truncated', sigma=.5 )         
         >>> myfamdistr = family_distribution( myfamily )
         >>> paths = myfamily.get_paths( alg = 'k', k = 3 )
+        
         >>> # Generate output for all the algorithms 
         >>> spd_auto_dict, spd_auto_var, spd_auto_err_est, spd_auto_t_est = myfamdistr.get_distr( paths, itr = 4, alg = 'spd', auto = True, N = 1e2, m = .1, tol = 5e-2, M = 5e5  )
         >>> spd_dict, spd_var, spd_err_est, spd_t_est = myfamdistr.get_distr( paths, itr = 4, auto = False, alg = 'spd' )
         >>> nmi_dict, nmi_var, nmi_err_est, nmi_t_est = myfamdistr.get_distr( paths, itr = 4, auto = False, alg = 'nmi', epsrel = 1e-2, epsabs = 0 )
         >>> mcs_dict, mcs_var, mcs_err_est, mcs_t_est = myfamdistr.get_distr( paths, itr = 4, auto = False, alg = 'mcs', n = 1000 )
+
         >>> # Gather all the distributions 
-        >>> distrs = myfamdistr.keys_2_nodes(  [ spd_auto_dict, spd_dict, nmi_dict, mcs_dict ] )
+        >>> distrs = myfamdistr.keys_to_nodes(  [ spd_auto_dict, spd_dict, nmi_dict, mcs_dict ] )
         >>> mydistrs_dataframe = myfamdistr.gather_dicts( distrs, cols = ['spd_auto', 'spd', 'nmi', 'mcs'] )
         >>> mydistrs_dataframe.head()
                          spd_auto     spd       nmi      mcs
@@ -742,8 +750,9 @@ class family_distribution:
         (0, 1, 2, 5, 8)    0.0950  0.0825  0.084425  0.00425
         (0, 3, 4, 5, 8)    0.0000  0.0000  0.000000  0.06250
         (0, 3, 6, 7, 8)    0.0000  0.0000  0.000000  0.00400
+
         >>> # Gather all the variances 
-        >>> variances = myfamdistr.keys_2_nodes(  [ spd_auto_var, spd_var, nmi_var, mcs_var ] )
+        >>> variances = myfamdistr.keys_to_nodes(  [ spd_auto_var, spd_var, nmi_var, mcs_var ] )
         >>> myvars_dataframe = myfamdistr.gather_dicts( variances, cols = ['spd_auto', 'spd', 'nmi', 'mcs'] )
         >>> myvars_dataframe.head()
                          spd_auto       spd  nmi       mcs
@@ -792,13 +801,15 @@ class family_distribution:
         >>> myfamily = path_family( G=G, start=start, end=end, pdf='truncated', sigma=.5 )         
         >>> myfamdistr = family_distribution( myfamily )
         >>> paths = myfamily.get_paths( alg = 'k', k = 3 )
+        
         >>> # Generate output for all the algorithms 
         >>> spd_auto_dict, spd_auto_var, spd_auto_err_est, spd_auto_t_est = myfamdistr.get_distr( paths, itr = 4, alg = 'spd', auto = True, N = 1e2, m = .1, tol = 5e-2, M = 5e5  )
         >>> spd_dict, spd_var, spd_err_est, spd_t_est = myfamdistr.get_distr( paths, itr = 4, auto = False, alg = 'spd' )
         >>> nmi_dict, nmi_var, nmi_err_est, nmi_t_est = myfamdistr.get_distr( paths, itr = 4, auto = False, alg = 'nmi', epsrel = 1e-2, epsabs = 0 )
         >>> mcs_dict, mcs_var, mcs_err_est, mcs_t_est = myfamdistr.get_distr( paths, itr = 4, auto = False, alg = 'mcs', n = 1000 )
+
         >>> # Gather all the distributions 
-        >>> distrs = myfamdistr.keys_2_nodes(  [ spd_auto_dict, spd_dict, nmi_dict, mcs_dict ] )
+        >>> distrs = myfamdistr.keys_to_nodes(  [ spd_auto_dict, spd_dict, nmi_dict, mcs_dict ] )
         >>> mydistrs_dataframe = myfamdistr.gather_dicts( distrs, cols = ['spd_auto', 'spd', 'nmi', 'mcs'] )
         >>> dist = myfamdistr.get_col_dists( mydistrs_dataframe )
         >>> dist.head()
@@ -818,7 +829,7 @@ class family_distribution:
         
         return d
 
-    
+
 
 ########################
 ## Edge Distributions ##
@@ -831,11 +842,9 @@ class edge_distribution:
 
     Parameters
     ----------
-    G : Networkx graph
-        Graph from which this path will be derived.
-        The nodes, edges, and edge weights below must exist in this graph.
-        The weights MUST be labeled 'weight'.
-        Asp has only be tested on undirected graphs.
+    G : Networkx undirected graph
+        Graph from which this path will be derived. The weights MUST be labeled
+        'weight'.
 
     pts : dictionary
         Keys are node IDs from G and values are the probability the node should
@@ -844,9 +853,8 @@ class edge_distribution:
     pdf : string
         There are two options: 'normal' for the Gaussian Normal Distribution, 
         or 'truncated' for the Truncated Gaussian Normal Distribution. This 
-        defines the amount of noise the edge weights in `G` have. Select 
-        'normal' if negative edge weights are allowed. Select 'truncted' edge 
-        weights must be non-negative. (CURRENTLY ONLY 'truncated' WORKS)   
+        defines the edge weight noise . Select 'normal' if negative edge weights
+        are allowed. Select 'truncted' edge weights must be non-negative.  
 
     sigma : float
         Defines the standard deviation for the noise pdf.
@@ -854,12 +862,12 @@ class edge_distribution:
     Notes
     -----
     Extending estimates for :math:`p^{*}` to edge traversal probabilities arises 
-    naturally in the simulation algorithm since edge traversal counts can 
-    be easily obtained from path traversals. Such accounting does not come 
-    easily with Asp. However, the probability of an edge being traversed 
+    naturally in 'mcs' method since edge traversal counts can 
+    be easily obtained from the simulated path traversals. Such accounting does not come 
+    as easily for 'spd' and 'nmi' methods. However, the probability of an edge being traversed 
     can be computed from the probabilities of the paths containing it.
     
-    For example, suppose there is a distribution over the nodes giving the 
+    We suppose there is a user provided distribution over the nodes giving the 
     probability :math:`P( (i,j) = (s,e))` each pair of nodes would be selected as 
     endpoints :math:`(s,e)`. Then, given any edge :math:`(u,v)`, the probability :math:`(u,v)` 
     is traversed could be defined as:
@@ -916,21 +924,28 @@ class edge_distribution:
         ----------
         path_alg : string        
             Choose to generate the family of paths from a three options: 
-            'all' (find all paths between endpoints), 'k' (find only the k-shortest paths),
-            and 'auto' (find the (i*k)-shortest paths where i is automatically)
-            determined. 
+
+            'all' (find all paths between endpoints)
             
-        path_k : integer, optional - depending on alg
+            'k' (find only the k-shortest paths)
+            
+            'auto' (find the (i*k)-shortest paths where i is automatic)
+
+            
+        path_k : integer, optional for path_alg = 'auto' or 'k'
             Paths are selected in chunks of k until a selection criteria is
-            met. For path_alg = 'auto' or 'k'.
+            met. 
             
-        path_tol : float, optional, optional - depending on alg
-            Threshold for selecting k. For path_alg = 'auto'.
+        path_tol : float, optional, optional for path_alg = 'auto'
+            Threshold for selecting k.
 
         alg : string
             Choose to generate the edge distribution from a three options:
+            
             'spd' (estimate via Sampling Paths' Distributions), 
+
             'nmi' (estimate via NuMeric Integration), and 
+
             'mcs' (estimate via Monte Carlo Simulation)
 
         paths : dict        
@@ -944,25 +959,24 @@ class edge_distribution:
             Toggles whether or not to continue drawing sample mins until the
             max marginal change is under less than tol.
 
-        N : integer, optional - depending on alg
+        N : integer, optional for alg = 'spd'
             Number of samples to draw from each path's length distribution.
-            For alg = 'spd'.
             
-        m : integer, optional - depending on alg
+            
+        m : integer, optional for alg = 'spd' and auto = True
             Size of the window to compute the max marginal change on drawing 
-            more samples. For alg = 'spd' and auto = True.      
+            more samples.      
 
-        tol : integer, optional - depending on alg
+        tol : integer, optional for alg = 'spd' and auto = True
             Threshold for whether or not to continue drawing sample mins until 
-            the max marginal change is under less than tol. For alg = 'spd' and 
-            auto = True.
+            the max marginal change is under less than tol. 
 
-        M : integer, optional - depending on alg
+        M : integer, optional for alg = 'spd' and auto = True
             The maximum number of draws to complete even if max marginal change
-            is greater than tol. For alg = 'spd' and auto = True.       
+            is greater than tol.       
 
-        n : integer, optional - depending on alg        
-            Number of draws to make for alg = 'mcs'. 
+        n : integer, optional  for alg = 'mcs'      
+            Number of draws to make. 
         
         **kwargs : dict
             scipy.integrate.quad kwargs.   
@@ -971,6 +985,7 @@ class edge_distribution:
         -------
         df : Pandas DataFrame
             index : tuples of nodes representing edges.
+            
             prob : The estimated probability the edge will be in a shortest 
             path.
         
@@ -1003,8 +1018,8 @@ class edge_distribution:
             mydistr = family_distribution( myfam )
             distr, var, err_est, t_est = mydistr.get_distr( paths, alg = alg, itr = itr, auto = auto, N = N, m = m, tol = tol, M = M, n = n , **kwargs )
        
-            for path in distr.keys():
-                u = dict.fromkeys(path.edges, prob_pair*distr[path])
+            for pth in distr.keys():
+                u = dict.fromkeys(pth.edges, prob_pair*distr[pth])
                 c.update( u )
         
         # Format output.
@@ -1038,11 +1053,13 @@ class edge_distribution:
         >>> # Setup
         >>> G, pos, start, end = grid_graph( size = 2, max_weight = 2 )
         >>> myedgedistr = edge_distribution( G, pts={1:.2,0:.3,3:.5}, pdf='truncated', sigma=.2 )
+        
         >>> # Generate output for multiple algorithms
         >>> spd_e_distr = myedgedistr.get_edge_distr( path_alg = 'k', path_k = 2, alg = 'spd', itr = 1, auto = False, N = 1e2 )          
         >>> spd_auto_e_distr = myedgedistr.get_edge_distr( path_alg = 'k', path_k = 2, path_tol = 5e-1, alg = 'spd', itr = 1, auto = True, N = 1e2, m = .1, tol = 5e-2, M = 5e5 )
         >>> nmi_e_distr = myedgedistr.get_edge_distr( path_alg = 'all', path_k = 2, path_tol = 5e-1, alg = 'nmi', itr = 1, epsrel = 1e-4, epsabs = 0 )
         >>> mcs_e_distr = myedgedistr.get_edge_distr( alg = 'mcs', itr = 1, n = 10000 )
+
         >>> # Gather distributions
         >>> distrs = [ spd_e_distr, spd_auto_e_distr, nmi_e_distr, mcs_e_distr ]
         >>> mydistrs_dataframe = myedgedistr.gather_dfs( distrs, cols = ['spd', 'spd_auto', 'nmi', 'mcs'] )
@@ -1089,11 +1106,13 @@ class edge_distribution:
         >>> # Setup
         >>> G, pos, start, end = grid_graph( size = 2, max_weight = 2 )
         >>> myedgedistr = edge_distribution( G, pts={1:.2,0:.3,3:.5}, pdf='truncated', sigma=.2 )
+       
         >>> # Generate output for multiple algorithms
         >>> spd_e_distr = myedgedistr.get_edge_distr( path_alg = 'k', path_k = 2, alg = 'spd', itr = 1, auto = False, N = 1e2 )          
         >>> spd_auto_e_distr = myedgedistr.get_edge_distr( path_alg = 'k', path_k = 2, path_tol = 5e-1, alg = 'spd', itr = 1, auto = True, N = 1e2, m = .1, tol = 5e-2, M = 5e5 )
         >>> nmi_e_distr = myedgedistr.get_edge_distr( path_alg = 'all', path_k = 2, path_tol = 5e-1, alg = 'nmi', itr = 1, epsrel = 1e-4, epsabs = 0 )
         >>> mcs_e_distr = myedgedistr.get_edge_distr( alg = 'mcs', itr = 1, n = 10000 )
+
         >>> # Gather distributions
         >>> distrs = [ spd_e_distr, spd_auto_e_distr, nmi_e_distr, mcs_e_distr ]
         >>> mydistrs_dataframe = myedgedistr.gather_dfs( distrs, cols = ['spd', 'spd_auto', 'nmi', 'mcs'] )

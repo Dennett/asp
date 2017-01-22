@@ -64,7 +64,7 @@ def grid_graph( size, max_weight ):
 
         start: node 0 in `G`
 
-        end: node (`size` * `size`)-1 in `G`.
+        end: node (`size` * `size`) - 1 in `G`.
                 
     Examples
     --------

@@ -48,19 +48,16 @@ from itertools import islice
 ###########
 
 class path:
-    """ Class for computing on paths. Stores path attributes and computes 
-    summary statistics. Generates path length distribution and samples from it.
+    """ Create a stochastic path.
     
     Parameters
     ----------    
-    G : Networkx graph
-        Graph from which this path will be derived.
-        The nodes, edges, and edge weights below must exist in this graph.
-        The weights MUST be labeled 'weight'.
-        Asp has only be tested on undirected graphs.
+    G : Networkx undirected graph
+        Graph from which this path will be derived. The weights MUST be labeled
+        'weight'.
 
     pi : tuple 
-        Tuple of nodes from `G`. This defines the path. Nodes should be 
+        Elements are nodes from `G`. This defines the path. Nodes should be 
         ordered.
         
     name : integer
@@ -69,29 +66,17 @@ class path:
     pdf : string
         There are two options: 'normal' for the Gaussian Normal Distribution, 
         or 'truncated' for the Truncated Gaussian Normal Distribution. This 
-        defines the amount of noise the edge weights in `G` have. Select 
-        'normal' if negative edge weights are allowed. Select 'truncted' edge 
-        weights must be non-negative. (CURRENTLY ONLY 'truncated' WORKS)  
+        defines the edge weight noise . Select 'normal' if negative edge weights
+        are allowed. Select 'truncted' edge weights must be non-negative. 
 
     sigma : float
         Defines the standard deviation for the noise `pdf`.
     
     Notes
-    ----- 
-    We define the stochastic weighted graph induced by :math:`G` as 
-    :math:`G^{*} = (V, E,C^{*} )` with :math:`C^{*}` defined as the
-    :math:`n \\times n` matrix of edge cost distirbutions defined by:
-    
-    .. math:: Y_{(i,j)} = X_{(i,j)}c_{(i,j)} + c_{(i,j)}
-    
-    where :math:`c_{(i,j)} \in C` and :math:`X_{(i,j)} \sim N(0,\sigma^{2})` i.i.d.
-    or :math:`X_{(i,j)} \sim TN(0,\sigma^{2})` i.i.d. Thus we perturb the edge 
-    weights by a multiple of the original edge weight. The variance 
-    :math:`\sigma^{2}` of the Gaussian noise parameterizes the magnitude.
-    
+    -----    
     We define a path :math:`\\pi_{i,j}` as an ordered sequence of nodes 
-    :math:`(v_{k})_{k=1}^{m}` with :math:`v_{1}=i` and :math:`v_{m}=j`  as source and destination
-    nodes respectively and  :math:`(v_{k},v_{k+1}) \\in E,  \\forall k`. A path is 
+    :math:`(v_{k})_{k=1}^{m}` with :math:`v_{1}=i` and :math:`v_{m}=j` as source and destination
+    nodes respectively and :math:`(v_{k},v_{k+1}) \\in E,  \\forall k`. A path is 
     called simple if :math:`v_{k} \\ne v_{l}, \\forall  k,l`. That is, there are no 
     loops or cycles in the path. 
     
@@ -102,13 +87,12 @@ class path:
         Z_{\\pi} = \\sum_{v_{k} \\in \\pi} Y_{(v_{k},v_{k+1})} 
         
     as the stochastic length for path :math:`\\pi`. Then, the path 
-    :math:`\\pi`'s length distribution is:
+    :math:`\\pi`'s length distribution is either:
     
     .. math:: 
     
         Z_{\\pi} &\\sim N \\left( \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})} ,  \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})}^{2}\\sigma^{2} \\right) \\\\
-        Z_{\\pi} &\\approx TN \\left( \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})} ,  \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})}^{2}\\sigma^{2}\\right) \\\\
-                 &\\text{over } \\left(0,\\sum_{v_{k} \\in \\pi}  2c_{(v_{k},v_{k+1})}\\right).
+        Z_{\\pi} &\\approx TN \\left( \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})} ,  \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})}^{2}\\sigma^{2}\\right), \\text{ over } \\left(0,\\sum_{v_{k} \\in \\pi}  2c_{(v_{k},v_{k+1})}\\right).
   
     depending on which noise model is used.
 
@@ -145,14 +129,6 @@ class path:
     
     def summary( self ):
         '''Print basic object attributes.
-        
-        Parameters
-        ----------        
-        None : None  
-        
-        Returns
-        -------
-        None : None
         
         Examples
         --------
@@ -218,7 +194,8 @@ class path:
              
         Returns
         -------
-        distribution : Scipy distribution object.
+        distribution : object
+            Scipy distribution object.
 
         Examples
         --------
@@ -246,15 +223,13 @@ class path:
 #################
     
 class path_family:
-    """Class for computing on a family of paths related by their start and 
-    endpoints.
+    """Create family of stochastic paths related by their start and endpoints.
     
     Parameters
     ----------
-    G : Networkx graph
-        Graph from which this path will be derived. The nodes, edges, and edge 
-        weights below must exist in this graph. The weights MUST be labeled 
-        'weight'. Asp has only be tested on undirected graphs.
+    G : Networkx undirected graph
+        Graph from which this path will be derived. The weights MUST be labeled
+        'weight'.
 
     start : integer
         Starting node for path. Must be a node in `G`.
@@ -265,9 +240,8 @@ class path_family:
     pdf : string
         There are two options: 'normal' for the Gaussian Normal Distribution, 
         or 'truncated' for the Truncated Gaussian Normal Distribution. This 
-        defines the amout of noise the edge weights in `G` have. Select 'normal' 
-        if negative edge weights are allowed. Select 'truncted' edge weights 
-        must be non-negative. (CURRENTLY ONLY 'truncated' WORKS)  
+        defines the edge weight noise . Select 'normal' if negative edge weights
+        are allowed. Select 'truncted' edge weights must be non-negative.   
 
     sigma : float
         Defines the standard deviation for the noise `pdf`.
@@ -317,9 +291,9 @@ class path_family:
         
         
     def get_k_paths( self, k ):
-        '''Generates the family of paths as the k shortest simple paths in G.
-        A simple path is a path with no repeated nodes. No negative weights 
-        are allowed.      
+        '''Generates the family as the k shortest simple paths in G.
+        A simple path is a path with no repeated nodes. **No negative weights 
+        are allowed**.      
         
         Parameters
         ----------
@@ -330,11 +304,12 @@ class path_family:
         -------
         paths : dictionary
             key: path name.
+            
             value: path object.
 
         Notes
         -----
-        This Networkx [1] algorithm is based on algorithm by Jin Y. Yen [2], 
+        This Networkx algorithm is based on algorithm by Jin Y. Yen, 
         which finds the first k paths requires O(kN^3) operations.
         
         Yen's algorithm computes the k shortest simple paths for a graph with
@@ -378,19 +353,20 @@ class path_family:
 
     
     def get_all_paths( self ):
-        '''Generates the family of paths as all simple paths in G. A simple 
-        path is a path with no repeated nodes.  
+        '''Generates the family as all simple paths in G. A simple path is a 
+        path with no repeated nodes.  
         
         Returns
         -------
         paths : dictionary
             key: path name.
+            
             value: path object.
 
         Notes
         -----
-        This Networkx [3] algorithm uses a modified depth-first search to 
-        generate the paths [4]. A single path can be found in O(V+E) time but 
+        Wrapper for a Networkx algorithm that uses a modified depth-first search to 
+        generate the paths. A single path can be found in O(V+E) time but 
         the number of simple paths in a graph can be very large, e.g. O(n!) in 
         the complete graph of order n.     
         
@@ -445,9 +421,11 @@ class path_family:
 
         Parameters
         ----------
-        first : path object
+        first : object
+            paths.path object
                         
-        last : path object  
+        last : object
+            paths.path object
             
         Returns
         -------
@@ -485,38 +463,34 @@ class path_family:
 
     
     def get_auto_paths( self, k, tol = 5e-2 ): 
-        '''Generates the family of paths as the i*k shortest simple paths in G,
+        '''Generates the family as the i*k shortest simple paths in G,
         where i is automatically determined. A simple path is a path with no
-        repeated nodes. No negative weights are allowed.  
+        repeated nodes. **No negative weights are allowed**.  
 
         Parameters
         ----------
         k : integer
-            Paths are selected in chunks of k until a selection criteria is
+            Paths are selected in chunks of k until the selection criteria is
             met.
             
         tol : float, optional
-            Threshold for selecting k.         
+            Threshold for selecting i.         
 
         Returns
         -------
         paths : dictionary
             key: path name.
+            
             value: ordered tuple of nodes in the path.
 
         Notes
         -----
-        The algorithm iteratively generates the next k shortest simple paths, 
-        checks if the probability that the last path will ever be shorter than 
-        the first path, and stops if that probability is less than the supplied
-        tolerance.     
-
         `get_auto_paths` uses the Python generator's efficiency to retrieve 
         shortest paths in batches of size `k` and stops when the 
         probability, that the last path retrieved would ever be shorter than 
         the first retrieved, is below a user provided threshold `tol`.  More 
         formally, the stopping condition is :math:`P(Z_{\\pi} < Z_{\\gamma}) <` `tol` 
-        where :math:`\\pi`  and :math:`\\gamma` are the first and last path retrieved 
+        where :math:`\\gamma`  and :math:`\\pi` are the first and last path retrieved 
         respectively. This works because :math:`P(Z_{\\pi} < Z_{\\gamma})` is an upper 
         bound on :math:`P(Z_{\\pi}<W)` where 
         :math:`W =  \min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}` and can be computed 
@@ -600,31 +574,25 @@ class path_family:
 
 
     def get_paths( self, alg, k, tol = 5e-2 ): 
-        '''Wrapper to generate the family of paths from a three options:
-
-        'all' : find all paths between endpoints.
-
-        'k' : find only the k-shortest paths.
+        '''Wrapper to generate the family.
         
-        'auto' : find the (i*k)-shortest paths where i is automatically 
-        determined. 
-    
         Parameters
         ----------
         alg : string        
             Wrapper to selects on of the three path generative functions.
             
-        k : integer, optional - depending on `alg`
+        k : integer, optional for `alg` = 'k' or `alg` = 'auto'.
             Paths are selected in chunks of k until a selection criteria is
-            met. For `alg` = 'k' or `alg` = 'auto'.
+            met. 
             
-        tol : float, optional - depending on `alg`
-            Threshold for selecting k. For `alg` = 'auto'.       
+        tol : float, optional for `alg` = 'auto'. 
+            Threshold for selecting k.       
     
         Returns
         -------
         paths : dictionary
             key: path name.
+            
             value: ordered tuple of nodes in the path.
       
         Examples
