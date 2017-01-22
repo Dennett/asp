@@ -8,7 +8,7 @@ It was developed with Anaconda Python 3.4.
 https://dennett.github.io/asp/
 
 ### Technical Paper
-[Stochastic Shortest Paths](tex/stochastic_shortest_path.pdf)
+[Estimating Stochastic Shortest Paths](tex/stochastic_shortest_path.pdf)
 
 ### Usage
 Example script to create stochastic shortest path distributions using multiple algorithms.
