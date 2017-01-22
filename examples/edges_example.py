@@ -6,7 +6,7 @@
 
 Description
 -----------
-Example usage
+Usage Example
 
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
@@ -30,13 +30,18 @@ Details
 """
 
 
+
 import networkx as nx
 import pandas as pd
 import asp
 
+
+
 #################
 ## Edge Readme ##
 #################
+
+
 
 # Set parameters
 sigma = .2
@@ -59,15 +64,3 @@ distrs = [ spd_dict, nmi_dict, mcs_dict ]
 mydistrs_dataframe = edge_distr.gather_dfs( distrs, cols = ['spd', 'nmi', 'mcs'] )
 dist = edge_distr.get_col_dists( mydistrs_dataframe )
 edge_distr.plot( pos=pos, edge_df=mydistrs_dataframe, col='spd', scale=10 )
-
-
-
-
-
-
-
-
-
-
-
-
