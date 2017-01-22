@@ -9,15 +9,15 @@ This package uses setuptools. The use of virtual environments is recommended.
 
 ### Normal Mode
 
-git clone git@github.com:dennett/asp.git
+	git clone git@github.com:dennett/asp.git
 
-pip install asp
+	pip install asp
 
 ### Development Mode
 
-git clone git@github.com:dennett/asp.git
+	git clone git@github.com:dennett/asp.git
 
-pip install -e asp/
+	pip install -e asp/
 
 ### Contributing
 
@@ -25,7 +25,7 @@ ASP is still an extremely new project, and I'm happy for any contributions (patc
 
 Development is synchronized via git. To clone this repository, run
 
-git clone git://github.com/dennett/asp.git
+	git clone git://github.com/dennett/asp.git
 
 ### License
 
