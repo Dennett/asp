@@ -1,5 +1,4 @@
-# asp
-## Approximate Stochastic Paths
+## Approximate Stochastic Paths (ASP)
 
 ASP is an experimental package for exploring stochastic shortest paths on Networkx weighted graphs. 
 
