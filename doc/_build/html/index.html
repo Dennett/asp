@@ -74,7 +74,7 @@
 </div>
 <div class="section" id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
-<p>ASP is still an extremely young project, and I&#8217;m happy for any contributions (patches, code, bugfixes, documentation, whatever) to get it to a stable and useful point. Feel free to get in touch with me via email or directly via github.</p>
+<p>ASP is still an extremely new project, and I&#8217;m happy for any contributions (patches, code, bugfixes, documentation, whatever) to get it to a stable and useful point. Feel free to get in touch with me via email or directly via github.</p>
 <p>Development is synchronized via git. To clone this repository, run</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dennett</span><span class="o">/</span><span class="n">asp</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -901,7 +901,7 @@ union of all the dictionaries keys.</p>
 
 <dl class="method">
 <dt id="distributions.edge_distribution.get_edge_distr">
-<code class="descname">get_edge_distr</code><span class="sig-paren">(</span><em>path_alg='auto'</em>, <em>path_k=2</em>, <em>path_tol=0.5</em>, <em>alg='spd'</em>, <em>itr=1</em>, <em>auto=True</em>, <em>N=100.0</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em>, <em>n=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#edge_distribution.get_edge_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.edge_distribution.get_edge_distr" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_edge_distr</code><span class="sig-paren">(</span><em>path_alg='auto'</em>, <em>path_k=2</em>, <em>path_tol=0.5</em>, <em>alg='spd'</em>, <em>itr=1</em>, <em>auto=False</em>, <em>N=100.0</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em>, <em>n=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#edge_distribution.get_edge_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.edge_distribution.get_edge_distr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the edge distribution.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -939,7 +939,7 @@ starting at zero.</p>
 <blockquote>
 <div><p>Number of trials to run.</p>
 </div></blockquote>
-<p><strong>auto</strong> : boolean, optional - depending on alg</p>
+<p><strong>auto</strong> : boolean, optional, optional for alg = &#8216;spd&#8217; or alg = &#8216;nmi&#8217;</p>
 <blockquote>
 <div><p>Toggles whether or not to continue drawing sample mins until the
 max marginal change is under less than tol.</p>
@@ -1119,7 +1119,7 @@ between nodes <span class="math">\(i,j\)</span> for a random draw of edge weight
 <tr class="row-even"><td><a class="reference internal" href="#distributions.family_distribution.get_col_dists" title="distributions.family_distribution.get_col_dists"><code class="xref py py-obj docutils literal"><span class="pre">get_col_dists</span></code></a>(distrs_dataframe)</td>
 <td>Computes pairwise vector euclidean distance between columns.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#distributions.family_distribution.get_distr" title="distributions.family_distribution.get_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_distr</span></code></a>(paths,&nbsp;alg,&nbsp;itr,&nbsp;auto[,&nbsp;N,&nbsp;m,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.family_distribution.get_distr" title="distributions.family_distribution.get_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_distr</span></code></a>(paths,&nbsp;alg[,&nbsp;itr,&nbsp;auto,&nbsp;N,&nbsp;m,&nbsp;...])</td>
 <td>Wrapper to generate the paths&#8217; distribution.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#distributions.family_distribution.get_marginal_change" title="distributions.family_distribution.get_marginal_change"><code class="xref py py-obj docutils literal"><span class="pre">get_marginal_change</span></code></a>(mins,&nbsp;N[,&nbsp;m])</td>
@@ -1267,7 +1267,7 @@ union of all the dictionaries keys.</p>
 
 <dl class="method">
 <dt id="distributions.family_distribution.get_distr">
-<code class="descname">get_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>alg</em>, <em>itr</em>, <em>auto</em>, <em>N=1000.0</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em>, <em>n=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.get_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.get_distr" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>alg</em>, <em>itr=1</em>, <em>auto=False</em>, <em>N=100.0</em>, <em>m=0.1</em>, <em>tol=0.5</em>, <em>M=500000.0</em>, <em>n=100</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.get_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.get_distr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper to generate the paths&#8217; distribution.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1285,11 +1285,11 @@ starting at zero.</p>
 <p>&#8216;nmi&#8217; (estimate via NuMeric Integration)</p>
 <p>&#8216;mcs&#8217; (estimate via Monte Carlo Simulation)</p>
 </div></blockquote>
-<p><strong>itr</strong> : integer</p>
+<p><strong>itr</strong> : integer, optional</p>
 <blockquote>
 <div><p>Number of trials to run.</p>
 </div></blockquote>
-<p><strong>auto</strong> : boolean</p>
+<p><strong>auto</strong> : boolean, optional for alg = &#8216;spd&#8217; or alg = &#8216;nmi&#8217;</p>
 <blockquote>
 <div><p>Toggles whether or not to continue drawing sample mins until the
 max marginal change is under less than tol.</p>
