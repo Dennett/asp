@@ -70,11 +70,9 @@ class family_distribution:
         \\hat{\\pi}_{i,j}^{\\ast} & = \\min_{\\pi \\in \\Pi_{i,j}} \\hat{Z}_{\\pi}.
 
     Note that :math:`\\hat{\\pi}_{i,j}^{*}` can be computed directly from Dykstra's 
-    Algorithm and that :math:`\\hat{\\pi}_{i,j}^{*}` is the mode of :math:`\\pi_{i,j}^{*}`.
-    
-    Given any weighted graph :math:`G` and :math:`i,j \\in V`, we define the 
-    family distribution as :math:`p^{*}(\\pi_{i,j})=P(\\pi_{i,j} = \\pi^{\\ast}_{i,j}), \\forall \\pi \\in \\Pi_{i,j}`.
-    
+    Algorithm and that :math:`\\hat{\\pi}_{i,j}^{*}` is the mode of :math:`\\pi_{i,j}^{*}`. Given 
+    any weighted graph :math:`G` and :math:`i,j \\in V`, we define the 
+    family distribution as :math:`p^{*}(\\pi_{i,j})=P(\\pi_{i,j} = \\pi^{\\ast}_{i,j}), \\forall \\pi \\in \\Pi_{i,j}`. 
     This provides the probability that :math:`\\pi_{i,j}` is the shortest path 
     between nodes :math:`i,j` for a random draw of edge weights from :math:`G^{*}` for any path :math:`\\pi_{i,j}`.
 

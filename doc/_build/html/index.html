@@ -1095,10 +1095,10 @@ distributions for a path_family.</p>
 \[\begin{split}\pi_{i,j}^{\ast}        &amp; = \min_{\pi \in \Pi_{i,j}} Z_{\pi} \\
 \hat{\pi}_{i,j}^{\ast} &amp; = \min_{\pi \in \Pi_{i,j}} \hat{Z}_{\pi}.\end{split}\]</div>
 <p>Note that <span class="math">\(\hat{\pi}_{i,j}^{*}\)</span> can be computed directly from Dykstra&#8217;s 
-Algorithm and that <span class="math">\(\hat{\pi}_{i,j}^{*}\)</span> is the mode of <span class="math">\(\pi_{i,j}^{*}\)</span>.</p>
-<p>Given any weighted graph <span class="math">\(G\)</span> and <span class="math">\(i,j \in V\)</span>, we define the 
-family distribution as <span class="math">\(p^{*}(\pi_{i,j})=P(\pi_{i,j} = \pi^{\ast}_{i,j}), \forall \pi \in \Pi_{i,j}\)</span>.</p>
-<p>This provides the probability that <span class="math">\(\pi_{i,j}\)</span> is the shortest path 
+Algorithm and that <span class="math">\(\hat{\pi}_{i,j}^{*}\)</span> is the mode of <span class="math">\(\pi_{i,j}^{*}\)</span>. Given 
+any weighted graph <span class="math">\(G\)</span> and <span class="math">\(i,j \in V\)</span>, we define the 
+family distribution as <span class="math">\(p^{*}(\pi_{i,j})=P(\pi_{i,j} = \pi^{\ast}_{i,j}), \forall \pi \in \Pi_{i,j}\)</span>. 
+This provides the probability that <span class="math">\(\pi_{i,j}\)</span> is the shortest path 
 between nodes <span class="math">\(i,j\)</span> for a random draw of edge weights from <span class="math">\(G^{*}\)</span> for any path <span class="math">\(\pi_{i,j}\)</span>.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
