@@ -51,13 +51,14 @@
   <h1>Source code for edge_distribution</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">----------------------------</span>
-<span class="sd">edge_distribution</span>
-<span class="sd">----------------------------</span>
+<span class="sd">---------------------</span>
+<span class="sd">**edge_distribution**</span>
+<span class="sd">---------------------</span>
 
 <span class="sd">Description</span>
 <span class="sd">-----------</span>
-<span class="sd">edge_distribution.py - edge distributions for ASP.</span>
+<span class="sd">Create a distribution for the probability an edge is along the shortest path.</span>
+
 <span class="sd">Copyright (C) 2017 Michael W. Ramsey &lt;michael.ramsey@gmail.com&gt;</span>
 
 <span class="sd">License</span>
@@ -74,6 +75,9 @@
 
 <span class="sd">You should have received a copy of the GNU General Public License</span>
 <span class="sd">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="sd">Details</span>
+<span class="sd">-------</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -101,39 +105,51 @@
 
 <div class="viewcode-block" id="edge_distribution"><a class="viewcode-back" href="../index.html#edge_distribution.edge_distribution">[docs]</a><span class="k">class</span> <span class="nc">edge_distribution</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Class for computing and storing edge distributions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    G : Networkx graph</span>
+<span class="sd">        Graph from which this path will be derived.</span>
+<span class="sd">        The nodes, edges, and edge weights below must exist in this graph.</span>
+<span class="sd">        The weights MUST be labeled &#39;weight&#39;.</span>
+<span class="sd">        Asp has only be tested on undirected graphs.</span>
+
+<span class="sd">    pts : dictionary</span>
+<span class="sd">        Keys are node IDs from G and values are the probability the node should</span>
+<span class="sd">        be a start or end point.</span>
+<span class="sd">        </span>
+<span class="sd">    pdf : string</span>
+<span class="sd">        There are two options: &#39;normal&#39; for the Gaussian Normal Distribution, </span>
+<span class="sd">        or &#39;truncated&#39; for the Truncated Gaussian Normal Distribution. This </span>
+<span class="sd">        defines the amount of noise the edge weights in `G` have. Select </span>
+<span class="sd">        &#39;normal&#39; if negative edge weights are allowed. Select &#39;truncted&#39; edge </span>
+<span class="sd">        weights must be non-negative. (CURRENTLY ONLY &#39;truncated&#39; WORKS)   </span>
+
+<span class="sd">    sigma : float</span>
+<span class="sd">        Defines the standard deviation for the noise pdf.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Extending estimates for :math:`p^{*}` to edge traversal probabilities arises </span>
+<span class="sd">    naturally in the simulation algorithm since edge traversal counts can </span>
+<span class="sd">    be easily obtained from path traversals. Such accounting does not come </span>
+<span class="sd">    easily with Asp. However, the probability of an edge being traversed </span>
+<span class="sd">    can be computed from the probabilities of the paths containing it.</span>
+<span class="sd">    </span>
+<span class="sd">    For example, suppose there is a distribution over the nodes giving the </span>
+<span class="sd">    probability :math:`P( (i,j) = (s,e))` each pair of nodes would be selected as </span>
+<span class="sd">    endpoints :math:`(s,e)`. Then, given any edge :math:`(u,v)`, the probability :math:`(u,v)` </span>
+<span class="sd">    is traversed could be defined as:</span>
+
+<span class="sd">    .. math:: P( (u,v) \\text{ traversed } ) = \\sum_{(u,v) \\in \\pi_{i,j}} p^{*}_{\\pi_{i,j}} P( (i,j) = (s,e))).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; G, pos, start, end = grid_graph( size = 2, max_weight = 2 )</span>
+<span class="sd">    &gt;&gt;&gt; myedgedistr = edge_distribution( G, pts={1:.2,0:.3,3:.5}, pdf=&#39;truncated&#39;, sigma=.2 )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">pts</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">sigma</span> <span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Constructor.     </span>
-<span class="sd">        </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        G : Networkx graph</span>
-<span class="sd">            Graph from which this path will be derived.</span>
-<span class="sd">            The nodes, edges, and edge weights below must exist in this graph.</span>
-<span class="sd">            The weights MUST be labeled &#39;weight&#39;.</span>
-<span class="sd">            Asp has only be tested on undirected graphs.</span>
-<span class="sd">    </span>
-<span class="sd">        pts : dictionary</span>
-<span class="sd">            keys: node IDs from G.</span>
-<span class="sd">            values: probability the node should be a start or end point.</span>
-<span class="sd">            </span>
-<span class="sd">        pdf : string</span>
-<span class="sd">            There are two options:</span>
-<span class="sd">                1. &#39;normal&#39; for the Gaussian Normal Distribution, or </span>
-<span class="sd">                2. &#39;truncated&#39; for the Truncated Gaussian Normal Distribution.</span>
-<span class="sd">            This defines the amount of noise the edge weights in G have.</span>
-<span class="sd">            Select &#39;normal&#39; if negative edge weights are allowed.</span>
-<span class="sd">            Select &#39;truncted&#39; edge weights must be non-negative.   </span>
-<span class="sd">    </span>
-<span class="sd">        sigma : float</span>
-<span class="sd">            Defines the standard deviation for the noise pdf.</span>
-<span class="sd">    </span>
-<span class="sd">        Example</span>
-<span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; G, pos, start, end = grid_graph( size = 2, max_weight = 2 )</span>
-<span class="sd">        &gt;&gt;&gt; myedgedistr = edge_distribution( G, pts={1:.2,0:.3,3:.5}, pdf=&#39;truncated&#39;, sigma=.2 )</span>
-<span class="sd">        &#39;&#39;&#39;</span>
 
         <span class="c1"># Define path attributes.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">G</span> <span class="o">=</span> <span class="n">G</span>
@@ -146,7 +162,7 @@
 <div class="viewcode-block" id="edge_distribution.summary"><a class="viewcode-back" href="../index.html#edge_distribution.edge_distribution.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;Print basic object attributes.</span>
 <span class="sd">        </span>
-<span class="sd">        Example</span>
+<span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 
 <span class="sd">        &gt;&gt;&gt; myedgedistr.summary()</span>
@@ -176,11 +192,10 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        path_alg : string        </span>
-<span class="sd">            Choose to generate the family of paths from a three options:</span>
-<span class="sd">            1. &#39;all&#39; : find all paths between endpoints.</span>
-<span class="sd">            2. &#39;k&#39; : find only the k-shortest paths.</span>
-<span class="sd">            3. &#39;auto&#39; : find the (i*k)-shortest paths where i is automatically </span>
-<span class="sd">               determined. </span>
+<span class="sd">            Choose to generate the family of paths from a three options: </span>
+<span class="sd">            &#39;all&#39; (find all paths between endpoints), &#39;k&#39; (find only the k-shortest paths),</span>
+<span class="sd">            and &#39;auto&#39; (find the (i*k)-shortest paths where i is automatically)</span>
+<span class="sd">            determined. </span>
 <span class="sd">            </span>
 <span class="sd">        path_k : integer, optional - depending on alg</span>
 <span class="sd">            Paths are selected in chunks of k until a selection criteria is</span>
@@ -191,9 +206,9 @@
 
 <span class="sd">        alg : string</span>
 <span class="sd">            Choose to generate the edge distribution from a three options:</span>
-<span class="sd">            1. &#39;spd&#39; : estimate via Sampling Paths&#39; Distributions.</span>
-<span class="sd">            2. &#39;nmi&#39; : estimate via NuMeric Integration.</span>
-<span class="sd">            3. &#39;mcs&#39; : estimate via Monte Carlo Simulation.</span>
+<span class="sd">            &#39;spd&#39; (estimate via Sampling Paths&#39; Distributions), </span>
+<span class="sd">            &#39;nmi&#39; (estimate via NuMeric Integration), and </span>
+<span class="sd">            &#39;mcs&#39; (estimate via Monte Carlo Simulation)</span>
 
 <span class="sd">        paths : dict        </span>
 <span class="sd">            Dictionary of path objects. Path names MUST be consecutive integers</span>
@@ -403,11 +418,12 @@
 <span class="sd">            Scale the width of the edges appropriately for graph size.</span>
 <span class="sd">        </span>
 <span class="sd">        labels : boolean, optional</span>
+<span class="sd">            Toggles edge labels.        </span>
 <span class="sd">        </span>
 <span class="sd">        filename : string, optional</span>
 <span class="sd">            Path where you want to same the image.</span>
 <span class="sd">        </span>
-<span class="sd">        **kwargs: dict, optional</span>
+<span class="sd">        **kwargs : dict, optional</span>
 <span class="sd">            kwargs for for drawing edge labels.</span>
 <span class="sd">            </span>
 <span class="sd">        </span>

@@ -18,6 +18,12 @@ Welcome to asp's documentation!
 
 .. automodule:: path_family
    :members:   
+
+.. automodule:: family_distribution
+   :members:   
+
+.. automodule:: edge_distribution
+   :members:   
    
 Indices and tables
 ==================

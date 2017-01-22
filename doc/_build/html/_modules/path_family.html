@@ -76,8 +76,8 @@
 <span class="sd">You should have received a copy of the GNU General Public License</span>
 <span class="sd">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 
-<span class="sd">Documentation</span>
-<span class="sd">-------------</span>
+<span class="sd">Details</span>
+<span class="sd">-------</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -101,14 +101,7 @@
     
 <div class="viewcode-block" id="path_family"><a class="viewcode-back" href="../index.html#path_family.path_family">[docs]</a><span class="k">class</span> <span class="nc">path_family</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Class for computing on a family of paths related by their start and </span>
-<span class="sd">    endpoints. Choose to generate the family of paths from a three options:</span>
-<span class="sd">    </span>
-<span class="sd">    get_all_paths() : find all paths between endpoints.</span>
-
-<span class="sd">    get_k_paths() : find only the k-shortest paths.</span>
-
-<span class="sd">    get_auto_paths() : find the (i*k)-shortest paths where i is </span>
-<span class="sd">    automatically determined.</span>
+<span class="sd">    endpoints.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -117,40 +110,21 @@
 <span class="sd">        weights below must exist in this graph. The weights MUST be labeled </span>
 <span class="sd">        &#39;weight&#39;. Asp has only be tested on undirected graphs.</span>
 
-<span class="sd">    start : Networkx node index</span>
-<span class="sd">        Starting node for path.</span>
+<span class="sd">    start : integer</span>
+<span class="sd">        Starting node for path. Must be a node in `G`.</span>
 
-<span class="sd">    end : Networkx node index</span>
-<span class="sd">        Ending node for path.</span>
+<span class="sd">    end : integer</span>
+<span class="sd">        Ending node for path. Must be a node in `G`.</span>
 
 <span class="sd">    pdf : string</span>
 <span class="sd">        There are two options: &#39;normal&#39; for the Gaussian Normal Distribution, </span>
 <span class="sd">        or &#39;truncated&#39; for the Truncated Gaussian Normal Distribution. This </span>
 <span class="sd">        defines the amout of noise the edge weights in `G` have. Select &#39;normal&#39; </span>
 <span class="sd">        if negative edge weights are allowed. Select &#39;truncted&#39; edge weights </span>
-<span class="sd">        must be non-negative.   </span>
+<span class="sd">        must be non-negative. (CURRENTLY ONLY &#39;truncated&#39; WORKS)  </span>
 
 <span class="sd">    sigma : float</span>
 <span class="sd">        Defines the standard deviation for the noise `pdf`.</span>
-
-<span class="sd">    Notes</span>
-<span class="sd">    ----- </span>
-<span class="sd">    We define the stochastic weighted graph induced by :math:`G` as </span>
-<span class="sd">    :math:`G^{*} = (V, E,C^{*} )` with :math:`C^{*}`  defined as the</span>
-<span class="sd">    :math:`n \\times n` matrix of edge cost distirbutions defined by </span>
-<span class="sd">    </span>
-<span class="sd">    .. math:: Y_{(i,j)} = X_{(i,j)}c_{(i,j)} + c_{(i,j)}</span>
-<span class="sd">    </span>
-<span class="sd">    </span>
-<span class="sd">    where :math:`c_{(i,j)} \in C` and :math:`X_{(i,j)} \sim N(0,\sigma^{2})` i.i.d.</span>
-<span class="sd">    Thus we perturb the edge weights by a multiple of the original edge weight.</span>
-<span class="sd">    The variance :math:`\sigma^{2}` of the Gaussian noise parameterizes the </span>
-<span class="sd">    magnitude.</span>
-<span class="sd">    </span>
-<span class="sd">    Note that by linearity of expected value and a basic property of variance </span>
-<span class="sd">    we immediately obtain</span>
-<span class="sd">    </span>
-<span class="sd">    .. math:: Y_{(i,j)} \sim  N(c_{(i,j)},c_{(i,j)}^{2}\sigma^{2}).</span>
 <span class="sd">   </span>
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -404,8 +378,8 @@
 <span class="sd">        </span>
 <span class="sd">        .. math::</span>
 
-<span class="sd">            P(Z_{\\pi} &lt; Z_{\\gamma}) &amp;= P(Z_{\\pi} - Z_{\\gamma} &lt; 0) \\\ </span>
-<span class="sd">                                      &amp;= 1 - P(Z_{\\gamma} - Z_{\\pi} \\leq 0) \\\ </span>
+<span class="sd">            P(Z_{\\pi} &lt; Z_{\\gamma}) &amp;= P(Z_{\\pi} - Z_{\\gamma} &lt; 0) \\\\ </span>
+<span class="sd">                                      &amp;= 1 - P(Z_{\\gamma} - Z_{\\pi} \\leq 0) \\\\ </span>
 <span class="sd">                                      &amp;= 1 - CDF_{Z_{\\gamma} - Z_{\\pi}}(0) \\\\</span>
 <span class="sd">                                      &amp;= SF_{Z_{\\gamma} - Z_{\\pi}}(0)</span>
 

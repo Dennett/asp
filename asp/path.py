@@ -25,8 +25,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Documentation
--------------
+Details
+-------
 """
 
 
@@ -50,26 +50,7 @@ import pandas as pd
 class path:
     """ Class for computing on paths. Stores path attributes and computes 
     summary statistics. Generates path length distribution and samples from it.
-
-    Notes
-    ----- 
-    We define the stochastic weighted graph induced by :math:`G` as 
-    :math:`G^{*} = (V, E,C^{*} )` with :math:`C^{*}`  defined as the
-    :math:`n \\times n` matrix of edge cost distirbutions defined by 
     
-    .. math:: Y_{(i,j)} = X_{(i,j)}c_{(i,j)} + c_{(i,j)}
-    
-    
-    where :math:`c_{(i,j)} \in C` and :math:`X_{(i,j)} \sim N(0,\sigma^{2})` i.i.d.
-    Thus we perturb the edge weights by a multiple of the original edge weight.
-    The variance :math:`\sigma^{2}` of the Gaussian noise parameterizes the 
-    magnitude.
-    
-    Note that by linearity of expected value and a basic property of variance 
-    we immediately obtain
-    
-    .. math:: Y_{(i,j)} \sim  N(c_{(i,j)},c_{(i,j)}^{2}\sigma^{2}).
-     
     Parameters
     ----------    
     G : Networkx graph
@@ -90,11 +71,47 @@ class path:
         or 'truncated' for the Truncated Gaussian Normal Distribution. This 
         defines the amount of noise the edge weights in `G` have. Select 
         'normal' if negative edge weights are allowed. Select 'truncted' edge 
-        weights must be non-negative.   
+        weights must be non-negative. (CURRENTLY ONLY 'truncated' WORKS)  
 
     sigma : float
         Defines the standard deviation for the noise `pdf`.
     
+    Notes
+    ----- 
+    We define the stochastic weighted graph induced by :math:`G` as 
+    :math:`G^{*} = (V, E,C^{*} )` with :math:`C^{*}` defined as the
+    :math:`n \\times n` matrix of edge cost distirbutions defined by:
+    
+    .. math:: Y_{(i,j)} = X_{(i,j)}c_{(i,j)} + c_{(i,j)}
+    
+    where :math:`c_{(i,j)} \in C` and :math:`X_{(i,j)} \sim N(0,\sigma^{2})` i.i.d.
+    or :math:`X_{(i,j)} \sim TN(0,\sigma^{2})` i.i.d. Thus we perturb the edge 
+    weights by a multiple of the original edge weight. The variance 
+    :math:`\sigma^{2}` of the Gaussian noise parameterizes the magnitude.
+    
+    We define a path :math:`\\pi_{i,j}` as an ordered sequence of nodes 
+    :math:`(v_{k})_{k=1}^{m}` with :math:`v_{1}=i` and :math:`v_{m}=j`  as source and destination
+    nodes respectively and  :math:`(v_{k},v_{k+1}) \\in E,  \\forall k`. A path is 
+    called simple if :math:`v_{k} \\ne v_{l}, \\forall  k,l`. That is, there are no 
+    loops or cycles in the path. 
+    
+    Let :math:`i,j \\in V` and define :math:`\\Pi_{i,j} =  \\{ \\pi_{i,j} \\mid \\pi_{i,j} \\text{ is simple}\\}`. 
+    Then, for :math:`\\pi \\in \\Pi_{i,j}` define:
+    
+    .. math::
+        Z_{\\pi} = \\sum_{v_{k} \\in \\pi} Y_{(v_{k},v_{k+1})} 
+        
+    as the stochastic length for path :math:`\\pi`. Then, the path 
+    :math:`\\pi`'s length distribution is:
+    
+    .. math:: 
+    
+        Z_{\\pi} &\\sim N \\left( \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})} ,  \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})}^{2}\\sigma^{2} \\right) \\\\
+        Z_{\\pi} &\\approx TN \\left( \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})} ,  \\sum_{v_{k} \\in \\pi} c_{(v_{k},v_{k+1})}^{2}\\sigma^{2}\\right) \\\\
+                 &\\text{over } \\left(0,\\sum_{v_{k} \\in \\pi}  2c_{(v_{k},v_{k+1})}\\right).
+  
+    depending on which noise model is used.
+
     Examples
     --------
     >>> G, pos, start, end = grid_graph( size = 2, max_weight = 10 )

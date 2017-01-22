@@ -25,8 +25,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Documentation
--------------
+Details
+-------
 """
 
 
@@ -50,14 +50,7 @@ from asp.path import path
     
 class path_family:
     """Class for computing on a family of paths related by their start and 
-    endpoints. Choose to generate the family of paths from a three options:
-    
-    get_all_paths() : find all paths between endpoints.
-
-    get_k_paths() : find only the k-shortest paths.
-
-    get_auto_paths() : find the (i*k)-shortest paths where i is 
-    automatically determined.
+    endpoints.
     
     Parameters
     ----------
@@ -66,40 +59,21 @@ class path_family:
         weights below must exist in this graph. The weights MUST be labeled 
         'weight'. Asp has only be tested on undirected graphs.
 
-    start : Networkx node index
-        Starting node for path.
+    start : integer
+        Starting node for path. Must be a node in `G`.
 
-    end : Networkx node index
-        Ending node for path.
+    end : integer
+        Ending node for path. Must be a node in `G`.
 
     pdf : string
         There are two options: 'normal' for the Gaussian Normal Distribution, 
         or 'truncated' for the Truncated Gaussian Normal Distribution. This 
         defines the amout of noise the edge weights in `G` have. Select 'normal' 
         if negative edge weights are allowed. Select 'truncted' edge weights 
-        must be non-negative.   
+        must be non-negative. (CURRENTLY ONLY 'truncated' WORKS)  
 
     sigma : float
         Defines the standard deviation for the noise `pdf`.
-
-    Notes
-    ----- 
-    We define the stochastic weighted graph induced by :math:`G` as 
-    :math:`G^{*} = (V, E,C^{*} )` with :math:`C^{*}`  defined as the
-    :math:`n \\times n` matrix of edge cost distirbutions defined by 
-    
-    .. math:: Y_{(i,j)} = X_{(i,j)}c_{(i,j)} + c_{(i,j)}
-    
-    
-    where :math:`c_{(i,j)} \in C` and :math:`X_{(i,j)} \sim N(0,\sigma^{2})` i.i.d.
-    Thus we perturb the edge weights by a multiple of the original edge weight.
-    The variance :math:`\sigma^{2}` of the Gaussian noise parameterizes the 
-    magnitude.
-    
-    Note that by linearity of expected value and a basic property of variance 
-    we immediately obtain
-    
-    .. math:: Y_{(i,j)} \sim  N(c_{(i,j)},c_{(i,j)}^{2}\sigma^{2}).
    
     Examples
     --------
@@ -353,8 +327,8 @@ class path_family:
         
         .. math::
 
-            P(Z_{\\pi} < Z_{\\gamma}) &= P(Z_{\\pi} - Z_{\\gamma} < 0) \\\ 
-                                      &= 1 - P(Z_{\\gamma} - Z_{\\pi} \\leq 0) \\\ 
+            P(Z_{\\pi} < Z_{\\gamma}) &= P(Z_{\\pi} - Z_{\\gamma} < 0) \\\\ 
+                                      &= 1 - P(Z_{\\gamma} - Z_{\\pi} \\leq 0) \\\\ 
                                       &= 1 - CDF_{Z_{\\gamma} - Z_{\\pi}}(0) \\\\
                                       &= SF_{Z_{\\gamma} - Z_{\\pi}}(0)
 

@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-----------------------------
-edge_distribution
-----------------------------
+---------------------
+**edge_distribution**
+---------------------
 
 Description
 -----------
-edge_distribution.py - edge distributions for ASP.
+Create a distribution for the probability an edge is along the shortest path.
+
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
 License
@@ -23,6 +24,9 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Details
+-------
 """
 
 
@@ -50,39 +54,51 @@ from asp.path_family import path_family
 
 class edge_distribution:
     """Class for computing and storing edge distributions.
+
+    Parameters
+    ----------
+    G : Networkx graph
+        Graph from which this path will be derived.
+        The nodes, edges, and edge weights below must exist in this graph.
+        The weights MUST be labeled 'weight'.
+        Asp has only be tested on undirected graphs.
+
+    pts : dictionary
+        Keys are node IDs from G and values are the probability the node should
+        be a start or end point.
+        
+    pdf : string
+        There are two options: 'normal' for the Gaussian Normal Distribution, 
+        or 'truncated' for the Truncated Gaussian Normal Distribution. This 
+        defines the amount of noise the edge weights in `G` have. Select 
+        'normal' if negative edge weights are allowed. Select 'truncted' edge 
+        weights must be non-negative. (CURRENTLY ONLY 'truncated' WORKS)   
+
+    sigma : float
+        Defines the standard deviation for the noise pdf.
+
+    Notes
+    -----
+    Extending estimates for :math:`p^{*}` to edge traversal probabilities arises 
+    naturally in the simulation algorithm since edge traversal counts can 
+    be easily obtained from path traversals. Such accounting does not come 
+    easily with Asp. However, the probability of an edge being traversed 
+    can be computed from the probabilities of the paths containing it.
+    
+    For example, suppose there is a distribution over the nodes giving the 
+    probability :math:`P( (i,j) = (s,e))` each pair of nodes would be selected as 
+    endpoints :math:`(s,e)`. Then, given any edge :math:`(u,v)`, the probability :math:`(u,v)` 
+    is traversed could be defined as:
+
+    .. math:: P( (u,v) \\text{ traversed } ) = \\sum_{(u,v) \\in \\pi_{i,j}} p^{*}_{\\pi_{i,j}} P( (i,j) = (s,e))).
+
+    Examples
+    --------
+    >>> G, pos, start, end = grid_graph( size = 2, max_weight = 2 )
+    >>> myedgedistr = edge_distribution( G, pts={1:.2,0:.3,3:.5}, pdf='truncated', sigma=.2 )
     """
     
     def __init__( self, G, pts, pdf, sigma ):
-        '''Constructor.     
-        
-        Parameters
-        ----------
-        G : Networkx graph
-            Graph from which this path will be derived.
-            The nodes, edges, and edge weights below must exist in this graph.
-            The weights MUST be labeled 'weight'.
-            Asp has only be tested on undirected graphs.
-    
-        pts : dictionary
-            keys: node IDs from G.
-            values: probability the node should be a start or end point.
-            
-        pdf : string
-            There are two options:
-                1. 'normal' for the Gaussian Normal Distribution, or 
-                2. 'truncated' for the Truncated Gaussian Normal Distribution.
-            This defines the amount of noise the edge weights in G have.
-            Select 'normal' if negative edge weights are allowed.
-            Select 'truncted' edge weights must be non-negative.   
-    
-        sigma : float
-            Defines the standard deviation for the noise pdf.
-    
-        Example
-        --------
-        >>> G, pos, start, end = grid_graph( size = 2, max_weight = 2 )
-        >>> myedgedistr = edge_distribution( G, pts={1:.2,0:.3,3:.5}, pdf='truncated', sigma=.2 )
-        '''
 
         # Define path attributes.
         self.G = G
@@ -95,7 +111,7 @@ class edge_distribution:
     def summary( self ):
         '''Print basic object attributes.
         
-        Example
+        Examples
         --------
 
         >>> myedgedistr.summary()
@@ -125,11 +141,10 @@ class edge_distribution:
         Parameters
         ----------
         path_alg : string        
-            Choose to generate the family of paths from a three options:
-            1. 'all' : find all paths between endpoints.
-            2. 'k' : find only the k-shortest paths.
-            3. 'auto' : find the (i*k)-shortest paths where i is automatically 
-               determined. 
+            Choose to generate the family of paths from a three options: 
+            'all' (find all paths between endpoints), 'k' (find only the k-shortest paths),
+            and 'auto' (find the (i*k)-shortest paths where i is automatically)
+            determined. 
             
         path_k : integer, optional - depending on alg
             Paths are selected in chunks of k until a selection criteria is
@@ -140,9 +155,9 @@ class edge_distribution:
 
         alg : string
             Choose to generate the edge distribution from a three options:
-            1. 'spd' : estimate via Sampling Paths' Distributions.
-            2. 'nmi' : estimate via NuMeric Integration.
-            3. 'mcs' : estimate via Monte Carlo Simulation.
+            'spd' (estimate via Sampling Paths' Distributions), 
+            'nmi' (estimate via NuMeric Integration), and 
+            'mcs' (estimate via Monte Carlo Simulation)
 
         paths : dict        
             Dictionary of path objects. Path names MUST be consecutive integers
@@ -352,11 +367,12 @@ class edge_distribution:
             Scale the width of the edges appropriately for graph size.
         
         labels : boolean, optional
+            Toggles edge labels.        
         
         filename : string, optional
             Path where you want to same the image.
         
-        **kwargs: dict, optional
+        **kwargs : dict, optional
             kwargs for for drawing edge labels.
             
         

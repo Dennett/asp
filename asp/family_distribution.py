@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-----------------------------
-family_distribution
-----------------------------
+-----------------------
+**family_distribution**
+-----------------------
 
 Description
 -----------
-family_distribution.py - path distribution for ASP.
+Create a minimum length distribution for a family of paths. 
+
 Copyright (C) 2017 Michael W. Ramsey <michael.ramsey@gmail.com>
 
 License
@@ -23,6 +24,9 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Details
+-------
 """
 
 
@@ -48,26 +52,40 @@ from asp.path import path
 
 class family_distribution:
     """Class for computing and storing stochastic shortest path
-    distributions for a path_family. Choose to estimate the distribution from 
-    three options:
-    1. get_spd_ssp_distr() : estimate via Sampling Paths' Distributions.
-    2. get_nmi_ssp_distr() : estimate via NuMeric Integration.
-    3. get_mcs_ssp_distr() : estimate via Monte Carlo Simulation.
+    distributions for a path_family.
+    
+    Parameters
+    ----------
+    path_family : path_family object
+
+    Notes
+    -----
+    We define the stochastic shortest path and the expected shortest path as:
+
+    .. math:: 
+        \\pi_{i,j}^{\\ast}        & = \\min_{\\pi \\in \\Pi_{i,j}} Z_{\\pi} \\\\
+        \\hat{\\pi}_{i,j}^{\\ast} & = \\min_{\\pi \\in \\Pi_{i,j}} \\hat{Z}_{\\pi}.
+
+    Note that :math:`\\hat{\\pi}_{i,j}^{*}` can be computed directly from Dykstra's 
+    Algorithm and that :math:`\\hat{\\pi}_{i,j}^{*}` is the mode of :math:`\\pi_{i,j}^{*}`.
+    
+    We can now give our problem definition:
+    
+    Given any weighted graph :math:`G` and :math:`i,j \\in V`, find :math:`p^{*}(\\pi_{i,j})=P(\\pi_{i,j} = \\pi^{\\ast}_{i,j}), \\forall \\pi \\in \\Pi_{i,j}`.
+    
+    This provides the probability that :math:`\\pi_{i,j}` is the shortest path 
+    between nodes :math:`i,j` for a random draw of edge weights from :math:`G^{*}` for any path :math:`\\pi_{i,j}`.
+
+    
+
+    Examples
+    --------
+    >>> G, pos, start, end = grid_graph( size = 3, max_weight = 10 )
+    >>> myfamily = path_family( G=G, start=start, end=end, pdf='truncated', sigma=.5 )         
+    >>> myfamdistr = family_distribution( myfamily )
     """
     
     def __init__( self, path_family ):
-        '''Constructor.     
-        
-        Parameters
-        ----------
-        path_family : path_family object
-    
-        Example
-        --------
-        >>> G, pos, start, end = grid_graph( size = 3, max_weight = 10 )
-        >>> myfamily = path_family( G=G, start=start, end=end, pdf='truncated', sigma=.5 )         
-        >>> myfamdistr = family_distribution( myfamily )
-        '''
 
         # Define path attributes.        
         self.path_family = path_family
@@ -89,7 +107,7 @@ class family_distribution:
     
         Returns
         -------
-        mins: np.array()
+        mins : np.array()
              Array of names of the path with the minimum length out of all the
              samples drawn that round.
       
@@ -140,10 +158,22 @@ class family_distribution:
             
         Returns
         -------
-        ms: float
+        ms : float
              The maximum change in the frequency a path is the minimum over the
              paths.
-      
+
+        Notes
+        -----
+        If `auto` is set to True, then to select the number :math:`N` of samples to draw from :math:`Z_{\\pi}`, 
+        `get_spd_ssp_distr` works in batchs of size `N` and stops when the marginal change 
+        :math:`\\delta_{N}` in :math:`\\omega_N` falls below a provided threshold  
+        :math:`t_{N}`. If the marginal change is not below :math:`t_{N}`, it draws 
+        :math:`b_{N}` more, recomputes, tests, and repeats until the threshold 
+        is met. Asp computes the marginal change as 
+        :math:`\\delta_{N} = \\lvert  \\omega_n - \\omega_{n-\\epsilon} \\rvert` 
+        for some user provided :math:`\\epsilon` and for :math:`n` equal to :math:`b_{N}` times 
+        the number of completed iterations.
+     
         Examples
         --------
         >>> G, pos, start, end = grid_graph( size = 3, max_weight = 10 )
@@ -210,15 +240,45 @@ class family_distribution:
             
         Returns
         -------
-        f_N_dict: dictionary
+        f_N_dict : dictionary
             key: path object.
             value: number of times the path was drawn as minimum of all the 
             path lengths, divided by the number of total draws.
         
-        max_margin: float or None
+        max_margin : float or None
              The maximum change in the frequency a path is the minimum over the
              paths. If auto is False, then None is returned.
-      
+
+        Notes
+        -----
+        By sampling each :math:`Z_{\\pi}` directly using, we can 
+        calculate the frequency that 
+        :math:`Z_{\\pi}\\leq\\min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}` and use 
+        this to estimate  :math:`p^{*}(\\pi_{i,j})`, :math:`\\forall \\pi \\in \\Pi_{i,j}`.
+        
+        Let :math:`z_{\\pi,k}` be the :math:`k^{th}` random draw from :math:`Z_{\\pi}` out of 
+        :math:`N \\in{{\\mathbb N}}` many and :math:`(z_{\\pi,k})_{\\pi \\in \\Pi_{i,j}}` 
+        a random draw from all the :math:`Z_{\\pi}`. Define 
+        :math:`m_{k}=\\min_{\\gamma \\in \\Gamma_{\\pi}} z_{\\gamma,k}`. 
+        Then the relative frequency that  
+        :math:`Z_{\\pi}\\leq\\min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}` is computed as:
+        
+        .. math::
+            
+            \\omega_{N}(\\pi = \\pi^{\\ast}) = \\frac{ \\sum_{k=1}^{N} \\mathbf {1} _{{{\\mathbb R}}^{+}}(m_{k}-z_{\\pi,k})}{N}
+
+        where :math:`\\mathbf {1} _{{{\\mathbb R}}^{+}}\\colon X\\to \\{0,1\\}\\,` is the indicator function defined as:
+        
+        .. math::
+            {\\displaystyle \\mathbf {1} _{{{\\mathbb R}}^{+}}(x)={\\begin{cases}1&{\\text{if }}x > 0,\\\\0&{\\text{if }}x \\leq 0.\\end{cases}}} 
+        
+        Therefore, by the Law of Large Numbers, as :math:`N \\rightarrow \\infty`:
+        
+        .. math::
+            \\omega_{N}(\\pi = \\pi^{\\ast})\\longrightarrow P(\\pi = \\pi^{\\ast})
+        
+        where :math:`P(\\pi = \\pi^{\\ast}) = {{\\mathbb E}}( {1} _{{{\\mathbb R}}^{+}}(m_{k}-z_{\\pi,k}))`.        
+        
         Examples
         --------
         >>> G, pos, start, end = grid_graph( size = 3, max_weight = 10 )
@@ -325,12 +385,45 @@ class family_distribution:
             
         Returns
         -------
-        prob_dict: dictionary
+        prob_dict : dictionary
             key: path object.
             value: estimated probability.
         
-        abserr: float or None
+        abserr : float or None
             Estimated error returned by Scipy's Quad function.      
+
+        Notes
+        -----
+        Given any weighted graph :math:`G`, let :math:`\\pi \\in \\Pi_{i,j}` for some 
+        :math:`i,j \\in V` and :math:`\\Gamma_{\\pi} = \\Pi_{i,j}-\\{\\pi\\}`. We can 
+        recast :math:`P(\\pi = \\pi^{\\ast})` as :math:`P(Z_{\\pi}<W)` where 
+        :math:`W =  \\min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}`. 
+        By conditioning on :math:`Z_{\\pi}=s` for some :math:`s\\in{{\\mathbb R}}` 
+        we obtain:
+
+        .. math::
+
+            P(Z_{\\pi}=s, Z_{\\pi}<W)  & = P(Z_{\\pi}=s)P(W>s \\mid Z_{\\pi}=s) \\notag\\\\
+                                       & = P(Z_{\\pi}=s)\\prod_{\\gamma \\in \\Gamma_{\\pi}} P(Z_{\\gamma}>s) \\notag \\\\
+                                       & = P(Z_{\\pi}=s)\\prod_{\\gamma \\in \\Gamma_{\\pi}} (1-P(Z_{\\gamma} \\leq s)) \\notag \\\\
+                                       & = f_{Z_{\\pi}}(s)\\prod_{\\gamma \\in \\Gamma_{\\pi}}(1-F(Z_{\\gamma}(s))) \\notag \\\\
+                                       & = f_{Z_{\\pi}}(s)\\prod_{\\gamma \\in \\Gamma_{\\pi}} SF(Z_{\\gamma}(s))
+
+        since all the stochastic costs are independent; and where :math:`f` is 
+        the density for :math:`Z_{\\pi}` and :math:`F` and :math:`SF` are 
+        the cumulative distribution function and the survival function for 
+        :math:`Z_{\\gamma}`.  :math:`Z_{\\pi}` and :math:`Z_{\\gamma}` are distributed.
+        
+        To determine :math:`P(Z_{\\pi}<W)` we simply need to integrate over `s`:
+        
+        .. math::
+            P(Z_{\\pi}<W)   & = \\int_{-\\infty}^{\\infty} P(Z_{\\pi}=s, Z_{\\pi}<W)  ds \\notag \\\\
+                            & = \\int_{-\\infty}^{\\infty} f_{Z_{\\pi}}(s)\\prod_{\\gamma \\in \\Gamma_{\\pi}}SF(Z_{\\gamma}(s))  ds
+                            
+        Therefore, given any simple path between any two nodes in a graph with 
+        noisy edge weights, gives the probability it is the shortest path.
+        
+
         
         Examples
         --------
@@ -376,12 +469,12 @@ class family_distribution:
             
         Returns
         -------
-        freq_dict: dictionary
+        freq_dict : dictionary
             key: path object.
             value: estimated probability based on the frequency a path is
             selected as the shortest.
         
-        dummy: None
+        dummy : None
             Exists only to make the output like the others.      
         
         Examples
@@ -434,10 +527,7 @@ class family_distribution:
 
 
     def get_distr( self, paths, alg, itr, auto, N = 1e3, m = .1, tol = 5e-2, M = 5e5, n = 1000, **kwargs ): 
-        '''Wrapper to generate the paths' distribution from a three options:
-        1. 'spd' : estimate via Sampling Paths' Distributions.
-        2. 'nmi' : estimate via NuMeric Integration.
-        3. 'mcs' : estimate via Monte Carlo Simulation.
+        '''Wrapper to generate the paths' distribution.
     
         Parameters
         ----------
@@ -583,15 +673,15 @@ class family_distribution:
             List of distribution objects with node tuple as keys.
     
         Examples
-        -------           
+        --------           
         >>> G, pos, start, end = grid_graph( size = 3, max_weight = 10 )
-        >>> myfamily = path_family( G=G, start=start, end=end, pdf='truncated', sigma=.5 )         
+        >>> myfamily = path_family( G=G, start=start, end=end, pdf='truncated', sigma=.5 )
         >>> myfamdistr = family_distribution( myfamily )
         >>> paths = myfamily.get_paths( alg = 'k', k = 3 )
         >>> avg_result, var_result, avg_err, avg_time = myfamdistr.get_distr( paths, alg='nmi', itr = 1, auto = False, epsrel = 1e-4, epsabs = 0 )
         >>> myfamdistr.keys_2_nodes( [ avg_result ] )
         [{(0, 1, 2, 5, 8): 0.3797458089395961,
-          (0, 3, 4, 7, 8): 0.3653256469471194,
+          (0, 3, 4, 7, 8): 0.3653256469471194, 
           (0, 3, 6, 7, 8): 0.2549285441225291}]
         '''
 

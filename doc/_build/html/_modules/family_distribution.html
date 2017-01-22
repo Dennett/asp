@@ -51,13 +51,14 @@
   <h1>Source code for family_distribution</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">----------------------------</span>
-<span class="sd">family_distribution</span>
-<span class="sd">----------------------------</span>
+<span class="sd">-----------------------</span>
+<span class="sd">**family_distribution**</span>
+<span class="sd">-----------------------</span>
 
 <span class="sd">Description</span>
 <span class="sd">-----------</span>
-<span class="sd">family_distribution.py - path distribution for ASP.</span>
+<span class="sd">Create a minimum length distribution for a family of paths. </span>
+
 <span class="sd">Copyright (C) 2017 Michael W. Ramsey &lt;michael.ramsey@gmail.com&gt;</span>
 
 <span class="sd">License</span>
@@ -74,6 +75,9 @@
 
 <span class="sd">You should have received a copy of the GNU General Public License</span>
 <span class="sd">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="sd">Details</span>
+<span class="sd">-------</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -99,26 +103,40 @@
 
 <div class="viewcode-block" id="family_distribution"><a class="viewcode-back" href="../index.html#family_distribution.family_distribution">[docs]</a><span class="k">class</span> <span class="nc">family_distribution</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Class for computing and storing stochastic shortest path</span>
-<span class="sd">    distributions for a path_family. Choose to estimate the distribution from </span>
-<span class="sd">    three options:</span>
-<span class="sd">    1. get_spd_ssp_distr() : estimate via Sampling Paths&#39; Distributions.</span>
-<span class="sd">    2. get_nmi_ssp_distr() : estimate via NuMeric Integration.</span>
-<span class="sd">    3. get_mcs_ssp_distr() : estimate via Monte Carlo Simulation.</span>
+<span class="sd">    distributions for a path_family.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_family : path_family object</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    We define the stochastic shortest path and the expected shortest path as:</span>
+
+<span class="sd">    .. math:: </span>
+<span class="sd">        \\pi_{i,j}^{\\ast}        &amp; = \\min_{\\pi \\in \\Pi_{i,j}} Z_{\\pi} \\\\</span>
+<span class="sd">        \\hat{\\pi}_{i,j}^{\\ast} &amp; = \\min_{\\pi \\in \\Pi_{i,j}} \\hat{Z}_{\\pi}.</span>
+
+<span class="sd">    Note that :math:`\\hat{\\pi}_{i,j}^{*}` can be computed directly from Dykstra&#39;s </span>
+<span class="sd">    Algorithm and that :math:`\\hat{\\pi}_{i,j}^{*}` is the mode of :math:`\\pi_{i,j}^{*}`.</span>
+<span class="sd">    </span>
+<span class="sd">    We can now give our problem definition:</span>
+<span class="sd">    </span>
+<span class="sd">    Given any weighted graph :math:`G` and :math:`i,j \\in V`, find :math:`p^{*}(\\pi_{i,j})=P(\\pi_{i,j} = \\pi^{\\ast}_{i,j}), \\forall \\pi \\in \\Pi_{i,j}`.</span>
+<span class="sd">    </span>
+<span class="sd">    This provides the probability that :math:`\\pi_{i,j}` is the shortest path </span>
+<span class="sd">    between nodes :math:`i,j` for a random draw of edge weights from :math:`G^{*}` for any path :math:`\\pi_{i,j}`.</span>
+
+<span class="sd">    </span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; G, pos, start, end = grid_graph( size = 3, max_weight = 10 )</span>
+<span class="sd">    &gt;&gt;&gt; myfamily = path_family( G=G, start=start, end=end, pdf=&#39;truncated&#39;, sigma=.5 )         </span>
+<span class="sd">    &gt;&gt;&gt; myfamdistr = family_distribution( myfamily )</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">path_family</span> <span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Constructor.     </span>
-<span class="sd">        </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        path_family : path_family object</span>
-<span class="sd">    </span>
-<span class="sd">        Example</span>
-<span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; G, pos, start, end = grid_graph( size = 3, max_weight = 10 )</span>
-<span class="sd">        &gt;&gt;&gt; myfamily = path_family( G=G, start=start, end=end, pdf=&#39;truncated&#39;, sigma=.5 )         </span>
-<span class="sd">        &gt;&gt;&gt; myfamdistr = family_distribution( myfamily )</span>
-<span class="sd">        &#39;&#39;&#39;</span>
 
         <span class="c1"># Define path attributes.        </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">path_family</span> <span class="o">=</span> <span class="n">path_family</span>
@@ -140,7 +158,7 @@
 <span class="sd">    </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        mins: np.array()</span>
+<span class="sd">        mins : np.array()</span>
 <span class="sd">             Array of names of the path with the minimum length out of all the</span>
 <span class="sd">             samples drawn that round.</span>
 <span class="sd">      </span>
@@ -191,10 +209,22 @@
 <span class="sd">            </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        ms: float</span>
+<span class="sd">        ms : float</span>
 <span class="sd">             The maximum change in the frequency a path is the minimum over the</span>
 <span class="sd">             paths.</span>
-<span class="sd">      </span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        If `auto` is set to True, then to select the number :math:`N` of samples to draw from :math:`Z_{\\pi}`, </span>
+<span class="sd">        `get_spd_ssp_distr` works in batchs of size `N` and stops when the marginal change </span>
+<span class="sd">        :math:`\\delta_{N}` in :math:`\\omega_N` falls below a provided threshold  </span>
+<span class="sd">        :math:`t_{N}`. If the marginal change is not below :math:`t_{N}`, it draws </span>
+<span class="sd">        :math:`b_{N}` more, recomputes, tests, and repeats until the threshold </span>
+<span class="sd">        is met. Asp computes the marginal change as </span>
+<span class="sd">        :math:`\\delta_{N} = \\lvert  \\omega_n - \\omega_{n-\\epsilon} \\rvert` </span>
+<span class="sd">        for some user provided :math:`\\epsilon` and for :math:`n` equal to :math:`b_{N}` times </span>
+<span class="sd">        the number of completed iterations.</span>
+<span class="sd">     </span>
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; G, pos, start, end = grid_graph( size = 3, max_weight = 10 )</span>
@@ -261,15 +291,45 @@
 <span class="sd">            </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        f_N_dict: dictionary</span>
+<span class="sd">        f_N_dict : dictionary</span>
 <span class="sd">            key: path object.</span>
 <span class="sd">            value: number of times the path was drawn as minimum of all the </span>
 <span class="sd">            path lengths, divided by the number of total draws.</span>
 <span class="sd">        </span>
-<span class="sd">        max_margin: float or None</span>
+<span class="sd">        max_margin : float or None</span>
 <span class="sd">             The maximum change in the frequency a path is the minimum over the</span>
 <span class="sd">             paths. If auto is False, then None is returned.</span>
-<span class="sd">      </span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        By sampling each :math:`Z_{\\pi}` directly using, we can </span>
+<span class="sd">        calculate the frequency that </span>
+<span class="sd">        :math:`Z_{\\pi}\\leq\\min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}` and use </span>
+<span class="sd">        this to estimate  :math:`p^{*}(\\pi_{i,j})`, :math:`\\forall \\pi \\in \\Pi_{i,j}`.</span>
+<span class="sd">        </span>
+<span class="sd">        Let :math:`z_{\\pi,k}` be the :math:`k^{th}` random draw from :math:`Z_{\\pi}` out of </span>
+<span class="sd">        :math:`N \\in{{\\mathbb N}}` many and :math:`(z_{\\pi,k})_{\\pi \\in \\Pi_{i,j}}` </span>
+<span class="sd">        a random draw from all the :math:`Z_{\\pi}`. Define </span>
+<span class="sd">        :math:`m_{k}=\\min_{\\gamma \\in \\Gamma_{\\pi}} z_{\\gamma,k}`. </span>
+<span class="sd">        Then the relative frequency that  </span>
+<span class="sd">        :math:`Z_{\\pi}\\leq\\min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}` is computed as:</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            </span>
+<span class="sd">            \\omega_{N}(\\pi = \\pi^{\\ast}) = \\frac{ \\sum_{k=1}^{N} \\mathbf {1} _{{{\\mathbb R}}^{+}}(m_{k}-z_{\\pi,k})}{N}</span>
+
+<span class="sd">        where :math:`\\mathbf {1} _{{{\\mathbb R}}^{+}}\\colon X\\to \\{0,1\\}\\,` is the indicator function defined as:</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            {\\displaystyle \\mathbf {1} _{{{\\mathbb R}}^{+}}(x)={\\begin{cases}1&amp;{\\text{if }}x &gt; 0,\\\\0&amp;{\\text{if }}x \\leq 0.\\end{cases}}} </span>
+<span class="sd">        </span>
+<span class="sd">        Therefore, by the Law of Large Numbers, as :math:`N \\rightarrow \\infty`:</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            \\omega_{N}(\\pi = \\pi^{\\ast})\\longrightarrow P(\\pi = \\pi^{\\ast})</span>
+<span class="sd">        </span>
+<span class="sd">        where :math:`P(\\pi = \\pi^{\\ast}) = {{\\mathbb E}}( {1} _{{{\\mathbb R}}^{+}}(m_{k}-z_{\\pi,k}))`.        </span>
+<span class="sd">        </span>
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; G, pos, start, end = grid_graph( size = 3, max_weight = 10 )</span>
@@ -376,12 +436,45 @@
 <span class="sd">            </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        prob_dict: dictionary</span>
+<span class="sd">        prob_dict : dictionary</span>
 <span class="sd">            key: path object.</span>
 <span class="sd">            value: estimated probability.</span>
 <span class="sd">        </span>
-<span class="sd">        abserr: float or None</span>
+<span class="sd">        abserr : float or None</span>
 <span class="sd">            Estimated error returned by Scipy&#39;s Quad function.      </span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Given any weighted graph :math:`G`, let :math:`\\pi \\in \\Pi_{i,j}` for some </span>
+<span class="sd">        :math:`i,j \\in V` and :math:`\\Gamma_{\\pi} = \\Pi_{i,j}-\\{\\pi\\}`. We can </span>
+<span class="sd">        recast :math:`P(\\pi = \\pi^{\\ast})` as :math:`P(Z_{\\pi}&lt;W)` where </span>
+<span class="sd">        :math:`W =  \\min_{\\gamma \\in \\Gamma_{\\pi}} Z_{\\gamma}`. </span>
+<span class="sd">        By conditioning on :math:`Z_{\\pi}=s` for some :math:`s\\in{{\\mathbb R}}` </span>
+<span class="sd">        we obtain:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            P(Z_{\\pi}=s, Z_{\\pi}&lt;W)  &amp; = P(Z_{\\pi}=s)P(W&gt;s \\mid Z_{\\pi}=s) \\notag\\\\</span>
+<span class="sd">                                       &amp; = P(Z_{\\pi}=s)\\prod_{\\gamma \\in \\Gamma_{\\pi}} P(Z_{\\gamma}&gt;s) \\notag \\\\</span>
+<span class="sd">                                       &amp; = P(Z_{\\pi}=s)\\prod_{\\gamma \\in \\Gamma_{\\pi}} (1-P(Z_{\\gamma} \\leq s)) \\notag \\\\</span>
+<span class="sd">                                       &amp; = f_{Z_{\\pi}}(s)\\prod_{\\gamma \\in \\Gamma_{\\pi}}(1-F(Z_{\\gamma}(s))) \\notag \\\\</span>
+<span class="sd">                                       &amp; = f_{Z_{\\pi}}(s)\\prod_{\\gamma \\in \\Gamma_{\\pi}} SF(Z_{\\gamma}(s))</span>
+
+<span class="sd">        since all the stochastic costs are independent; and where :math:`f` is </span>
+<span class="sd">        the density for :math:`Z_{\\pi}` and :math:`F` and :math:`SF` are </span>
+<span class="sd">        the cumulative distribution function and the survival function for </span>
+<span class="sd">        :math:`Z_{\\gamma}`.  :math:`Z_{\\pi}` and :math:`Z_{\\gamma}` are distributed.</span>
+<span class="sd">        </span>
+<span class="sd">        To determine :math:`P(Z_{\\pi}&lt;W)` we simply need to integrate over `s`:</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            P(Z_{\\pi}&lt;W)   &amp; = \\int_{-\\infty}^{\\infty} P(Z_{\\pi}=s, Z_{\\pi}&lt;W)  ds \\notag \\\\</span>
+<span class="sd">                            &amp; = \\int_{-\\infty}^{\\infty} f_{Z_{\\pi}}(s)\\prod_{\\gamma \\in \\Gamma_{\\pi}}SF(Z_{\\gamma}(s))  ds</span>
+<span class="sd">                            </span>
+<span class="sd">        Therefore, given any simple path between any two nodes in a graph with </span>
+<span class="sd">        noisy edge weights, gives the probability it is the shortest path.</span>
+<span class="sd">        </span>
+
 <span class="sd">        </span>
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -427,12 +520,12 @@
 <span class="sd">            </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        freq_dict: dictionary</span>
+<span class="sd">        freq_dict : dictionary</span>
 <span class="sd">            key: path object.</span>
 <span class="sd">            value: estimated probability based on the frequency a path is</span>
 <span class="sd">            selected as the shortest.</span>
 <span class="sd">        </span>
-<span class="sd">        dummy: None</span>
+<span class="sd">        dummy : None</span>
 <span class="sd">            Exists only to make the output like the others.      </span>
 <span class="sd">        </span>
 <span class="sd">        Examples</span>
@@ -485,10 +578,7 @@
 
 
 <div class="viewcode-block" id="family_distribution.get_distr"><a class="viewcode-back" href="../index.html#family_distribution.family_distribution.get_distr">[docs]</a>    <span class="k">def</span> <span class="nf">get_distr</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">paths</span><span class="p">,</span> <span class="n">alg</span><span class="p">,</span> <span class="n">itr</span><span class="p">,</span> <span class="n">auto</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e3</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e5</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span> 
-        <span class="sd">&#39;&#39;&#39;Wrapper to generate the paths&#39; distribution from a three options:</span>
-<span class="sd">        1. &#39;spd&#39; : estimate via Sampling Paths&#39; Distributions.</span>
-<span class="sd">        2. &#39;nmi&#39; : estimate via NuMeric Integration.</span>
-<span class="sd">        3. &#39;mcs&#39; : estimate via Monte Carlo Simulation.</span>
+        <span class="sd">&#39;&#39;&#39;Wrapper to generate the paths&#39; distribution.</span>
 <span class="sd">    </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -634,15 +724,15 @@
 <span class="sd">            List of distribution objects with node tuple as keys.</span>
 <span class="sd">    </span>
 <span class="sd">        Examples</span>
-<span class="sd">        -------           </span>
+<span class="sd">        --------           </span>
 <span class="sd">        &gt;&gt;&gt; G, pos, start, end = grid_graph( size = 3, max_weight = 10 )</span>
-<span class="sd">        &gt;&gt;&gt; myfamily = path_family( G=G, start=start, end=end, pdf=&#39;truncated&#39;, sigma=.5 )         </span>
+<span class="sd">        &gt;&gt;&gt; myfamily = path_family( G=G, start=start, end=end, pdf=&#39;truncated&#39;, sigma=.5 )</span>
 <span class="sd">        &gt;&gt;&gt; myfamdistr = family_distribution( myfamily )</span>
 <span class="sd">        &gt;&gt;&gt; paths = myfamily.get_paths( alg = &#39;k&#39;, k = 3 )</span>
 <span class="sd">        &gt;&gt;&gt; avg_result, var_result, avg_err, avg_time = myfamdistr.get_distr( paths, alg=&#39;nmi&#39;, itr = 1, auto = False, epsrel = 1e-4, epsabs = 0 )</span>
 <span class="sd">        &gt;&gt;&gt; myfamdistr.keys_2_nodes( [ avg_result ] )</span>
 <span class="sd">        [{(0, 1, 2, 5, 8): 0.3797458089395961,</span>
-<span class="sd">          (0, 3, 4, 7, 8): 0.3653256469471194,</span>
+<span class="sd">          (0, 3, 4, 7, 8): 0.3653256469471194, </span>
 <span class="sd">          (0, 3, 6, 7, 8): 0.2549285441225291}]</span>
 <span class="sd">        &#39;&#39;&#39;</span>
 
