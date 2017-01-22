@@ -45,7 +45,7 @@ import scipy.stats as st
 import scipy.integrate as gral
 import time
 import math
-from paths import path, path_family
+from asp.paths import path, path_family
 
 
  
@@ -524,7 +524,7 @@ class family_distribution:
 
 
 
-    def get_distr( self, paths, alg, itr, auto, N = 1e3, m = .1, tol = 5e-2, M = 5e5, n = 1000, **kwargs ): 
+    def get_distr( self, paths, alg, itr = 1, auto = False, N = 1e2, m = .1, tol = 5e-1, M = 5e5, n = 100, **kwargs ): 
         '''Wrapper to generate the paths' distribution.
     
         Parameters
@@ -542,10 +542,10 @@ class family_distribution:
 
             'mcs' (estimate via Monte Carlo Simulation)
             
-        itr : integer
+        itr : integer, optional
             Number of trials to run.
             
-        auto : boolean
+        auto : boolean, optional for alg = 'spd' or alg = 'nmi'
             Toggles whether or not to continue drawing sample mins until the
             max marginal change is under less than tol.
 
@@ -917,7 +917,7 @@ class edge_distribution:
         
         
         
-    def get_edge_distr( self, path_alg = 'auto', path_k = 2, path_tol = 5e-1, alg = 'spd', itr = 1, auto = True, N = 1e2, m = .1, tol = 5e-2, M = 5e5, n = 1000, **kwargs ):
+    def get_edge_distr( self, path_alg = 'auto', path_k = 2, path_tol = 5e-1, alg = 'spd', itr = 1, auto = False, N = 1e2, m = .1, tol = 5e-2, M = 5e5, n = 1000, **kwargs ):
         '''Generate the edge distribution.
    
         Parameters
@@ -955,7 +955,7 @@ class edge_distribution:
         itr : integer, optional
             Number of trials to run.
             
-        auto : boolean, optional - depending on alg
+        auto : boolean, optional, optional for alg = 'spd' or alg = 'nmi'
             Toggles whether or not to continue drawing sample mins until the
             max marginal change is under less than tol.
 

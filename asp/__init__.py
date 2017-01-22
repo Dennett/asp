@@ -26,6 +26,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 
-from .test_graphs import grid_graph
-from .stochastic_paths import path, path_family
-from .shortest_path_distributions import family_distribution, edge_distribution
+from .graphs import grid_graph
+from .paths import path, path_family
+from .distributions import family_distribution, edge_distribution
