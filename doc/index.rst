@@ -26,7 +26,7 @@ Development Mode
 
 Contributing
 ------------
-ASP is still an extremely young project, and I'm happy for any contributions (patches, code, bugfixes, documentation, whatever) to get it to a stable and useful point. Feel free to get in touch with me via email or directly via github.
+ASP is still an extremely new project, and I'm happy for any contributions (patches, code, bugfixes, documentation, whatever) to get it to a stable and useful point. Feel free to get in touch with me via email or directly via github.
 
 Development is synchronized via git. To clone this repository, run
 
@@ -35,7 +35,6 @@ Development is synchronized via git. To clone this repository, run
 License
 -------
 ASP is licensed under the GPLv3
-
 
 Definitions
 -----------
