@@ -3,27 +3,23 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to asp's documentation!
-===============================
+Approximate Stochastic Paths (ASP)
+==================================
+ASP is an experimental package for exploring stochastic shortest paths on Networkx weighted graphs.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: grid_graph
+.. automodule:: graphs
+   :members:
+   
+.. automodule:: paths
    :members:
 
-.. automodule:: path
-   :members:
+.. automodule:: distributions
+   :members:    
 
-.. automodule:: path_family
-   :members:   
-
-.. automodule:: family_distribution
-   :members:   
-
-.. automodule:: edge_distribution
-   :members:   
    
 Indices and tables
 ==================

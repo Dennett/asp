@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to asp’s documentation! &#8212; ASP 0.1.1 documentation</title>
+    <title>Approximate Stochastic Paths (ASP) &#8212; ASP 0.1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -47,15 +47,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-asp-s-documentation">
-<h1>Welcome to asp&#8217;s documentation!<a class="headerlink" href="#welcome-to-asp-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="approximate-stochastic-paths-asp">
+<h1>Approximate Stochastic Paths (ASP)<a class="headerlink" href="#approximate-stochastic-paths-asp" title="Permalink to this headline">¶</a></h1>
+<p>ASP is an experimental package for exploring stochastic shortest paths on Networkx weighted graphs.</p>
 <div class="toctree-wrapper compound">
 </div>
-<span class="target" id="module-grid_graph"></span><div class="section" id="grid-graph">
-<h2><strong>grid_graph</strong><a class="headerlink" href="#grid-graph" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-graphs"></span><div class="section" id="graphs">
+<h2><strong>graphs</strong><a class="headerlink" href="#graphs" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="description">
 <h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
-<p>Generate a Networkx lattice graph with random edge weights.</p>
+<p>Create Networkx test graphs with random edge weights.</p>
 <p>Copyright (C) 2017 Michael W. Ramsey &lt;<a class="reference external" href="mailto:michael&#46;ramsey&#37;&#52;&#48;gmail&#46;com">michael<span>&#46;</span>ramsey<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</p>
 </div>
 <div class="section" id="license">
@@ -74,8 +75,8 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <div class="section" id="details">
 <h3>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="grid_graph.grid_graph">
-<code class="descclassname">grid_graph.</code><code class="descname">grid_graph</code><span class="sig-paren">(</span><em>size</em>, <em>max_weight</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/grid_graph.html#grid_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grid_graph.grid_graph" title="Permalink to this definition">¶</a></dt>
+<dt id="graphs.grid_graph">
+<code class="descclassname">graphs.</code><code class="descname">grid_graph</code><span class="sig-paren">(</span><em>size</em>, <em>max_weight</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphs.html#grid_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphs.grid_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a Networkx lattice graph with random edge weights.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -120,11 +121,11 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 
 </div>
 </div>
-<span class="target" id="module-path"></span><div class="section" id="path">
-<h2><strong>path</strong><a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-paths"></span><div class="section" id="paths">
+<h2><strong>paths</strong><a class="headerlink" href="#paths" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
 <h3>Description<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Create a stochastic path.</p>
+<p>Create stochastic paths.</p>
 <p>Copyright (C) 2017 Michael W. Ramsey &lt;<a class="reference external" href="mailto:michael&#46;ramsey&#37;&#52;&#48;gmail&#46;com">michael<span>&#46;</span>ramsey<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</p>
 </div>
 <div class="section" id="id2">
@@ -143,8 +144,8 @@ along with this program.  If not, see &lt;<a class="reference external" href="ht
 <div class="section" id="id3">
 <h3>Details<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="path.path">
-<em class="property">class </em><code class="descclassname">path.</code><code class="descname">path</code><span class="sig-paren">(</span><em>G</em>, <em>pi</em>, <em>name</em>, <em>pdf</em>, <em>sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/path.html#path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path.path" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path">
+<em class="property">class </em><code class="descclassname">paths.</code><code class="descname">path</code><span class="sig-paren">(</span><em>G</em>, <em>pi</em>, <em>name</em>, <em>pdf</em>, <em>sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for computing on paths. Stores path attributes and computes 
 summary statistics. Generates path length distribution and samples from it.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -221,20 +222,20 @@ Z_{\pi} &amp;\approx TN \left( \sum_{v_{k} \in \pi} c_{(v_{k},v_{k+1})} ,  \sum_
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#path.path.get_length_distribution" title="path.path.get_length_distribution"><code class="xref py py-obj docutils literal"><span class="pre">get_length_distribution</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#paths.path.get_length_distribution" title="paths.path.get_length_distribution"><code class="xref py py-obj docutils literal"><span class="pre">get_length_distribution</span></code></a>()</td>
 <td>Initializes and returns the path&#8217;s length distribution.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#path.path.get_sample_length" title="path.path.get_sample_length"><code class="xref py py-obj docutils literal"><span class="pre">get_sample_length</span></code></a>(size)</td>
+<tr class="row-even"><td><a class="reference internal" href="#paths.path.get_sample_length" title="paths.path.get_sample_length"><code class="xref py py-obj docutils literal"><span class="pre">get_sample_length</span></code></a>(size)</td>
 <td>Generates samples from the path&#8217;s length distribution.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#path.path.summary" title="path.path.summary"><code class="xref py py-obj docutils literal"><span class="pre">summary</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#paths.path.summary" title="paths.path.summary"><code class="xref py py-obj docutils literal"><span class="pre">summary</span></code></a>()</td>
 <td>Print basic object attributes.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="path.path.get_length_distribution">
-<code class="descname">get_length_distribution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/path.html#path.get_length_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path.path.get_length_distribution" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path.get_length_distribution">
+<code class="descname">get_length_distribution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path.get_length_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path.get_length_distribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes and returns the path&#8217;s length distribution.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -253,8 +254,8 @@ Z_{\pi} &amp;\approx TN \left( \sum_{v_{k} \in \pi} c_{(v_{k},v_{k+1})} ,  \sum_
 </dd></dl>
 
 <dl class="method">
-<dt id="path.path.get_sample_length">
-<code class="descname">get_sample_length</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/path.html#path.get_sample_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path.path.get_sample_length" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path.get_sample_length">
+<code class="descname">get_sample_length</code><span class="sig-paren">(</span><em>size</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path.get_sample_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path.get_sample_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates samples from the path&#8217;s length distribution.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -282,8 +283,8 @@ array([ 3.9308913 ,  2.38708896,  3.76789294])
 </dd></dl>
 
 <dl class="method">
-<dt id="path.path.summary">
-<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/path.html#path.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path.path.summary" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path.summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print basic object attributes.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -314,33 +315,9 @@ array([ 3.9308913 ,  2.38708896,  3.76789294])
 
 </dd></dl>
 
-</div>
-</div>
-<span class="target" id="module-path_family"></span><div class="section" id="path-family">
-<h2><strong>path_family</strong><a class="headerlink" href="#path-family" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id4">
-<h3>Description<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>Create a family of stochastic paths.</p>
-<p>Copyright (C) 2017 Michael W. Ramsey &lt;<a class="reference external" href="mailto:michael&#46;ramsey&#37;&#52;&#48;gmail&#46;com">michael<span>&#46;</span>ramsey<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</p>
-</div>
-<div class="section" id="id5">
-<h3>License<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.</p>
-<p>This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.</p>
-<p>You should have received a copy of the GNU General Public License
-along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
-</div>
-<div class="section" id="id6">
-<h3>Details<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="path_family.path_family">
-<em class="property">class </em><code class="descclassname">path_family.</code><code class="descname">path_family</code><span class="sig-paren">(</span><em>G</em>, <em>start</em>, <em>end</em>, <em>pdf</em>, <em>sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/path_family.html#path_family"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path_family.path_family" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path_family">
+<em class="property">class </em><code class="descclassname">paths.</code><code class="descname">path_family</code><span class="sig-paren">(</span><em>G</em>, <em>start</em>, <em>end</em>, <em>pdf</em>, <em>sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path_family"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path_family" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for computing on a family of paths related by their start and 
 endpoints.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -389,29 +366,29 @@ must be non-negative. (CURRENTLY ONLY &#8216;truncated&#8217; WORKS)</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#path_family.path_family.get_all_paths" title="path_family.path_family.get_all_paths"><code class="xref py py-obj docutils literal"><span class="pre">get_all_paths</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#paths.path_family.get_all_paths" title="paths.path_family.get_all_paths"><code class="xref py py-obj docutils literal"><span class="pre">get_all_paths</span></code></a>()</td>
 <td>Generates the family of paths as all simple paths in G.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#path_family.path_family.get_auto_paths" title="path_family.path_family.get_auto_paths"><code class="xref py py-obj docutils literal"><span class="pre">get_auto_paths</span></code></a>(k[,&nbsp;tol])</td>
+<tr class="row-even"><td><a class="reference internal" href="#paths.path_family.get_auto_paths" title="paths.path_family.get_auto_paths"><code class="xref py py-obj docutils literal"><span class="pre">get_auto_paths</span></code></a>(k[,&nbsp;tol])</td>
 <td>Generates the family of paths as the i*k shortest simple paths in G, where i is automatically determined.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#path_family.path_family.get_k_paths" title="path_family.path_family.get_k_paths"><code class="xref py py-obj docutils literal"><span class="pre">get_k_paths</span></code></a>(k)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#paths.path_family.get_k_paths" title="paths.path_family.get_k_paths"><code class="xref py py-obj docutils literal"><span class="pre">get_k_paths</span></code></a>(k)</td>
 <td>Generates the family of paths as the k shortest simple paths in G.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#path_family.path_family.get_paths" title="path_family.path_family.get_paths"><code class="xref py py-obj docutils literal"><span class="pre">get_paths</span></code></a>(alg,&nbsp;k[,&nbsp;tol])</td>
+<tr class="row-even"><td><a class="reference internal" href="#paths.path_family.get_paths" title="paths.path_family.get_paths"><code class="xref py py-obj docutils literal"><span class="pre">get_paths</span></code></a>(alg,&nbsp;k[,&nbsp;tol])</td>
 <td>Wrapper to generate the family of paths from a three options:</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#path_family.path_family.summary" title="path_family.path_family.summary"><code class="xref py py-obj docutils literal"><span class="pre">summary</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#paths.path_family.summary" title="paths.path_family.summary"><code class="xref py py-obj docutils literal"><span class="pre">summary</span></code></a>()</td>
 <td>Print basic object attributes.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#path_family.path_family.upper_bound" title="path_family.path_family.upper_bound"><code class="xref py py-obj docutils literal"><span class="pre">upper_bound</span></code></a>(first,&nbsp;last)</td>
+<tr class="row-even"><td><a class="reference internal" href="#paths.path_family.upper_bound" title="paths.path_family.upper_bound"><code class="xref py py-obj docutils literal"><span class="pre">upper_bound</span></code></a>(first,&nbsp;last)</td>
 <td>Estimates the probability that the last path will ever be shorter than the first path.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="path_family.path_family.get_all_paths">
-<code class="descname">get_all_paths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/path_family.html#path_family.get_all_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path_family.path_family.get_all_paths" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path_family.get_all_paths">
+<code class="descname">get_all_paths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path_family.get_all_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path_family.get_all_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the family of paths as all simple paths in G. A simple 
 path is a path with no repeated nodes.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -436,13 +413,13 @@ the complete graph of order n.</p>
 <table class="docutils citation" frame="void" id="r1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[R1]</a></td><td><a class="reference external" href="https://networkx.github.io/documentation/networkx-1.10">https://networkx.github.io/documentation/networkx-1.10</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id4">[R1]</a></td><td><a class="reference external" href="https://networkx.github.io/documentation/networkx-1.10">https://networkx.github.io/documentation/networkx-1.10</a></td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[R2]</a></td><td><ol class="first last upperalpha simple" start="18">
+<tr><td class="label"><a class="fn-backref" href="#id5">[R2]</a></td><td><ol class="first last upperalpha simple" start="18">
 <li>Sedgewick, “Algorithms in C, Part 5: Graph Algorithms”, Addison Wesley Professional, 3rd ed., 2001.</li>
 </ol>
 </td></tr>
@@ -469,8 +446,8 @@ the complete graph of order n.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="path_family.path_family.get_auto_paths">
-<code class="descname">get_auto_paths</code><span class="sig-paren">(</span><em>k</em>, <em>tol=0.05</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/path_family.html#path_family.get_auto_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path_family.path_family.get_auto_paths" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path_family.get_auto_paths">
+<code class="descname">get_auto_paths</code><span class="sig-paren">(</span><em>k</em>, <em>tol=0.05</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path_family.get_auto_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path_family.get_auto_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the family of paths as the i*k shortest simple paths in G,
 where i is automatically determined. A simple path is a path with no
 repeated nodes. No negative weights are allowed.</p>
@@ -542,8 +519,8 @@ quickly as:</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="path_family.path_family.get_k_paths">
-<code class="descname">get_k_paths</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/path_family.html#path_family.get_k_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path_family.path_family.get_k_paths" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path_family.get_k_paths">
+<code class="descname">get_k_paths</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path_family.get_k_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path_family.get_k_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the family of paths as the k shortest simple paths in G.
 A simple path is a path with no repeated nodes. No negative weights 
 are allowed.</p>
@@ -579,13 +556,13 @@ queries for the next shortest path.</p>
 <table class="docutils citation" frame="void" id="r3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[R3]</a></td><td><a class="reference external" href="https://networkx.github.io/documentation/networkx-1.10">https://networkx.github.io/documentation/networkx-1.10</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[R3]</a></td><td><a class="reference external" href="https://networkx.github.io/documentation/networkx-1.10">https://networkx.github.io/documentation/networkx-1.10</a></td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="r4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id10">[R4]</a></td><td>Jin Y. Yen, “Finding the K Shortest Loopless Paths in a Network”, Management Science, Vol. 17, No. 11, Theory Series (Jul., 1971), pp. 712-716.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id7">[R4]</a></td><td>Jin Y. Yen, “Finding the K Shortest Loopless Paths in a Network”, Management Science, Vol. 17, No. 11, Theory Series (Jul., 1971), pp. 712-716.</td></tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
@@ -598,8 +575,8 @@ queries for the next shortest path.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="path_family.path_family.get_paths">
-<code class="descname">get_paths</code><span class="sig-paren">(</span><em>alg</em>, <em>k</em>, <em>tol=0.05</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/path_family.html#path_family.get_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path_family.path_family.get_paths" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path_family.get_paths">
+<code class="descname">get_paths</code><span class="sig-paren">(</span><em>alg</em>, <em>k</em>, <em>tol=0.05</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path_family.get_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path_family.get_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper to generate the family of paths from a three options:</p>
 <p>&#8216;all&#8217; : find all paths between endpoints.</p>
 <p>&#8216;k&#8217; : find only the k-shortest paths.</p>
@@ -646,8 +623,8 @@ value: ordered tuple of nodes in the path.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="path_family.path_family.summary">
-<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/path_family.html#path_family.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path_family.path_family.summary" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path_family.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path_family.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path_family.summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print basic object attributes.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -666,8 +643,8 @@ value: ordered tuple of nodes in the path.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="path_family.path_family.upper_bound">
-<code class="descname">upper_bound</code><span class="sig-paren">(</span><em>first</em>, <em>last</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/path_family.html#path_family.upper_bound"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#path_family.path_family.upper_bound" title="Permalink to this definition">¶</a></dt>
+<dt id="paths.path_family.upper_bound">
+<code class="descname">upper_bound</code><span class="sig-paren">(</span><em>first</em>, <em>last</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/paths.html#path_family.upper_bound"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#paths.path_family.upper_bound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimates the probability that the last path will ever be shorter
 than the first path. This provides an upper bound on the probability
 that the last path will ever be the shortest of all paths.</p>
@@ -700,15 +677,15 @@ that the last path will ever be the shortest of all paths.</p>
 
 </div>
 </div>
-<span class="target" id="module-family_distribution"></span><div class="section" id="family-distribution">
-<h2><strong>family_distribution</strong><a class="headerlink" href="#family-distribution" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id11">
-<h3>Description<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<p>Create a minimum length distribution for a family of paths.</p>
+<span class="target" id="module-distributions"></span><div class="section" id="distributions">
+<h2><strong>distributions</strong><a class="headerlink" href="#distributions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Description<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Create shortest path distributions for path families and edges.</p>
 <p>Copyright (C) 2017 Michael W. Ramsey &lt;<a class="reference external" href="mailto:michael&#46;ramsey&#37;&#52;&#48;gmail&#46;com">michael<span>&#46;</span>ramsey<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</p>
 </div>
-<div class="section" id="id12">
-<h3>License<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>License<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -720,691 +697,11 @@ GNU General Public License for more details.</p>
 <p>You should have received a copy of the GNU General Public License
 along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
 </div>
-<div class="section" id="id13">
-<h3>Details<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Details<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="family_distribution.family_distribution">
-<em class="property">class </em><code class="descclassname">family_distribution.</code><code class="descname">family_distribution</code><span class="sig-paren">(</span><em>path_family</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class for computing and storing stochastic shortest path
-distributions for a path_family.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path_family</strong> : path_family object</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>We define the stochastic shortest path and the expected shortest path as:</p>
-<div class="math">
-\[\begin{split}\pi_{i,j}^{\ast}        &amp; = \min_{\pi \in \Pi_{i,j}} Z_{\pi} \\
-\hat{\pi}_{i,j}^{\ast} &amp; = \min_{\pi \in \Pi_{i,j}} \hat{Z}_{\pi}.\end{split}\]</div>
-<p>Note that <span class="math">\(\hat{\pi}_{i,j}^{*}\)</span> can be computed directly from Dykstra&#8217;s 
-Algorithm and that <span class="math">\(\hat{\pi}_{i,j}^{*}\)</span> is the mode of <span class="math">\(\pi_{i,j}^{*}\)</span>.</p>
-<p>We can now give our problem definition:</p>
-<p>Given any weighted graph <span class="math">\(G\)</span> and <span class="math">\(i,j \in V\)</span>, find <span class="math">\(p^{*}(\pi_{i,j})=P(\pi_{i,j} = \pi^{\ast}_{i,j}), \forall \pi \in \Pi_{i,j}\)</span>.</p>
-<p>This provides the probability that <span class="math">\(\pi_{i,j}\)</span> is the shortest path 
-between nodes <span class="math">\(i,j\)</span> for a random draw of edge weights from <span class="math">\(G^{*}\)</span> for any path <span class="math">\(\pi_{i,j}\)</span>.</p>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-</pre></div>
-</div>
-<p class="rubric">Methods</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#family_distribution.family_distribution.gather_dicts" title="family_distribution.family_distribution.gather_dicts"><code class="xref py py-obj docutils literal"><span class="pre">gather_dicts</span></code></a>(dicts,&nbsp;cols)</td>
-<td>Converts list of dictionaries to a dataframe, merged on keys, with  the supplied column names.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#family_distribution.family_distribution.get_col_dists" title="family_distribution.family_distribution.get_col_dists"><code class="xref py py-obj docutils literal"><span class="pre">get_col_dists</span></code></a>(distrs_dataframe)</td>
-<td>Computes pairwise vector euclidean distance between columns.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#family_distribution.family_distribution.get_distr" title="family_distribution.family_distribution.get_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_distr</span></code></a>(paths,&nbsp;alg,&nbsp;itr,&nbsp;auto[,&nbsp;N,&nbsp;m,&nbsp;...])</td>
-<td>Wrapper to generate the paths&#8217; distribution.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#family_distribution.family_distribution.get_marginal_change" title="family_distribution.family_distribution.get_marginal_change"><code class="xref py py-obj docutils literal"><span class="pre">get_marginal_change</span></code></a>(mins,&nbsp;N[,&nbsp;m])</td>
-<td>Computes how much the frequencies of the minimums has changed in the last m many draws.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#family_distribution.family_distribution.get_mcs_ssp_distr" title="family_distribution.family_distribution.get_mcs_ssp_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_mcs_ssp_distr</span></code></a>(n)</td>
-<td>Estimates the probability each path in paths will be the shortest path by repeatedly drawing stochastic graphs and computing shortest paths.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#family_distribution.family_distribution.get_nmi_ssp_distr" title="family_distribution.family_distribution.get_nmi_ssp_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_nmi_ssp_distr</span></code></a>(paths,&nbsp;\*\*kwargs)</td>
-<td>Estimates the probability each path in paths will be the shortest path using numerical integration.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#family_distribution.family_distribution.get_spd_ssp_distr" title="family_distribution.family_distribution.get_spd_ssp_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_spd_ssp_distr</span></code></a>(paths,&nbsp;auto,&nbsp;N[,&nbsp;m,&nbsp;tol,&nbsp;M])</td>
-<td>Estimates the probability each path in paths will be the shortest path using the frequency each path is the shortest in random samples.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#family_distribution.family_distribution.keys_2_nodes" title="family_distribution.family_distribution.keys_2_nodes"><code class="xref py py-obj docutils literal"><span class="pre">keys_2_nodes</span></code></a>(distrs)</td>
-<td>Converts the keys in the distribution dictionary from path names to a tuple of path nodes.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#family_distribution.family_distribution.pdf" title="family_distribution.family_distribution.pdf"><code class="xref py py-obj docutils literal"><span class="pre">pdf</span></code></a>(x,&nbsp;name,&nbsp;paths)</td>
-<td>Function defining the integrand for computing via integration.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#family_distribution.family_distribution.sample_mins_distr" title="family_distribution.family_distribution.sample_mins_distr"><code class="xref py py-obj docutils literal"><span class="pre">sample_mins_distr</span></code></a>(paths,&nbsp;N)</td>
-<td>Generates N samples of which path has the minimum length from N  draws of each paths length distribution.</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="family_distribution.family_distribution.gather_dicts">
-<code class="descname">gather_dicts</code><span class="sig-paren">(</span><em>dicts</em>, <em>cols</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.gather_dicts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.gather_dicts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts list of dictionaries to a dataframe, merged on keys, with 
-the supplied column names.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dicts</strong> : list</p>
-<blockquote>
-<div><p>Iterable of dictionaries.</p>
-</div></blockquote>
-<p><strong>cols</strong> : list</p>
-<blockquote>
-<div><p>List of column names.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> : DataFrame</p>
-<blockquote class="last">
-<div><p>Columns are values associated with each dictionary, indexed by the
-union of all the dictionaries keys.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Setup        </span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generate output for all the algorithms </span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spd_auto_dict</span><span class="p">,</span> <span class="n">spd_auto_var</span><span class="p">,</span> <span class="n">spd_auto_err_est</span><span class="p">,</span> <span class="n">spd_auto_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e2</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e5</span>  <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spd_dict</span><span class="p">,</span> <span class="n">spd_var</span><span class="p">,</span> <span class="n">spd_err_est</span><span class="p">,</span> <span class="n">spd_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;spd&#39;</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nmi_dict</span><span class="p">,</span> <span class="n">nmi_var</span><span class="p">,</span> <span class="n">nmi_err_est</span><span class="p">,</span> <span class="n">nmi_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mcs_dict</span><span class="p">,</span> <span class="n">mcs_var</span><span class="p">,</span> <span class="n">mcs_err_est</span><span class="p">,</span> <span class="n">mcs_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;mcs&#39;</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Gather all the distributions </span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">distrs</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">keys_2_nodes</span><span class="p">(</span>  <span class="p">[</span> <span class="n">spd_auto_dict</span><span class="p">,</span> <span class="n">spd_dict</span><span class="p">,</span> <span class="n">nmi_dict</span><span class="p">,</span> <span class="n">mcs_dict</span> <span class="p">]</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mydistrs_dataframe</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">gather_dicts</span><span class="p">(</span> <span class="n">distrs</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spd_auto&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="s1">&#39;mcs&#39;</span><span class="p">]</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mydistrs_dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="go">                 spd_auto     spd       nmi      mcs</span>
-<span class="go">(0, 1, 4, 5, 8)    0.5375  0.5545  0.550699  0.09750</span>
-<span class="go">(0, 1, 4, 7, 8)    0.3675  0.3630  0.364878  0.01900</span>
-<span class="go">(0, 1, 2, 5, 8)    0.0950  0.0825  0.084425  0.00425</span>
-<span class="go">(0, 3, 4, 5, 8)    0.0000  0.0000  0.000000  0.06250</span>
-<span class="go">(0, 3, 6, 7, 8)    0.0000  0.0000  0.000000  0.00400</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Gather all the variances </span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">variances</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">keys_2_nodes</span><span class="p">(</span>  <span class="p">[</span> <span class="n">spd_auto_var</span><span class="p">,</span> <span class="n">spd_var</span><span class="p">,</span> <span class="n">nmi_var</span><span class="p">,</span> <span class="n">mcs_var</span> <span class="p">]</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myvars_dataframe</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">gather_dicts</span><span class="p">(</span> <span class="n">variances</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spd_auto&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="s1">&#39;mcs&#39;</span><span class="p">]</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myvars_dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="go">                 spd_auto       spd  nmi       mcs</span>
-<span class="go">(0, 1, 4, 5, 8)  0.001558  0.000051  0.0  0.038025</span>
-<span class="go">(0, 1, 4, 7, 8)  0.002292  0.000261  0.0  0.001444</span>
-<span class="go">(0, 1, 2, 5, 8)  0.000100  0.000084  0.0  0.000072</span>
-<span class="go">(0, 3, 4, 5, 8)  0.000000  0.000000  0.0  0.015625</span>
-<span class="go">(0, 3, 6, 7, 8)  0.000000  0.000000  0.0  0.000064</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.get_col_dists">
-<code class="descname">get_col_dists</code><span class="sig-paren">(</span><em>distrs_dataframe</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.get_col_dists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.get_col_dists" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes pairwise vector euclidean distance between columns.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>distrs_dataframe</strong> : list</p>
-<blockquote>
-<div><p>Iterable of DataFrames.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> : DataFrame</p>
-<blockquote class="last">
-<div><p>In distance matrix configuration.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Setup        </span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generate output for all the algorithms </span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spd_auto_dict</span><span class="p">,</span> <span class="n">spd_auto_var</span><span class="p">,</span> <span class="n">spd_auto_err_est</span><span class="p">,</span> <span class="n">spd_auto_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e2</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e5</span>  <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spd_dict</span><span class="p">,</span> <span class="n">spd_var</span><span class="p">,</span> <span class="n">spd_err_est</span><span class="p">,</span> <span class="n">spd_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;spd&#39;</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">nmi_dict</span><span class="p">,</span> <span class="n">nmi_var</span><span class="p">,</span> <span class="n">nmi_err_est</span><span class="p">,</span> <span class="n">nmi_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mcs_dict</span><span class="p">,</span> <span class="n">mcs_var</span><span class="p">,</span> <span class="n">mcs_err_est</span><span class="p">,</span> <span class="n">mcs_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;mcs&#39;</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Gather all the distributions </span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">distrs</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">keys_2_nodes</span><span class="p">(</span>  <span class="p">[</span> <span class="n">spd_auto_dict</span><span class="p">,</span> <span class="n">spd_dict</span><span class="p">,</span> <span class="n">nmi_dict</span><span class="p">,</span> <span class="n">mcs_dict</span> <span class="p">]</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mydistrs_dataframe</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">gather_dicts</span><span class="p">(</span> <span class="n">distrs</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spd_auto&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="s1">&#39;mcs&#39;</span><span class="p">]</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_col_dists</span><span class="p">(</span> <span class="n">mydistrs_dataframe</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="go">          spd_auto       spd       nmi       mcs</span>
-<span class="go">spd_auto  0.000000  0.055158  0.048413  0.889655</span>
-<span class="go">spd       0.055158  0.000000  0.007579  0.853678</span>
-<span class="go">nmi       0.048413  0.007579  0.000000  0.856840</span>
-<span class="go">mcs       0.889655  0.853678  0.856840  0.000000</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.get_distr">
-<code class="descname">get_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>alg</em>, <em>itr</em>, <em>auto</em>, <em>N=1000.0</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em>, <em>n=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.get_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.get_distr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wrapper to generate the paths&#8217; distribution.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : dict</p>
-<blockquote>
-<div><p>Dictionary of path objects. Path names MUST be consecutive integers
-starting at zero.</p>
-</div></blockquote>
-<p><strong>itr</strong> : integer</p>
-<blockquote>
-<div><p>Number of trials to run.</p>
-</div></blockquote>
-<p><strong>auto</strong> : boolean</p>
-<blockquote>
-<div><p>Toggles whether or not to continue drawing sample mins until the
-max marginal change is under less than tol.</p>
-</div></blockquote>
-<p><strong>N</strong> : integer, optional - depending on alg</p>
-<blockquote>
-<div><p>Number of samples to draw from each path&#8217;s length distribution.
-For alg = &#8216;spd&#8217;.</p>
-</div></blockquote>
-<p><strong>m</strong> : integer, optional - depending on alg</p>
-<blockquote>
-<div><p>Size of the window to compute the max marginal change on drawing 
-more samples. For alg = &#8216;spd&#8217; and auto = True.</p>
-</div></blockquote>
-<p><strong>tol</strong> : integer, optional - depending on alg</p>
-<blockquote>
-<div><p>Threshold for whether or not to continue drawing sample mins until 
-the max marginal change is under less than tol. For alg = &#8216;spd&#8217; and
-auto = True.</p>
-</div></blockquote>
-<p><strong>M</strong> : integer, optional - depending on alg</p>
-<blockquote>
-<div><p>The maximum number of draws to complete even if max marginal change
-is greater than tol. For alg = &#8216;spd&#8217; and auto = True.</p>
-</div></blockquote>
-<p><strong>n</strong> : integer, optional - depending on alg</p>
-<blockquote>
-<div><p>Number of draws to make for alg = &#8216;mcs&#8217;.</p>
-</div></blockquote>
-<p><strong>**kwargs</strong> : dict</p>
-<blockquote>
-<div><p>scipy.integrate.quad kwargs.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>avg_prob</strong> : dictionary</p>
-<blockquote>
-<div><p>key: path object.
-value: estimated probability.</p>
-</div></blockquote>
-<p><strong>var</strong> : dictionary</p>
-<blockquote>
-<div><p>key: path object.
-value: estimated variance over the trials.</p>
-</div></blockquote>
-<p><strong>avg_err</strong> : dictionary</p>
-<blockquote>
-<div><p>key: path object.
-value: average estimated error or upperbound on error.</p>
-</div></blockquote>
-<p><strong>avg_time</strong> : float</p>
-<blockquote class="last">
-<div><p>Mean time of the trials.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">alg</span><span class="o">=</span><span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
-<span class="go">({&lt;__main__.path at 0x1508390&gt;: 0.13612039685532,</span>
-<span class="go">  &lt;__main__.path at 0x15089e8&gt;: 0.03171784593212658,</span>
-<span class="go">  &lt;__main__.path at 0x1508978&gt;: 0.8321459058917322},</span>
-<span class="go"> {&lt;__main__.path at 0x1508390&gt;: 0,</span>
-<span class="go">  &lt;__main__.path at 0x15089e8&gt;: 0,</span>
-<span class="go">  &lt;__main__.path at 0x1508978&gt;: 0},</span>
-<span class="go"> {&lt;__main__.path at 0x1508390&gt;: 1.223261904866232e-05,</span>
-<span class="go">  &lt;__main__.path at 0x15089e8&gt;: 6.40382637653869e-07,</span>
-<span class="go">  &lt;__main__.path at 0x1508978&gt;: 4.224820309950417e-05},</span>
-<span class="go"> 3.1645328998565674)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.get_marginal_change">
-<code class="descname">get_marginal_change</code><span class="sig-paren">(</span><em>mins</em>, <em>N</em>, <em>m=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.get_marginal_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.get_marginal_change" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes how much the frequencies of the minimums has changed in the
-last m many draws.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>mins: np.array()</strong></p>
-<blockquote>
-<div><p>Array of names of the path with the minimum length out of all the
-samples drawn that round.</p>
-</div></blockquote>
-<p><strong>N</strong> : integer</p>
-<blockquote>
-<div><p>Number of samples to draw from each path&#8217;s length distribution.</p>
-</div></blockquote>
-<p><strong>m</strong> : integer, optional</p>
-<blockquote>
-<div><p>Size of the window to compute the max marginal change on drawing 
-more samples.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ms</strong> : float</p>
-<blockquote class="last">
-<div><p>The maximum change in the frequency a path is the minimum over the
-paths.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>If <cite>auto</cite> is set to True, then to select the number <span class="math">\(N\)</span> of samples to draw from <span class="math">\(Z_{\pi}\)</span>, 
-<cite>get_spd_ssp_distr</cite> works in batchs of size <cite>N</cite> and stops when the marginal change 
-<span class="math">\(\delta_{N}\)</span> in <span class="math">\(\omega_N\)</span> falls below a provided threshold  
-<span class="math">\(t_{N}\)</span>. If the marginal change is not below <span class="math">\(t_{N}\)</span>, it draws 
-<span class="math">\(b_{N}\)</span> more, recomputes, tests, and repeats until the threshold 
-is met. Asp computes the marginal change as 
-<span class="math">\(\delta_{N} = \lvert  \omega_n - \omega_{n-\epsilon} \rvert\)</span> 
-for some user provided <span class="math">\(\epsilon\)</span> and for <span class="math">\(n\)</span> equal to <span class="math">\(b_{N}\)</span> times 
-the number of completed iterations.</p>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mins</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">sample_mins_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e1</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_marginal_change</span><span class="p">(</span> <span class="n">mins</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e1</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span> <span class="p">)</span>
-<span class="go">0.025000000000000022</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.get_mcs_ssp_distr">
-<code class="descname">get_mcs_ssp_distr</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.get_mcs_ssp_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.get_mcs_ssp_distr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimates the probability each path in paths will be the shortest
-path by repeatedly drawing stochastic graphs and computing shortest
-paths.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>n</strong> : integer</p>
-<blockquote>
-<div><p>Number of draws to make.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>freq_dict</strong> : dictionary</p>
-<blockquote>
-<div><p>key: path object.
-value: estimated probability based on the frequency a path is
-selected as the shortest.</p>
-</div></blockquote>
-<p><strong>dummy</strong> : None</p>
-<blockquote class="last">
-<div><p>Exists only to make the output like the others.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_mcs_ssp_distr</span><span class="p">(</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">)</span>
-<span class="go">({&lt;__main__.path at 0x1508780&gt;: 0.84,</span>
-<span class="go">  &lt;__main__.path at 0x1508240&gt;: 0.01,</span>
-<span class="go">  &lt;__main__.path at 0x1508160&gt;: 0.15},</span>
-<span class="go"> None)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.get_nmi_ssp_distr">
-<code class="descname">get_nmi_ssp_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.get_nmi_ssp_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.get_nmi_ssp_distr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimates the probability each path in paths will be the shortest
-path using numerical integration.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : dict</p>
-<blockquote>
-<div><p>Dictionary of path objects.</p>
-</div></blockquote>
-<p><strong>**kwargs</strong> : dict</p>
-<blockquote>
-<div><p>scipy.integrate.quad kwargs.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>prob_dict</strong> : dictionary</p>
-<blockquote>
-<div><p>key: path object.
-value: estimated probability.</p>
-</div></blockquote>
-<p><strong>abserr</strong> : float or None</p>
-<blockquote class="last">
-<div><p>Estimated error returned by Scipy&#8217;s Quad function.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>Given any weighted graph <span class="math">\(G\)</span>, let <span class="math">\(\pi \in \Pi_{i,j}\)</span> for some 
-<span class="math">\(i,j \in V\)</span> and <span class="math">\(\Gamma_{\pi} = \Pi_{i,j}-\{\pi\}\)</span>. We can 
-recast <span class="math">\(P(\pi = \pi^{\ast})\)</span> as <span class="math">\(P(Z_{\pi}&lt;W)\)</span> where 
-<span class="math">\(W =  \min_{\gamma \in \Gamma_{\pi}} Z_{\gamma}\)</span>. 
-By conditioning on <span class="math">\(Z_{\pi}=s\)</span> for some <span class="math">\(s\in{{\mathbb R}}\)</span> 
-we obtain:</p>
-<div class="math">
-\[\begin{split}P(Z_{\pi}=s, Z_{\pi}&lt;W)  &amp; = P(Z_{\pi}=s)P(W&gt;s \mid Z_{\pi}=s) \notag\\
-                           &amp; = P(Z_{\pi}=s)\prod_{\gamma \in \Gamma_{\pi}} P(Z_{\gamma}&gt;s) \notag \\
-                           &amp; = P(Z_{\pi}=s)\prod_{\gamma \in \Gamma_{\pi}} (1-P(Z_{\gamma} \leq s)) \notag \\
-                           &amp; = f_{Z_{\pi}}(s)\prod_{\gamma \in \Gamma_{\pi}}(1-F(Z_{\gamma}(s))) \notag \\
-                           &amp; = f_{Z_{\pi}}(s)\prod_{\gamma \in \Gamma_{\pi}} SF(Z_{\gamma}(s))\end{split}\]</div>
-<p>since all the stochastic costs are independent; and where <span class="math">\(f\)</span> is 
-the density for <span class="math">\(Z_{\pi}\)</span> and <span class="math">\(F\)</span> and <span class="math">\(SF\)</span> are 
-the cumulative distribution function and the survival function for 
-<span class="math">\(Z_{\gamma}\)</span>.  <span class="math">\(Z_{\pi}\)</span> and <span class="math">\(Z_{\gamma}\)</span> are distributed.</p>
-<p>To determine <span class="math">\(P(Z_{\pi}&lt;W)\)</span> we simply need to integrate over <cite>s</cite>:</p>
-<div class="math">
-\[\begin{split}P(Z_{\pi}&lt;W)   &amp; = \int_{-\infty}^{\infty} P(Z_{\pi}=s, Z_{\pi}&lt;W)  ds \notag \\
-                &amp; = \int_{-\infty}^{\infty} f_{Z_{\pi}}(s)\prod_{\gamma \in \Gamma_{\pi}}SF(Z_{\gamma}(s))  ds\end{split}\]</div>
-<p>Therefore, given any simple path between any two nodes in a graph with 
-noisy edge weights, gives the probability it is the shortest path.</p>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_nmi_ssp_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
-<span class="go">({&lt;__main__.path at 0x1158588&gt;: 0.16525750032721961,</span>
-<span class="go">  &lt;__main__.path at 0x11581d0&gt;: 0.7916708098067267,</span>
-<span class="go">  &lt;__main__.path at 0x1158fd0&gt;: 0.04307252246910802},</span>
-<span class="go"> {&lt;__main__.path at 0x1158588&gt;: 8.308936571721492e-06,</span>
-<span class="go">  &lt;__main__.path at 0x11581d0&gt;: 3.313787842624658e-05,</span>
-<span class="go">  &lt;__main__.path at 0x1158fd0&gt;: 1.9361401057474414e-06})</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.get_spd_ssp_distr">
-<code class="descname">get_spd_ssp_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>auto</em>, <em>N</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.get_spd_ssp_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.get_spd_ssp_distr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Estimates the probability each path in paths will be the shortest
-path using the frequency each path is the shortest in random samples.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : dict</p>
-<blockquote>
-<div><p>Dictionary of path objects. Path names MUST be consecutive integers
-starting at zero.</p>
-</div></blockquote>
-<p><strong>auto</strong> : boolean</p>
-<blockquote>
-<div><p>Toggles whether or not to continue drawing sample mins until the
-max marginal change is under less than tol.</p>
-</div></blockquote>
-<p><strong>N</strong> : integer</p>
-<blockquote>
-<div><p>Number of samples to draw from each path&#8217;s length distribution.</p>
-</div></blockquote>
-<p><strong>m</strong> : integer, optional - depending on auto.</p>
-<blockquote>
-<div><p>Size of the window to compute the max marginal change on drawing 
-more samples. For auto = True.</p>
-</div></blockquote>
-<p><strong>tol</strong> : integer, optional - depending on auto.</p>
-<blockquote>
-<div><p>Threshold for whether or not to continue drawing sample mins until 
-the max marginal change is under less than tol. For auto = True.</p>
-</div></blockquote>
-<p><strong>M</strong> : integer, optional - depending on auto.</p>
-<blockquote>
-<div><p>The maximum number of draws to complete even if max marginal change
-is greater than tol. For auto = True.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>f_N_dict</strong> : dictionary</p>
-<blockquote>
-<div><p>key: path object.
-value: number of times the path was drawn as minimum of all the 
-path lengths, divided by the number of total draws.</p>
-</div></blockquote>
-<p><strong>max_margin</strong> : float or None</p>
-<blockquote class="last">
-<div><p>The maximum change in the frequency a path is the minimum over the
-paths. If auto is False, then None is returned.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>By sampling each <span class="math">\(Z_{\pi}\)</span> directly using, we can 
-calculate the frequency that 
-<span class="math">\(Z_{\pi}\leq\min_{\gamma \in \Gamma_{\pi}} Z_{\gamma}\)</span> and use 
-this to estimate  <span class="math">\(p^{*}(\pi_{i,j})\)</span>, <span class="math">\(\forall \pi \in \Pi_{i,j}\)</span>.</p>
-<p>Let <span class="math">\(z_{\pi,k}\)</span> be the <span class="math">\(k^{th}\)</span> random draw from <span class="math">\(Z_{\pi}\)</span> out of 
-<span class="math">\(N \in{{\mathbb N}}\)</span> many and <span class="math">\((z_{\pi,k})_{\pi \in \Pi_{i,j}}\)</span> 
-a random draw from all the <span class="math">\(Z_{\pi}\)</span>. Define 
-<span class="math">\(m_{k}=\min_{\gamma \in \Gamma_{\pi}} z_{\gamma,k}\)</span>. 
-Then the relative frequency that  
-<span class="math">\(Z_{\pi}\leq\min_{\gamma \in \Gamma_{\pi}} Z_{\gamma}\)</span> is computed as:</p>
-<div class="math">
-\[\omega_{N}(\pi = \pi^{\ast}) = \frac{ \sum_{k=1}^{N} \mathbf {1} _{{{\mathbb R}}^{+}}(m_{k}-z_{\pi,k})}{N}\]</div>
-<p>where <span class="math">\(\mathbf {1} _{{{\mathbb R}}^{+}}\colon X\to \{0,1\}\,\)</span> is the indicator function defined as:</p>
-<div class="math">
-\[\begin{split}{\displaystyle \mathbf {1} _{{{\mathbb R}}^{+}}(x)={\begin{cases}1&amp;{\text{if }}x &gt; 0,\\0&amp;{\text{if }}x \leq 0.\end{cases}}} \end{split}\]</div>
-<p>Therefore, by the Law of Large Numbers, as <span class="math">\(N \rightarrow \infty\)</span>:</p>
-<div class="math">
-\[\omega_{N}(\pi = \pi^{\ast})\longrightarrow P(\pi = \pi^{\ast})\]</div>
-<p>where <span class="math">\(P(\pi = \pi^{\ast}) = {{\mathbb E}}( {1} _{{{\mathbb R}}^{+}}(m_{k}-z_{\pi,k}))\)</span>.</p>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mins</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">sample_mins_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e1</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_spd_ssp_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e2</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e5</span> <span class="p">)</span>
-<span class="go">({&lt;__main__.path at 0x14ffeb8&gt;: 0.34,</span>
-<span class="go">  &lt;__main__.path at 0x14ffbe0&gt;: 0.33,</span>
-<span class="go">  &lt;__main__.path at 0x14ff278&gt;: 0.33},</span>
-<span class="go"> 0.025555555555555554)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.keys_2_nodes">
-<code class="descname">keys_2_nodes</code><span class="sig-paren">(</span><em>distrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.keys_2_nodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.keys_2_nodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts the keys in the distribution dictionary from path names to
-a tuple of path nodes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>distrs</strong> : list</p>
-<blockquote>
-<div><p>List of distribution objects with names as keys.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>distrs</strong> : list</p>
-<blockquote class="last">
-<div><p>List of distribution objects with node tuple as keys.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">avg_result</span><span class="p">,</span> <span class="n">var_result</span><span class="p">,</span> <span class="n">avg_err</span><span class="p">,</span> <span class="n">avg_time</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">alg</span><span class="o">=</span><span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">keys_2_nodes</span><span class="p">(</span> <span class="p">[</span> <span class="n">avg_result</span> <span class="p">]</span> <span class="p">)</span>
-<span class="go">[{(0, 1, 2, 5, 8): 0.3797458089395961,</span>
-<span class="go">  (0, 3, 4, 7, 8): 0.3653256469471194, </span>
-<span class="go">  (0, 3, 6, 7, 8): 0.2549285441225291}]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.pdf">
-<code class="descname">pdf</code><span class="sig-paren">(</span><em>x</em>, <em>name</em>, <em>paths</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.pdf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function defining the integrand for computing via integration.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : float</p>
-<blockquote>
-<div><p>Variable of integration.</p>
-</div></blockquote>
-<p><strong>name</strong> : integer</p>
-<blockquote>
-<div><p>Name of the path for which you want to compute the probability it
-is the shortest path out of the paths.</p>
-</div></blockquote>
-<p><strong>paths</strong> : dict</p>
-<blockquote>
-<div><p>Dictionary of path objects.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>prod</strong> : float</p>
-<blockquote class="last">
-<div><p>Product of the integrand&#8217;s factors.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">paths</span><span class="o">=</span><span class="n">paths</span> <span class="p">)</span>        
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="family_distribution.family_distribution.sample_mins_distr">
-<code class="descname">sample_mins_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>N</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/family_distribution.html#family_distribution.sample_mins_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#family_distribution.family_distribution.sample_mins_distr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates N samples of which path has the minimum length from N 
-draws of each paths length distribution.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : dict</p>
-<blockquote>
-<div><p>Dictionary of path objects. Path names MUST be consecutive integers
-starting at zero.</p>
-</div></blockquote>
-<p><strong>N</strong> : integer</p>
-<blockquote>
-<div><p>Number of samples to draw from each path&#8217;s length distribution.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>mins</strong> : np.array()</p>
-<blockquote class="last">
-<div><p>Array of names of the path with the minimum length out of all the
-samples drawn that round.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">sample_mins_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e1</span> <span class="p">)</span>
-<span class="go">array([1, 2, 0, 1, 2, 2, 0, 0, 1, 0], dtype=int64)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
-<span class="target" id="module-edge_distribution"></span><div class="section" id="edge-distribution">
-<h2><strong>edge_distribution</strong><a class="headerlink" href="#edge-distribution" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id14">
-<h3>Description<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
-<p>Create a distribution for the probability an edge is along the shortest path.</p>
-<p>Copyright (C) 2017 Michael W. Ramsey &lt;<a class="reference external" href="mailto:michael&#46;ramsey&#37;&#52;&#48;gmail&#46;com">michael<span>&#46;</span>ramsey<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</p>
-</div>
-<div class="section" id="id15">
-<h3>License<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
-<p>This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.</p>
-<p>This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.</p>
-<p>You should have received a copy of the GNU General Public License
-along with this program.  If not, see &lt;<a class="reference external" href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>&gt;.</p>
-</div>
-<div class="section" id="id16">
-<h3>Details<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
-<dt id="edge_distribution.edge_distribution">
-<em class="property">class </em><code class="descclassname">edge_distribution.</code><code class="descname">edge_distribution</code><span class="sig-paren">(</span><em>G</em>, <em>pts</em>, <em>pdf</em>, <em>sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/edge_distribution.html#edge_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edge_distribution.edge_distribution" title="Permalink to this definition">¶</a></dt>
+<dt id="distributions.edge_distribution">
+<em class="property">class </em><code class="descclassname">distributions.</code><code class="descname">edge_distribution</code><span class="sig-paren">(</span><em>G</em>, <em>pts</em>, <em>pdf</em>, <em>sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#edge_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.edge_distribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for computing and storing edge distributions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1462,26 +759,26 @@ is traversed could be defined as:</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#edge_distribution.edge_distribution.gather_dfs" title="edge_distribution.edge_distribution.gather_dfs"><code class="xref py py-obj docutils literal"><span class="pre">gather_dfs</span></code></a>(dfs,&nbsp;cols)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.edge_distribution.gather_dfs" title="distributions.edge_distribution.gather_dfs"><code class="xref py py-obj docutils literal"><span class="pre">gather_dfs</span></code></a>(dfs,&nbsp;cols)</td>
 <td>Converts list of dataframes to one dataframe, merged on keys, with  the supplied column names.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#edge_distribution.edge_distribution.get_col_dists" title="edge_distribution.edge_distribution.get_col_dists"><code class="xref py py-obj docutils literal"><span class="pre">get_col_dists</span></code></a>(distrs_dataframe)</td>
+<tr class="row-even"><td><a class="reference internal" href="#distributions.edge_distribution.get_col_dists" title="distributions.edge_distribution.get_col_dists"><code class="xref py py-obj docutils literal"><span class="pre">get_col_dists</span></code></a>(distrs_dataframe)</td>
 <td>Computes pairwise vector euclidean distance between columns.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#edge_distribution.edge_distribution.get_edge_distr" title="edge_distribution.edge_distribution.get_edge_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_edge_distr</span></code></a>([path_alg,&nbsp;path_k,&nbsp;path_tol,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.edge_distribution.get_edge_distr" title="distributions.edge_distribution.get_edge_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_edge_distr</span></code></a>([path_alg,&nbsp;path_k,&nbsp;path_tol,&nbsp;...])</td>
 <td>Generate the edge distribution.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#edge_distribution.edge_distribution.plot" title="edge_distribution.edge_distribution.plot"><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code></a>(pos,&nbsp;edge_df,&nbsp;col[,&nbsp;scale,&nbsp;labels,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="#distributions.edge_distribution.plot" title="distributions.edge_distribution.plot"><code class="xref py py-obj docutils literal"><span class="pre">plot</span></code></a>(pos,&nbsp;edge_df,&nbsp;col[,&nbsp;scale,&nbsp;labels,&nbsp;...])</td>
 <td>Computes pairwise vector euclidean distance between columns.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#edge_distribution.edge_distribution.summary" title="edge_distribution.edge_distribution.summary"><code class="xref py py-obj docutils literal"><span class="pre">summary</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.edge_distribution.summary" title="distributions.edge_distribution.summary"><code class="xref py py-obj docutils literal"><span class="pre">summary</span></code></a>()</td>
 <td>Print basic object attributes.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="edge_distribution.edge_distribution.gather_dfs">
-<code class="descname">gather_dfs</code><span class="sig-paren">(</span><em>dfs</em>, <em>cols</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/edge_distribution.html#edge_distribution.gather_dfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edge_distribution.edge_distribution.gather_dfs" title="Permalink to this definition">¶</a></dt>
+<dt id="distributions.edge_distribution.gather_dfs">
+<code class="descname">gather_dfs</code><span class="sig-paren">(</span><em>dfs</em>, <em>cols</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#edge_distribution.gather_dfs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.edge_distribution.gather_dfs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts list of dataframes to one dataframe, merged on keys, with 
 the supplied column names.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1531,8 +828,8 @@ union of all the dictionaries keys.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="edge_distribution.edge_distribution.get_col_dists">
-<code class="descname">get_col_dists</code><span class="sig-paren">(</span><em>distrs_dataframe</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/edge_distribution.html#edge_distribution.get_col_dists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edge_distribution.edge_distribution.get_col_dists" title="Permalink to this definition">¶</a></dt>
+<dt id="distributions.edge_distribution.get_col_dists">
+<code class="descname">get_col_dists</code><span class="sig-paren">(</span><em>distrs_dataframe</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#edge_distribution.get_col_dists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.edge_distribution.get_col_dists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes pairwise vector euclidean distance between columns.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1576,8 +873,8 @@ union of all the dictionaries keys.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="edge_distribution.edge_distribution.get_edge_distr">
-<code class="descname">get_edge_distr</code><span class="sig-paren">(</span><em>path_alg='auto'</em>, <em>path_k=2</em>, <em>path_tol=0.5</em>, <em>alg='spd'</em>, <em>itr=1</em>, <em>auto=True</em>, <em>N=100.0</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em>, <em>n=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/edge_distribution.html#edge_distribution.get_edge_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edge_distribution.edge_distribution.get_edge_distr" title="Permalink to this definition">¶</a></dt>
+<dt id="distributions.edge_distribution.get_edge_distr">
+<code class="descname">get_edge_distr</code><span class="sig-paren">(</span><em>path_alg='auto'</em>, <em>path_k=2</em>, <em>path_tol=0.5</em>, <em>alg='spd'</em>, <em>itr=1</em>, <em>auto=True</em>, <em>N=100.0</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em>, <em>n=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#edge_distribution.get_edge_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.edge_distribution.get_edge_distr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the edge distribution.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1674,8 +971,8 @@ path.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="edge_distribution.edge_distribution.plot">
-<code class="descname">plot</code><span class="sig-paren">(</span><em>pos</em>, <em>edge_df</em>, <em>col</em>, <em>scale=10</em>, <em>labels=True</em>, <em>filename=''</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/edge_distribution.html#edge_distribution.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edge_distribution.edge_distribution.plot" title="Permalink to this definition">¶</a></dt>
+<dt id="distributions.edge_distribution.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>pos</em>, <em>edge_df</em>, <em>col</em>, <em>scale=10</em>, <em>labels=True</em>, <em>filename=''</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#edge_distribution.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.edge_distribution.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes pairwise vector euclidean distance between columns.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1733,8 +1030,8 @@ col : estimated probabilities.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="edge_distribution.edge_distribution.summary">
-<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/edge_distribution.html#edge_distribution.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edge_distribution.edge_distribution.summary" title="Permalink to this definition">¶</a></dt>
+<dt id="distributions.edge_distribution.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#edge_distribution.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.edge_distribution.summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print basic object attributes.</p>
 <p class="rubric">Examples</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">myedgedistr</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -1748,6 +1045,662 @@ col : estimated probabilities.</p>
 <span class="go">End node = 8</span>
 <span class="go">Noise PDF = truncated</span>
 <span class="go">Sigma = 0.2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="distributions.family_distribution">
+<em class="property">class </em><code class="descclassname">distributions.</code><code class="descname">family_distribution</code><span class="sig-paren">(</span><em>path_family</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for computing and storing stochastic shortest path
+distributions for a path_family.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path_family</strong> : path_family object</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>We define the stochastic shortest path and the expected shortest path as:</p>
+<div class="math">
+\[\begin{split}\pi_{i,j}^{\ast}        &amp; = \min_{\pi \in \Pi_{i,j}} Z_{\pi} \\
+\hat{\pi}_{i,j}^{\ast} &amp; = \min_{\pi \in \Pi_{i,j}} \hat{Z}_{\pi}.\end{split}\]</div>
+<p>Note that <span class="math">\(\hat{\pi}_{i,j}^{*}\)</span> can be computed directly from Dykstra&#8217;s 
+Algorithm and that <span class="math">\(\hat{\pi}_{i,j}^{*}\)</span> is the mode of <span class="math">\(\pi_{i,j}^{*}\)</span>.</p>
+<p>We can now give our problem definition:</p>
+<p>Given any weighted graph <span class="math">\(G\)</span> and <span class="math">\(i,j \in V\)</span>, find <span class="math">\(p^{*}(\pi_{i,j})=P(\pi_{i,j} = \pi^{\ast}_{i,j}), \forall \pi \in \Pi_{i,j}\)</span>.</p>
+<p>This provides the probability that <span class="math">\(\pi_{i,j}\)</span> is the shortest path 
+between nodes <span class="math">\(i,j\)</span> for a random draw of edge weights from <span class="math">\(G^{*}\)</span> for any path <span class="math">\(\pi_{i,j}\)</span>.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.family_distribution.gather_dicts" title="distributions.family_distribution.gather_dicts"><code class="xref py py-obj docutils literal"><span class="pre">gather_dicts</span></code></a>(dicts,&nbsp;cols)</td>
+<td>Converts list of dictionaries to a dataframe, merged on keys, with  the supplied column names.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#distributions.family_distribution.get_col_dists" title="distributions.family_distribution.get_col_dists"><code class="xref py py-obj docutils literal"><span class="pre">get_col_dists</span></code></a>(distrs_dataframe)</td>
+<td>Computes pairwise vector euclidean distance between columns.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.family_distribution.get_distr" title="distributions.family_distribution.get_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_distr</span></code></a>(paths,&nbsp;alg,&nbsp;itr,&nbsp;auto[,&nbsp;N,&nbsp;m,&nbsp;...])</td>
+<td>Wrapper to generate the paths&#8217; distribution.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#distributions.family_distribution.get_marginal_change" title="distributions.family_distribution.get_marginal_change"><code class="xref py py-obj docutils literal"><span class="pre">get_marginal_change</span></code></a>(mins,&nbsp;N[,&nbsp;m])</td>
+<td>Computes how much the frequencies of the minimums has changed in the last m many draws.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.family_distribution.get_mcs_ssp_distr" title="distributions.family_distribution.get_mcs_ssp_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_mcs_ssp_distr</span></code></a>(n)</td>
+<td>Estimates the probability each path in paths will be the shortest path by repeatedly drawing stochastic graphs and computing shortest paths.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#distributions.family_distribution.get_nmi_ssp_distr" title="distributions.family_distribution.get_nmi_ssp_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_nmi_ssp_distr</span></code></a>(paths,&nbsp;\*\*kwargs)</td>
+<td>Estimates the probability each path in paths will be the shortest path using numerical integration.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.family_distribution.get_spd_ssp_distr" title="distributions.family_distribution.get_spd_ssp_distr"><code class="xref py py-obj docutils literal"><span class="pre">get_spd_ssp_distr</span></code></a>(paths,&nbsp;auto,&nbsp;N[,&nbsp;m,&nbsp;tol,&nbsp;M])</td>
+<td>Estimates the probability each path in paths will be the shortest path using the frequency each path is the shortest in random samples.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#distributions.family_distribution.keys_2_nodes" title="distributions.family_distribution.keys_2_nodes"><code class="xref py py-obj docutils literal"><span class="pre">keys_2_nodes</span></code></a>(distrs)</td>
+<td>Converts the keys in the distribution dictionary from path names to a tuple of path nodes.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#distributions.family_distribution.pdf" title="distributions.family_distribution.pdf"><code class="xref py py-obj docutils literal"><span class="pre">pdf</span></code></a>(x,&nbsp;name,&nbsp;paths)</td>
+<td>Function defining the integrand for computing via integration.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#distributions.family_distribution.sample_mins_distr" title="distributions.family_distribution.sample_mins_distr"><code class="xref py py-obj docutils literal"><span class="pre">sample_mins_distr</span></code></a>(paths,&nbsp;N)</td>
+<td>Generates N samples of which path has the minimum length from N  draws of each paths length distribution.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="distributions.family_distribution.gather_dicts">
+<code class="descname">gather_dicts</code><span class="sig-paren">(</span><em>dicts</em>, <em>cols</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.gather_dicts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.gather_dicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts list of dictionaries to a dataframe, merged on keys, with 
+the supplied column names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dicts</strong> : list</p>
+<blockquote>
+<div><p>Iterable of dictionaries.</p>
+</div></blockquote>
+<p><strong>cols</strong> : list</p>
+<blockquote>
+<div><p>List of column names.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> : DataFrame</p>
+<blockquote class="last">
+<div><p>Columns are values associated with each dictionary, indexed by the
+union of all the dictionaries keys.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Setup        </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generate output for all the algorithms </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spd_auto_dict</span><span class="p">,</span> <span class="n">spd_auto_var</span><span class="p">,</span> <span class="n">spd_auto_err_est</span><span class="p">,</span> <span class="n">spd_auto_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e2</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e5</span>  <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spd_dict</span><span class="p">,</span> <span class="n">spd_var</span><span class="p">,</span> <span class="n">spd_err_est</span><span class="p">,</span> <span class="n">spd_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;spd&#39;</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nmi_dict</span><span class="p">,</span> <span class="n">nmi_var</span><span class="p">,</span> <span class="n">nmi_err_est</span><span class="p">,</span> <span class="n">nmi_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mcs_dict</span><span class="p">,</span> <span class="n">mcs_var</span><span class="p">,</span> <span class="n">mcs_err_est</span><span class="p">,</span> <span class="n">mcs_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;mcs&#39;</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Gather all the distributions </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distrs</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">keys_2_nodes</span><span class="p">(</span>  <span class="p">[</span> <span class="n">spd_auto_dict</span><span class="p">,</span> <span class="n">spd_dict</span><span class="p">,</span> <span class="n">nmi_dict</span><span class="p">,</span> <span class="n">mcs_dict</span> <span class="p">]</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mydistrs_dataframe</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">gather_dicts</span><span class="p">(</span> <span class="n">distrs</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spd_auto&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="s1">&#39;mcs&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mydistrs_dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="go">                 spd_auto     spd       nmi      mcs</span>
+<span class="go">(0, 1, 4, 5, 8)    0.5375  0.5545  0.550699  0.09750</span>
+<span class="go">(0, 1, 4, 7, 8)    0.3675  0.3630  0.364878  0.01900</span>
+<span class="go">(0, 1, 2, 5, 8)    0.0950  0.0825  0.084425  0.00425</span>
+<span class="go">(0, 3, 4, 5, 8)    0.0000  0.0000  0.000000  0.06250</span>
+<span class="go">(0, 3, 6, 7, 8)    0.0000  0.0000  0.000000  0.00400</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Gather all the variances </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">variances</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">keys_2_nodes</span><span class="p">(</span>  <span class="p">[</span> <span class="n">spd_auto_var</span><span class="p">,</span> <span class="n">spd_var</span><span class="p">,</span> <span class="n">nmi_var</span><span class="p">,</span> <span class="n">mcs_var</span> <span class="p">]</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myvars_dataframe</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">gather_dicts</span><span class="p">(</span> <span class="n">variances</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spd_auto&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="s1">&#39;mcs&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myvars_dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="go">                 spd_auto       spd  nmi       mcs</span>
+<span class="go">(0, 1, 4, 5, 8)  0.001558  0.000051  0.0  0.038025</span>
+<span class="go">(0, 1, 4, 7, 8)  0.002292  0.000261  0.0  0.001444</span>
+<span class="go">(0, 1, 2, 5, 8)  0.000100  0.000084  0.0  0.000072</span>
+<span class="go">(0, 3, 4, 5, 8)  0.000000  0.000000  0.0  0.015625</span>
+<span class="go">(0, 3, 6, 7, 8)  0.000000  0.000000  0.0  0.000064</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.get_col_dists">
+<code class="descname">get_col_dists</code><span class="sig-paren">(</span><em>distrs_dataframe</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.get_col_dists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.get_col_dists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes pairwise vector euclidean distance between columns.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>distrs_dataframe</strong> : list</p>
+<blockquote>
+<div><p>Iterable of DataFrames.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> : DataFrame</p>
+<blockquote class="last">
+<div><p>In distance matrix configuration.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Setup        </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generate output for all the algorithms </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spd_auto_dict</span><span class="p">,</span> <span class="n">spd_auto_var</span><span class="p">,</span> <span class="n">spd_auto_err_est</span><span class="p">,</span> <span class="n">spd_auto_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e2</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e5</span>  <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spd_dict</span><span class="p">,</span> <span class="n">spd_var</span><span class="p">,</span> <span class="n">spd_err_est</span><span class="p">,</span> <span class="n">spd_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;spd&#39;</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nmi_dict</span><span class="p">,</span> <span class="n">nmi_var</span><span class="p">,</span> <span class="n">nmi_err_est</span><span class="p">,</span> <span class="n">nmi_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mcs_dict</span><span class="p">,</span> <span class="n">mcs_var</span><span class="p">,</span> <span class="n">mcs_err_est</span><span class="p">,</span> <span class="n">mcs_t_est</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;mcs&#39;</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Gather all the distributions </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distrs</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">keys_2_nodes</span><span class="p">(</span>  <span class="p">[</span> <span class="n">spd_auto_dict</span><span class="p">,</span> <span class="n">spd_dict</span><span class="p">,</span> <span class="n">nmi_dict</span><span class="p">,</span> <span class="n">mcs_dict</span> <span class="p">]</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mydistrs_dataframe</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">gather_dicts</span><span class="p">(</span> <span class="n">distrs</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spd_auto&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="s1">&#39;mcs&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_col_dists</span><span class="p">(</span> <span class="n">mydistrs_dataframe</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="go">          spd_auto       spd       nmi       mcs</span>
+<span class="go">spd_auto  0.000000  0.055158  0.048413  0.889655</span>
+<span class="go">spd       0.055158  0.000000  0.007579  0.853678</span>
+<span class="go">nmi       0.048413  0.007579  0.000000  0.856840</span>
+<span class="go">mcs       0.889655  0.853678  0.856840  0.000000</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.get_distr">
+<code class="descname">get_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>alg</em>, <em>itr</em>, <em>auto</em>, <em>N=1000.0</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em>, <em>n=1000</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.get_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.get_distr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper to generate the paths&#8217; distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : dict</p>
+<blockquote>
+<div><p>Dictionary of path objects. Path names MUST be consecutive integers
+starting at zero.</p>
+</div></blockquote>
+<p><strong>itr</strong> : integer</p>
+<blockquote>
+<div><p>Number of trials to run.</p>
+</div></blockquote>
+<p><strong>auto</strong> : boolean</p>
+<blockquote>
+<div><p>Toggles whether or not to continue drawing sample mins until the
+max marginal change is under less than tol.</p>
+</div></blockquote>
+<p><strong>N</strong> : integer, optional - depending on alg</p>
+<blockquote>
+<div><p>Number of samples to draw from each path&#8217;s length distribution.
+For alg = &#8216;spd&#8217;.</p>
+</div></blockquote>
+<p><strong>m</strong> : integer, optional - depending on alg</p>
+<blockquote>
+<div><p>Size of the window to compute the max marginal change on drawing 
+more samples. For alg = &#8216;spd&#8217; and auto = True.</p>
+</div></blockquote>
+<p><strong>tol</strong> : integer, optional - depending on alg</p>
+<blockquote>
+<div><p>Threshold for whether or not to continue drawing sample mins until 
+the max marginal change is under less than tol. For alg = &#8216;spd&#8217; and
+auto = True.</p>
+</div></blockquote>
+<p><strong>M</strong> : integer, optional - depending on alg</p>
+<blockquote>
+<div><p>The maximum number of draws to complete even if max marginal change
+is greater than tol. For alg = &#8216;spd&#8217; and auto = True.</p>
+</div></blockquote>
+<p><strong>n</strong> : integer, optional - depending on alg</p>
+<blockquote>
+<div><p>Number of draws to make for alg = &#8216;mcs&#8217;.</p>
+</div></blockquote>
+<p><strong>**kwargs</strong> : dict</p>
+<blockquote>
+<div><p>scipy.integrate.quad kwargs.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>avg_prob</strong> : dictionary</p>
+<blockquote>
+<div><p>key: path object.
+value: estimated probability.</p>
+</div></blockquote>
+<p><strong>var</strong> : dictionary</p>
+<blockquote>
+<div><p>key: path object.
+value: estimated variance over the trials.</p>
+</div></blockquote>
+<p><strong>avg_err</strong> : dictionary</p>
+<blockquote>
+<div><p>key: path object.
+value: average estimated error or upperbound on error.</p>
+</div></blockquote>
+<p><strong>avg_time</strong> : float</p>
+<blockquote class="last">
+<div><p>Mean time of the trials.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">alg</span><span class="o">=</span><span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="go">({&lt;__main__.path at 0x1508390&gt;: 0.13612039685532,</span>
+<span class="go">  &lt;__main__.path at 0x15089e8&gt;: 0.03171784593212658,</span>
+<span class="go">  &lt;__main__.path at 0x1508978&gt;: 0.8321459058917322},</span>
+<span class="go"> {&lt;__main__.path at 0x1508390&gt;: 0,</span>
+<span class="go">  &lt;__main__.path at 0x15089e8&gt;: 0,</span>
+<span class="go">  &lt;__main__.path at 0x1508978&gt;: 0},</span>
+<span class="go"> {&lt;__main__.path at 0x1508390&gt;: 1.223261904866232e-05,</span>
+<span class="go">  &lt;__main__.path at 0x15089e8&gt;: 6.40382637653869e-07,</span>
+<span class="go">  &lt;__main__.path at 0x1508978&gt;: 4.224820309950417e-05},</span>
+<span class="go"> 3.1645328998565674)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.get_marginal_change">
+<code class="descname">get_marginal_change</code><span class="sig-paren">(</span><em>mins</em>, <em>N</em>, <em>m=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.get_marginal_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.get_marginal_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes how much the frequencies of the minimums has changed in the
+last m many draws.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>mins: np.array()</strong></p>
+<blockquote>
+<div><p>Array of names of the path with the minimum length out of all the
+samples drawn that round.</p>
+</div></blockquote>
+<p><strong>N</strong> : integer</p>
+<blockquote>
+<div><p>Number of samples to draw from each path&#8217;s length distribution.</p>
+</div></blockquote>
+<p><strong>m</strong> : integer, optional</p>
+<blockquote>
+<div><p>Size of the window to compute the max marginal change on drawing 
+more samples.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ms</strong> : float</p>
+<blockquote class="last">
+<div><p>The maximum change in the frequency a path is the minimum over the
+paths.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>If <cite>auto</cite> is set to True, then to select the number <span class="math">\(N\)</span> of samples to draw from <span class="math">\(Z_{\pi}\)</span>, 
+<cite>get_spd_ssp_distr</cite> works in batchs of size <cite>N</cite> and stops when the marginal change 
+<span class="math">\(\delta_{N}\)</span> in <span class="math">\(\omega_N\)</span> falls below a provided threshold  
+<span class="math">\(t_{N}\)</span>. If the marginal change is not below <span class="math">\(t_{N}\)</span>, it draws 
+<span class="math">\(b_{N}\)</span> more, recomputes, tests, and repeats until the threshold 
+is met. Asp computes the marginal change as 
+<span class="math">\(\delta_{N} = \lvert  \omega_n - \omega_{n-\epsilon} \rvert\)</span> 
+for some user provided <span class="math">\(\epsilon\)</span> and for <span class="math">\(n\)</span> equal to <span class="math">\(b_{N}\)</span> times 
+the number of completed iterations.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mins</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">sample_mins_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e1</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_marginal_change</span><span class="p">(</span> <span class="n">mins</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e1</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span> <span class="p">)</span>
+<span class="go">0.025000000000000022</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.get_mcs_ssp_distr">
+<code class="descname">get_mcs_ssp_distr</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.get_mcs_ssp_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.get_mcs_ssp_distr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the probability each path in paths will be the shortest
+path by repeatedly drawing stochastic graphs and computing shortest
+paths.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>n</strong> : integer</p>
+<blockquote>
+<div><p>Number of draws to make.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>freq_dict</strong> : dictionary</p>
+<blockquote>
+<div><p>key: path object.
+value: estimated probability based on the frequency a path is
+selected as the shortest.</p>
+</div></blockquote>
+<p><strong>dummy</strong> : None</p>
+<blockquote class="last">
+<div><p>Exists only to make the output like the others.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_mcs_ssp_distr</span><span class="p">(</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">)</span>
+<span class="go">({&lt;__main__.path at 0x1508780&gt;: 0.84,</span>
+<span class="go">  &lt;__main__.path at 0x1508240&gt;: 0.01,</span>
+<span class="go">  &lt;__main__.path at 0x1508160&gt;: 0.15},</span>
+<span class="go"> None)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.get_nmi_ssp_distr">
+<code class="descname">get_nmi_ssp_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.get_nmi_ssp_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.get_nmi_ssp_distr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the probability each path in paths will be the shortest
+path using numerical integration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : dict</p>
+<blockquote>
+<div><p>Dictionary of path objects.</p>
+</div></blockquote>
+<p><strong>**kwargs</strong> : dict</p>
+<blockquote>
+<div><p>scipy.integrate.quad kwargs.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>prob_dict</strong> : dictionary</p>
+<blockquote>
+<div><p>key: path object.
+value: estimated probability.</p>
+</div></blockquote>
+<p><strong>abserr</strong> : float or None</p>
+<blockquote class="last">
+<div><p>Estimated error returned by Scipy&#8217;s Quad function.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Given any weighted graph <span class="math">\(G\)</span>, let <span class="math">\(\pi \in \Pi_{i,j}\)</span> for some 
+<span class="math">\(i,j \in V\)</span> and <span class="math">\(\Gamma_{\pi} = \Pi_{i,j}-\{\pi\}\)</span>. We can 
+recast <span class="math">\(P(\pi = \pi^{\ast})\)</span> as <span class="math">\(P(Z_{\pi}&lt;W)\)</span> where 
+<span class="math">\(W =  \min_{\gamma \in \Gamma_{\pi}} Z_{\gamma}\)</span>. 
+By conditioning on <span class="math">\(Z_{\pi}=s\)</span> for some <span class="math">\(s\in{{\mathbb R}}\)</span> 
+we obtain:</p>
+<div class="math">
+\[\begin{split}P(Z_{\pi}=s, Z_{\pi}&lt;W)  &amp; = P(Z_{\pi}=s)P(W&gt;s \mid Z_{\pi}=s) \notag\\
+                           &amp; = P(Z_{\pi}=s)\prod_{\gamma \in \Gamma_{\pi}} P(Z_{\gamma}&gt;s) \notag \\
+                           &amp; = P(Z_{\pi}=s)\prod_{\gamma \in \Gamma_{\pi}} (1-P(Z_{\gamma} \leq s)) \notag \\
+                           &amp; = f_{Z_{\pi}}(s)\prod_{\gamma \in \Gamma_{\pi}}(1-F(Z_{\gamma}(s))) \notag \\
+                           &amp; = f_{Z_{\pi}}(s)\prod_{\gamma \in \Gamma_{\pi}} SF(Z_{\gamma}(s))\end{split}\]</div>
+<p>since all the stochastic costs are independent; and where <span class="math">\(f\)</span> is 
+the density for <span class="math">\(Z_{\pi}\)</span> and <span class="math">\(F\)</span> and <span class="math">\(SF\)</span> are 
+the cumulative distribution function and the survival function for 
+<span class="math">\(Z_{\gamma}\)</span>.  <span class="math">\(Z_{\pi}\)</span> and <span class="math">\(Z_{\gamma}\)</span> are distributed.</p>
+<p>To determine <span class="math">\(P(Z_{\pi}&lt;W)\)</span> we simply need to integrate over <cite>s</cite>:</p>
+<div class="math">
+\[\begin{split}P(Z_{\pi}&lt;W)   &amp; = \int_{-\infty}^{\infty} P(Z_{\pi}=s, Z_{\pi}&lt;W)  ds \notag \\
+                &amp; = \int_{-\infty}^{\infty} f_{Z_{\pi}}(s)\prod_{\gamma \in \Gamma_{\pi}}SF(Z_{\gamma}(s))  ds\end{split}\]</div>
+<p>Therefore, given any simple path between any two nodes in a graph with 
+noisy edge weights, gives the probability it is the shortest path.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_nmi_ssp_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="go">({&lt;__main__.path at 0x1158588&gt;: 0.16525750032721961,</span>
+<span class="go">  &lt;__main__.path at 0x11581d0&gt;: 0.7916708098067267,</span>
+<span class="go">  &lt;__main__.path at 0x1158fd0&gt;: 0.04307252246910802},</span>
+<span class="go"> {&lt;__main__.path at 0x1158588&gt;: 8.308936571721492e-06,</span>
+<span class="go">  &lt;__main__.path at 0x11581d0&gt;: 3.313787842624658e-05,</span>
+<span class="go">  &lt;__main__.path at 0x1158fd0&gt;: 1.9361401057474414e-06})</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.get_spd_ssp_distr">
+<code class="descname">get_spd_ssp_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>auto</em>, <em>N</em>, <em>m=0.1</em>, <em>tol=0.05</em>, <em>M=500000.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.get_spd_ssp_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.get_spd_ssp_distr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates the probability each path in paths will be the shortest
+path using the frequency each path is the shortest in random samples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : dict</p>
+<blockquote>
+<div><p>Dictionary of path objects. Path names MUST be consecutive integers
+starting at zero.</p>
+</div></blockquote>
+<p><strong>auto</strong> : boolean</p>
+<blockquote>
+<div><p>Toggles whether or not to continue drawing sample mins until the
+max marginal change is under less than tol.</p>
+</div></blockquote>
+<p><strong>N</strong> : integer</p>
+<blockquote>
+<div><p>Number of samples to draw from each path&#8217;s length distribution.</p>
+</div></blockquote>
+<p><strong>m</strong> : integer, optional - depending on auto.</p>
+<blockquote>
+<div><p>Size of the window to compute the max marginal change on drawing 
+more samples. For auto = True.</p>
+</div></blockquote>
+<p><strong>tol</strong> : integer, optional - depending on auto.</p>
+<blockquote>
+<div><p>Threshold for whether or not to continue drawing sample mins until 
+the max marginal change is under less than tol. For auto = True.</p>
+</div></blockquote>
+<p><strong>M</strong> : integer, optional - depending on auto.</p>
+<blockquote>
+<div><p>The maximum number of draws to complete even if max marginal change
+is greater than tol. For auto = True.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>f_N_dict</strong> : dictionary</p>
+<blockquote>
+<div><p>key: path object.
+value: number of times the path was drawn as minimum of all the 
+path lengths, divided by the number of total draws.</p>
+</div></blockquote>
+<p><strong>max_margin</strong> : float or None</p>
+<blockquote class="last">
+<div><p>The maximum change in the frequency a path is the minimum over the
+paths. If auto is False, then None is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>By sampling each <span class="math">\(Z_{\pi}\)</span> directly using, we can 
+calculate the frequency that 
+<span class="math">\(Z_{\pi}\leq\min_{\gamma \in \Gamma_{\pi}} Z_{\gamma}\)</span> and use 
+this to estimate  <span class="math">\(p^{*}(\pi_{i,j})\)</span>, <span class="math">\(\forall \pi \in \Pi_{i,j}\)</span>.</p>
+<p>Let <span class="math">\(z_{\pi,k}\)</span> be the <span class="math">\(k^{th}\)</span> random draw from <span class="math">\(Z_{\pi}\)</span> out of 
+<span class="math">\(N \in{{\mathbb N}}\)</span> many and <span class="math">\((z_{\pi,k})_{\pi \in \Pi_{i,j}}\)</span> 
+a random draw from all the <span class="math">\(Z_{\pi}\)</span>. Define 
+<span class="math">\(m_{k}=\min_{\gamma \in \Gamma_{\pi}} z_{\gamma,k}\)</span>. 
+Then the relative frequency that  
+<span class="math">\(Z_{\pi}\leq\min_{\gamma \in \Gamma_{\pi}} Z_{\gamma}\)</span> is computed as:</p>
+<div class="math">
+\[\omega_{N}(\pi = \pi^{\ast}) = \frac{ \sum_{k=1}^{N} \mathbf {1} _{{{\mathbb R}}^{+}}(m_{k}-z_{\pi,k})}{N}\]</div>
+<p>where <span class="math">\(\mathbf {1} _{{{\mathbb R}}^{+}}\colon X\to \{0,1\}\,\)</span> is the indicator function defined as:</p>
+<div class="math">
+\[\begin{split}{\displaystyle \mathbf {1} _{{{\mathbb R}}^{+}}(x)={\begin{cases}1&amp;{\text{if }}x &gt; 0,\\0&amp;{\text{if }}x \leq 0.\end{cases}}} \end{split}\]</div>
+<p>Therefore, by the Law of Large Numbers, as <span class="math">\(N \rightarrow \infty\)</span>:</p>
+<div class="math">
+\[\omega_{N}(\pi = \pi^{\ast})\longrightarrow P(\pi = \pi^{\ast})\]</div>
+<p>where <span class="math">\(P(\pi = \pi^{\ast}) = {{\mathbb E}}( {1} _{{{\mathbb R}}^{+}}(m_{k}-z_{\pi,k}))\)</span>.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mins</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">sample_mins_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e1</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_spd_ssp_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e2</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">tol</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e5</span> <span class="p">)</span>
+<span class="go">({&lt;__main__.path at 0x14ffeb8&gt;: 0.34,</span>
+<span class="go">  &lt;__main__.path at 0x14ffbe0&gt;: 0.33,</span>
+<span class="go">  &lt;__main__.path at 0x14ff278&gt;: 0.33},</span>
+<span class="go"> 0.025555555555555554)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.keys_2_nodes">
+<code class="descname">keys_2_nodes</code><span class="sig-paren">(</span><em>distrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.keys_2_nodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.keys_2_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the keys in the distribution dictionary from path names to
+a tuple of path nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>distrs</strong> : list</p>
+<blockquote>
+<div><p>List of distribution objects with names as keys.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>distrs</strong> : list</p>
+<blockquote class="last">
+<div><p>List of distribution objects with node tuple as keys.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">avg_result</span><span class="p">,</span> <span class="n">var_result</span><span class="p">,</span> <span class="n">avg_err</span><span class="p">,</span> <span class="n">avg_time</span> <span class="o">=</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">get_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">alg</span><span class="o">=</span><span class="s1">&#39;nmi&#39;</span><span class="p">,</span> <span class="n">itr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">auto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">epsrel</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">epsabs</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">keys_2_nodes</span><span class="p">(</span> <span class="p">[</span> <span class="n">avg_result</span> <span class="p">]</span> <span class="p">)</span>
+<span class="go">[{(0, 1, 2, 5, 8): 0.3797458089395961,</span>
+<span class="go">  (0, 3, 4, 7, 8): 0.3653256469471194, </span>
+<span class="go">  (0, 3, 6, 7, 8): 0.2549285441225291}]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.pdf">
+<code class="descname">pdf</code><span class="sig-paren">(</span><em>x</em>, <em>name</em>, <em>paths</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function defining the integrand for computing via integration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x</strong> : float</p>
+<blockquote>
+<div><p>Variable of integration.</p>
+</div></blockquote>
+<p><strong>name</strong> : integer</p>
+<blockquote>
+<div><p>Name of the path for which you want to compute the probability it
+is the shortest path out of the paths.</p>
+</div></blockquote>
+<p><strong>paths</strong> : dict</p>
+<blockquote>
+<div><p>Dictionary of path objects.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>prod</strong> : float</p>
+<blockquote class="last">
+<div><p>Product of the integrand&#8217;s factors.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">myfamdistr</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">paths</span><span class="o">=</span><span class="n">paths</span> <span class="p">)</span>        
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="distributions.family_distribution.sample_mins_distr">
+<code class="descname">sample_mins_distr</code><span class="sig-paren">(</span><em>paths</em>, <em>N</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/distributions.html#family_distribution.sample_mins_distr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#distributions.family_distribution.sample_mins_distr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates N samples of which path has the minimum length from N 
+draws of each paths length distribution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>paths</strong> : dict</p>
+<blockquote>
+<div><p>Dictionary of path objects. Path names MUST be consecutive integers
+starting at zero.</p>
+</div></blockquote>
+<p><strong>N</strong> : integer</p>
+<blockquote>
+<div><p>Number of samples to draw from each path&#8217;s length distribution.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>mins</strong> : np.array()</p>
+<blockquote class="last">
+<div><p>Array of names of the path with the minimum length out of all the
+samples drawn that round.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">grid_graph</span><span class="p">(</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max_weight</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamily</span> <span class="o">=</span> <span class="n">path_family</span><span class="p">(</span> <span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="s1">&#39;truncated&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=.</span><span class="mi">5</span> <span class="p">)</span>         
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span> <span class="o">=</span> <span class="n">family_distribution</span><span class="p">(</span> <span class="n">myfamily</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paths</span> <span class="o">=</span> <span class="n">myfamily</span><span class="o">.</span><span class="n">get_paths</span><span class="p">(</span> <span class="n">alg</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myfamdistr</span><span class="o">.</span><span class="n">sample_mins_distr</span><span class="p">(</span> <span class="n">paths</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e1</span> <span class="p">)</span>
+<span class="go">array([1, 2, 0, 1, 2, 2, 0, 0, 1, 0], dtype=int64)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1774,35 +1727,23 @@ col : estimated probabilities.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to asp&#8217;s documentation!</a><ul>
-<li><a class="reference internal" href="#grid-graph"><strong>grid_graph</strong></a><ul>
+<li><a class="reference internal" href="#">Approximate Stochastic Paths (ASP)</a><ul>
+<li><a class="reference internal" href="#graphs"><strong>graphs</strong></a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#license">License</a></li>
 <li><a class="reference internal" href="#details">Details</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#path"><strong>path</strong></a><ul>
+<li><a class="reference internal" href="#paths"><strong>paths</strong></a><ul>
 <li><a class="reference internal" href="#id1">Description</a></li>
 <li><a class="reference internal" href="#id2">License</a></li>
 <li><a class="reference internal" href="#id3">Details</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#path-family"><strong>path_family</strong></a><ul>
-<li><a class="reference internal" href="#id4">Description</a></li>
-<li><a class="reference internal" href="#id5">License</a></li>
-<li><a class="reference internal" href="#id6">Details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#family-distribution"><strong>family_distribution</strong></a><ul>
-<li><a class="reference internal" href="#id11">Description</a></li>
-<li><a class="reference internal" href="#id12">License</a></li>
-<li><a class="reference internal" href="#id13">Details</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#edge-distribution"><strong>edge_distribution</strong></a><ul>
-<li><a class="reference internal" href="#id14">Description</a></li>
-<li><a class="reference internal" href="#id15">License</a></li>
-<li><a class="reference internal" href="#id16">Details</a></li>
+<li><a class="reference internal" href="#distributions"><strong>distributions</strong></a><ul>
+<li><a class="reference internal" href="#id8">Description</a></li>
+<li><a class="reference internal" href="#id9">License</a></li>
+<li><a class="reference internal" href="#id10">Details</a></li>
 </ul>
 </li>
 </ul>
