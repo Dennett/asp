@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{netx}
+A.~A. Hagberg, D.~A. Schult, and P.~J. Swart, ``Exploring network structure,
+  dynamics, and function using {NetworkX},'' in {\em Proceedings of the 7th
+  Python in Science Conference (SciPy2008)}, (Pasadena, CA USA), pp.~11--15,
+  Aug. 2008.
+
+\bibitem{frank_1969}
+H.~Frank, ``Shortest paths in probabilistic graphs,'' {\em Operations
+  Research}, vol.~17, p.~583–599, Jul 1969.
+
+\bibitem{dijkstra1959}
+E.~W. Dijkstra, ``A note on two problems in connexion with graphs,'' {\em
+  Numerische Mathematik}, vol.~1, pp.~269--271, dec 1959.
+
+\bibitem{eng}
+A.~M. Andrew N.~O'Connor, Mohammad~Modarres, {\em Probability Distributions
+  Used in Reliability Engineering}.
+\newblock Center for Risk and reliability, University of Maryland, 2016.
+
+\bibitem{Yen1971}
+J.~Y. Yen, ``Finding the k shortest loopless paths in a network,'' {\em
+  Management Science}, vol.~17, pp.~712--716, jul 1971.
+
+\bibitem{multiobj}
+M.~Rajabi-Bahaabadi, A.~Shariat-Mohaymany, M.~Babaei, and C.~W. Ahn,
+  ``Multi-objective path finding in stochastic time-dependent road networks
+  using non-dominated sorting genetic algorithm,'' {\em Expert Systems with
+  Applications}, vol.~42, pp.~5056--5064, jul 2015.
+
+\bibitem{hall_1986}
+R.~W. Hall, ``The fastest path through a network with random time-dependent
+  travel times,'' {\em Transportation Science}, vol.~20, no.~3, p.~182–188,
+  1986.
+
+\end{thebibliography}

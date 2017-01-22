@@ -1,0 +1,9 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: stochastic_shortest_path.aux
+The style file: ieeetr.bst
+Database file #1: ssp.bib
+I was expecting a `,' or a `}'---line 55 of file ssp.bib
+ : 
+ : @article{multiobj,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There was 1 error message)
