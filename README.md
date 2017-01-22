@@ -6,6 +6,7 @@ ASP is an experimental package for exploring stochastic shortest paths on Networ
 It was developed with Anaconda Python 3.4.
 
 ### Usage
+Example script to create stochastic shortest path distributions using multiple algorithms.
 
 ```python
 import networkx as nx
@@ -27,16 +28,46 @@ paths = myfam.get_paths( alg = 'k', k = 2 )
 mydistr = asp.family_distribution( myfam )
 
 # Generate distributions for multiple algorithms
-spd_dict, spd_var, spd_err_est, spd_t_est = mydistr.get_distr( paths, alg = 'spd'  )
-nmi_dict, nmi_var, nmi_err_est, nmi_t_est = mydistr.get_distr( paths, alg = 'nmi' )
-mcs_dict, mcs_var, mcs_err_est, mcs_t_est = mydistr.get_distr( paths, alg = 'mcs' )
-
+spd_dict = mydistr.get_distr( paths, alg = 'spd' )[0]
+nmi_dict = mydistr.get_distr( paths, alg = 'nmi' )[0]
+mcs_dict = mydistr.get_distr( paths, alg = 'mcs' )[0]
 
 # Analyze distributions
 distrs = mydistr.keys_to_nodes(  [ spd_dict, nmi_dict, mcs_dict ] )
 mydistrs_dataframe = mydistr.gather_dicts( distrs, cols = [ 'spd', 'nmi', 'mcs'] )
 dist = mydistr.get_col_dists( mydistrs_dataframe )
 ```
+
+Example script to create edge distributions using multiple algorithms. The distribution represents the probability that an edge will be traversed in a stochastic shortest path.
+
+```python
+import networkx as nx
+import pandas as pd
+import asp
+
+# Set parameters
+sigma = .2
+pdf = 'truncated'
+
+# Create test graph, path, and node distribution
+G, pos, start, end = asp.grid_graph( size = 3, max_weight = 2 )
+pts = {1:.2,0:.3,3:.5}
+
+# Initialize stochastic shortest path distributions for the family
+edge_distr = asp.edge_distribution( G, pts, pdf, sigma )
+
+# Generate distributions for multiple algorithms
+spd_dict = edge_distr.get_edge_distr( path_alg = 'k', path_k = 2, alg = 'spd' )
+nmi_dict = edge_distr.get_edge_distr( path_alg = 'k', path_k = 2, alg = 'nmi' )
+mcs_dict = edge_distr.get_edge_distr( path_alg = 'k', path_k = 2, alg = 'mcs' )
+
+# Analyze distributions & plot
+distrs = [ spd_dict, nmi_dict, mcs_dict ]
+mydistrs_dataframe = edge_distr.gather_dfs( distrs, cols = ['spd', 'nmi', 'mcs'] )
+dist = edge_distr.get_col_dists( mydistrs_dataframe )
+edge_distr.plot( pos=pos, edge_df=mydistrs_dataframe, col='spd', scale=10 )
+```
+
 
 ### Install
 
