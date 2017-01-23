@@ -37,6 +37,7 @@
 /tex*.log
 /tex*.blg
 /tex*.synctex.gz
+/tex*.tex
 
 # Directories
 /*/data
