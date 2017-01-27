@@ -199,7 +199,7 @@ class family_distribution:
             try:
                 ms.append( abs( N_dict[key]/N - t_dict[key]/t ) )
             except:
-                ms.appned( N_dict[key]/N )
+                ms.append( N_dict[key]/N )
        
         return max( ms )
 
